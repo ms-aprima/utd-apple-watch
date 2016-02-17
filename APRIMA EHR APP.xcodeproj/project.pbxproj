@@ -15,6 +15,8 @@
 		645C6D401C74C18900275405 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 645C6D3E1C74C18900275405 /* LaunchScreen.storyboard */; };
 		645C6D4B1C74C18900275405 /* APRIMA_EHR_APPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C6D4A1C74C18900275405 /* APRIMA_EHR_APPTests.swift */; };
 		645C6D561C74C18900275405 /* APRIMA_EHR_APPUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C6D551C74C18900275405 /* APRIMA_EHR_APPUITests.swift */; };
+		64EC0FBB1C74C7BA0075010A /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EC0FBA1C74C7BA0075010A /* ThirdViewController.swift */; };
+		64EC0FBD1C74D0E30075010A /* Third.png in Resources */ = {isa = PBXBuildFile; fileRef = 64EC0FBC1C74D0E30075010A /* Third.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		645C6D511C74C18900275405 /* APRIMA EHR APPUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "APRIMA EHR APPUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		645C6D551C74C18900275405 /* APRIMA_EHR_APPUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APRIMA_EHR_APPUITests.swift; sourceTree = "<group>"; };
 		645C6D571C74C18900275405 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		64EC0FBA1C74C7BA0075010A /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
+		64EC0FBC1C74D0E30075010A /* Third.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Third.png; path = "APRIMA EHR APP/Assets.xcassets/Third.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,7 @@
 		645C6D271C74C18900275405 = {
 			isa = PBXGroup;
 			children = (
+				64EC0FBC1C74D0E30075010A /* Third.png */,
 				645C6D321C74C18900275405 /* APRIMA EHR APP */,
 				645C6D491C74C18900275405 /* APRIMA EHR APPTests */,
 				645C6D541C74C18900275405 /* APRIMA EHR APPUITests */,
@@ -106,6 +111,7 @@
 				645C6D3C1C74C18900275405 /* Assets.xcassets */,
 				645C6D3E1C74C18900275405 /* LaunchScreen.storyboard */,
 				645C6D411C74C18900275405 /* Info.plist */,
+				64EC0FBA1C74C7BA0075010A /* ThirdViewController.swift */,
 			);
 			path = "APRIMA EHR APP";
 			sourceTree = "<group>";
@@ -238,6 +244,7 @@
 				645C6D401C74C18900275405 /* LaunchScreen.storyboard in Resources */,
 				645C6D3D1C74C18900275405 /* Assets.xcassets in Resources */,
 				645C6D3B1C74C18900275405 /* Main.storyboard in Resources */,
+				64EC0FBD1C74D0E30075010A /* Third.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +271,7 @@
 			files = (
 				645C6D381C74C18900275405 /* SecondViewController.swift in Sources */,
 				645C6D341C74C18900275405 /* AppDelegate.swift in Sources */,
+				64EC0FBB1C74C7BA0075010A /* ThirdViewController.swift in Sources */,
 				645C6D361C74C18900275405 /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -491,6 +499,7 @@
 				645C6D5C1C74C18900275405 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		645C6D5D1C74C18900275405 /* Build configuration list for PBXNativeTarget "APRIMA EHR APPTests" */ = {
 			isa = XCConfigurationList;
@@ -499,6 +508,7 @@
 				645C6D5F1C74C18900275405 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		645C6D601C74C18900275405 /* Build configuration list for PBXNativeTarget "APRIMA EHR APPUITests" */ = {
 			isa = XCConfigurationList;
@@ -507,6 +517,7 @@
 				645C6D621C74C18900275405 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
