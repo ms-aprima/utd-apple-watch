@@ -6,22 +6,22 @@ provides-nominal:
 provides-member:
 - ["C14APRIMA_EHR_APP11AppDelegate", ""]
 provides-dynamic-lookup:
-- "applicationWillTerminate"
-- "applicationDidEnterBackground"
-- "applicationWillResignActive"
-- "applicationWillEnterForeground"
 - "application"
+- "applicationDidEnterBackground"
+- "applicationWillTerminate"
 - "window"
 - "applicationDidBecomeActive"
+- "applicationWillEnterForeground"
+- "applicationWillResignActive"
 depends-top-level:
-- "AppDelegate"
-- "UIApplication"
-- "UIApplicationDelegate"
-- !private "BooleanLiteralType"
-- "UIResponder"
-- "Bool"
-- "AnyObject"
 - "UIWindow"
+- "AnyObject"
+- "Bool"
+- !private "BooleanLiteralType"
+- "UIApplicationDelegate"
+- "UIApplication"
+- "AppDelegate"
+- "UIResponder"
 - "NSObject"
 depends-member:
 - ["PSs9AnyObject", "application"]
