@@ -31,7 +31,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="aprima-logo-reg" translatesAutoresizingMaskIntoConstraints="NO" id="Bkb-AK-T6a">
-                                <rect key="frame" x="153" y="63" width="294" height="156"/>
+                                <rect key="frame" x="53" y="112" width="294" height="156"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -42,11 +42,11 @@
                             <constraint firstAttribute="centerY" secondItem="KQZ-1w-vlD" secondAttribute="centerY" id="exm-UA-ej4"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="Home Filled-50" id="acW-dT-cKf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="590" y="-742"/>
+            <point key="canvasLocation" x="486" y="-722"/>
         </scene>
         <!--Health Data-->
         <scene sceneID="wg7-f3-ORb">
@@ -85,11 +85,11 @@
                             <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Health Data" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Health Data" image="Heart-filled-50" id="cPa-gy-q4n"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="894" y="66"/>
+            <point key="canvasLocation" x="942" y="-284"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -106,31 +106,41 @@
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                         <segue destination="oTx-RM-lz3" kind="relationship" relationship="viewControllers" id="ySq-gJ-YNp"/>
-                        <segue destination="pg2-xa-Th0" kind="relationship" relationship="viewControllers" id="YhQ-hL-Rmq"/>
+                        <segue destination="rft-sp-CTx" kind="relationship" relationship="viewControllers" id="ZcV-zT-LQd"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="0.0"/>
+            <point key="canvasLocation" x="-186" y="-42"/>
         </scene>
-        <!--Settings-->
-        <scene sceneID="imY-gt-4XJ">
+        <!--Table View Controller-->
+        <scene sceneID="RcN-hf-Bmi">
             <objects>
-                <viewController id="pg2-xa-Th0" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="GQR-ha-JPj"/>
-                        <viewControllerLayoutGuide type="bottom" id="80M-r8-JOV"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="aSU-hs-5eJ">
+                <tableViewController id="TL9-M5-sSf" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="FbG-rj-kh1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Settings" id="X8e-Kj-Wr3"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Sus-I7-nvB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="bs3-HE-lnd">
+                                <rect key="frame" x="0.0" y="92" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bs3-HE-lnd" id="X63-6b-9qa">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="TL9-M5-sSf" id="wQ5-br-JhP"/>
+                            <outlet property="delegate" destination="TL9-M5-sSf" id="Vm5-gb-Bta"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="4Zg-bb-Lxv"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IBP-kx-jSl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="181" y="1139"/>
+            <point key="canvasLocation" x="820" y="791"/>
         </scene>
         <!--Profile-->
         <scene sceneID="wZs-b4-hBc">
@@ -169,19 +179,39 @@
                             <constraint firstItem="gCZ-ir-FHj" firstAttribute="centerX" secondItem="9B0-IP-MoG" secondAttribute="centerX" id="h3O-iz-zpG"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" image="Third" id="ZWu-b3-foo"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="User Male Filled-50" id="ZWu-b3-foo"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fNF-V6-opo" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="836" y="947"/>
+            <point key="canvasLocation" x="1764" y="533"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="gJK-ef-m3g">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rft-sp-CTx" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Settings" image="Settings Filled-50" id="gZT-er-V69"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9u9-M7-MfA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="TL9-M5-sSf" kind="relationship" relationship="rootViewController" id="AXI-9B-nda"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0P4-ph-xT3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="230" y="805"/>
         </scene>
     </scenes>
     <resources>
-        <image name="Third" width="30" height="30"/>
+        <image name="Heart-filled-50" width="30" height="30"/>
+        <image name="Home Filled-50" width="30" height="30"/>
+        <image name="Settings Filled-50" width="30" height="30"/>
+        <image name="User Male Filled-50" width="30" height="30"/>
         <image name="aprima-logo-reg" width="258" height="108"/>
-        <image name="first" width="30" height="30"/>
         <image name="healthkit-hero" width="128" height="128"/>
-        <image name="second" width="30" height="30"/>
         <image name="test" width="40" height="40"/>
     </resources>
 </document>
