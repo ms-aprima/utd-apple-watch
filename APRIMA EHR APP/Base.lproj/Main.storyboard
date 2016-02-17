@@ -178,7 +178,7 @@
     </scenes>
     <resources>
         <image name="Third" width="30" height="30"/>
-        <image name="aprima-logo-reg" width="300" height="108"/>
+        <image name="aprima-logo-reg" width="258" height="108"/>
         <image name="first" width="30" height="30"/>
         <image name="healthkit-hero" width="128" height="128"/>
         <image name="second" width="30" height="30"/>
