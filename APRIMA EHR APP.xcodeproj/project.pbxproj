@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		225EC7321C7A828C00610507 /* healthKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225EC7311C7A828C00610507 /* healthKit.swift */; };
+		225EC7341C7A8C5E00610507 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 225EC7331C7A8C5E00610507 /* HealthKit.framework */; };
 		645C6D341C74C18900275405 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C6D331C74C18900275405 /* AppDelegate.swift */; };
 		645C6D361C74C18900275405 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C6D351C74C18900275405 /* FirstViewController.swift */; };
 		645C6D381C74C18900275405 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C6D371C74C18900275405 /* SecondViewController.swift */; };
@@ -36,6 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		225EC7311C7A828C00610507 /* healthKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = healthKit.swift; sourceTree = "<group>"; };
+		225EC7331C7A8C5E00610507 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		225EC7351C7A8C5E00610507 /* APRIMA EHR APP.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "APRIMA EHR APP.entitlements"; sourceTree = "<group>"; };
 		645C6D301C74C18900275405 /* APRIMA EHR APP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "APRIMA EHR APP.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		645C6D331C74C18900275405 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		645C6D351C74C18900275405 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				225EC7341C7A8C5E00610507 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +87,7 @@
 		645C6D271C74C18900275405 = {
 			isa = PBXGroup;
 			children = (
+				225EC7331C7A8C5E00610507 /* HealthKit.framework */,
 				645C6D321C74C18900275405 /* APRIMA EHR APP */,
 				645C6D491C74C18900275405 /* APRIMA EHR APPTests */,
 				645C6D541C74C18900275405 /* APRIMA EHR APPUITests */,
@@ -101,6 +108,7 @@
 		645C6D321C74C18900275405 /* APRIMA EHR APP */ = {
 			isa = PBXGroup;
 			children = (
+				225EC7351C7A8C5E00610507 /* APRIMA EHR APP.entitlements */,
 				645C6D331C74C18900275405 /* AppDelegate.swift */,
 				645C6D351C74C18900275405 /* FirstViewController.swift */,
 				645C6D371C74C18900275405 /* SecondViewController.swift */,
@@ -109,6 +117,7 @@
 				645C6D3E1C74C18900275405 /* LaunchScreen.storyboard */,
 				645C6D411C74C18900275405 /* Info.plist */,
 				64EC0FBA1C74C7BA0075010A /* ThirdViewController.swift */,
+				225EC7311C7A828C00610507 /* healthKit.swift */,
 			);
 			path = "APRIMA EHR APP";
 			sourceTree = "<group>";
@@ -199,7 +208,12 @@
 				TargetAttributes = {
 					645C6D2F1C74C18900275405 = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = 9WJ43L7SP4;
+						DevelopmentTeam = UP5Q6Q4389;
+						SystemCapabilities = {
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
+						};
 					};
 					645C6D451C74C18900275405 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -266,6 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				645C6D381C74C18900275405 /* SecondViewController.swift in Sources */,
+				225EC7321C7A828C00610507 /* healthKit.swift in Sources */,
 				645C6D341C74C18900275405 /* AppDelegate.swift in Sources */,
 				64EC0FBB1C74C7BA0075010A /* ThirdViewController.swift in Sources */,
 				645C6D361C74C18900275405 /* FirstViewController.swift in Sources */,
@@ -410,10 +425,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "APRIMA EHR APP/APRIMA EHR APP.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "APRIMA EHR APP/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.aprima.APRIMA-EHR-APP";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -421,10 +440,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "APRIMA EHR APP/APRIMA EHR APP.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "APRIMA EHR APP/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.aprima.APRIMA-EHR-APP";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

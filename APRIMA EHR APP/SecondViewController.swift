@@ -8,7 +8,11 @@
 
 import UIKit
 
+
 class SecondViewController: UIViewController {
+    let hKit = healthKit()
+    @IBOutlet var textField : UITextField!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +22,16 @@ class SecondViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func authroizeHealthKit(){
+        hKit.authorize()
+    }
+    
+    @IBAction func updateStepCOunt(){
+        hKit.getSteps { steps, error in
+            self.textField.text = String(format: "%0.2f", steps)
+        }
     }
 
 
