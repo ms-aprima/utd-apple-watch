@@ -11,8 +11,8 @@ import UIKit
 
 class SecondViewController: UIViewController {
     let hKit = healthKit()
-    @IBOutlet var textField : UITextField!
     
+    @IBOutlet weak var steps_data: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,8 +30,10 @@ class SecondViewController: UIViewController {
     
     @IBAction func updateStepCOunt(){
         hKit.getSteps { steps, error in
-            self.textField.text = String(format: "%0.2f", steps)
+            self.steps_data.text = String(format: "%0.2f", steps)
         }
+        steps_data.text = "5248"
+        
     }
 
 
