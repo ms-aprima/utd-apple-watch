@@ -211,7 +211,7 @@
 				TargetAttributes = {
 					645C6D2F1C74C18900275405 = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = L8J327EU53;
+						DevelopmentTeam = 6P474S42L8;
 						SystemCapabilities = {
 							com.apple.HealthKit = {
 								enabled = 1;
@@ -433,9 +433,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "APRIMA EHR APP/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.aprima.APRIMA-EHR-APP";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.aprima.APRIMA-EHR-APP2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -450,9 +450,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "APRIMA EHR APP/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.aprima.APRIMA-EHR-APP";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.aprima.APRIMA-EHR-APP2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
