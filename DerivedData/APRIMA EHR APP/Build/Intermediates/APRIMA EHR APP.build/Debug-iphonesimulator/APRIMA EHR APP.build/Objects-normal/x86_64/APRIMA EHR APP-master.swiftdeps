@@ -1,8 +1,10 @@
 version: "Apple Swift version 2.1.1 (swiftlang-700.1.101.15 clang-700.1.81)"
-options: "1025382e8d12e61b6551023f83836cda"
-build_time: [509040933, 63696000]
+options: "ef961e4d5ce38313d69fb75824fcfc35"
+build_time: [509599959, 356540000]
 inputs:
-  "/Users/hamburger/Desktop/APRIMA EHR APP/APRIMA EHR APP/ThirdViewController.swift": [509038486, 0]
-  "/Users/hamburger/Desktop/APRIMA EHR APP/APRIMA EHR APP/FirstViewController.swift": [509036169, 0]
-  "/Users/hamburger/Desktop/APRIMA EHR APP/APRIMA EHR APP/AppDelegate.swift": [509040305, 0]
-  "/Users/hamburger/Desktop/APRIMA EHR APP/APRIMA EHR APP/SecondViewController.swift": [509036169, 0]
+  "/Users/hamburger/Desktop/Aprima EHR APP/APRIMA EHR APP/HealthDataViewController.swift": [509599526, 0]
+  "/Users/hamburger/Desktop/Aprima EHR APP/APRIMA EHR APP/HealthKit.swift": [509599526, 0]
+  "/Users/hamburger/Desktop/Aprima EHR APP/APRIMA EHR APP/ProfileViewController.swift": [509599526, 0]
+  "/Users/hamburger/Desktop/Aprima EHR APP/APRIMA EHR APP/SettingsViewController.swift": [509599526, 0]
+  "/Users/hamburger/Desktop/Aprima EHR APP/APRIMA EHR APP/HomeViewController.swift": [509599526, 0]
+  "/Users/hamburger/Desktop/Aprima EHR APP/APRIMA EHR APP/AppDelegate.swift": [509599526, 0]

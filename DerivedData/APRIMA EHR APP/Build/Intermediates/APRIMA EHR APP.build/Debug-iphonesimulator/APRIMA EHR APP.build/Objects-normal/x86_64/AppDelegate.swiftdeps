@@ -8,21 +8,21 @@ provides-member:
 provides-dynamic-lookup:
 - "application"
 - "applicationDidEnterBackground"
-- "applicationWillTerminate"
 - "window"
+- "applicationWillTerminate"
 - "applicationDidBecomeActive"
 - "applicationWillEnterForeground"
 - "applicationWillResignActive"
 depends-top-level:
 - "UIWindow"
-- "AnyObject"
 - "Bool"
+- "AnyObject"
 - !private "BooleanLiteralType"
+- "NSObject"
 - "UIApplicationDelegate"
+- "UIResponder"
 - "UIApplication"
 - "AppDelegate"
-- "UIResponder"
-- "NSObject"
 depends-member:
 - ["PSs9AnyObject", "application"]
 - ["PSs9AnyObject", "applicationDidBecomeActive"]
