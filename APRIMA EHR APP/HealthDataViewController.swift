@@ -9,10 +9,12 @@
 import UIKit
 
 
-class HealthDataViewController: UIViewController {
+class HealthDataViewController: UITableViewController {
 //    let hKit = HealthKit()
     
 //    @IBOutlet weak var steps_data: UILabel!
+    
+    let fitness_segue_identifier = "Fitness Segue"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +25,18 @@ class HealthDataViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    
+    // MARK: - Segues
+    // Let individual table cells segue into new table views. i.e. fitness --> fitness table view
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        if segue.identifier ==  fitness_segue_identifier {
+//            if let fitness_view_controller = segue.destinationViewController as? FitnessViewController {
+//                fitness_view_controller.healthManager = healthManager
+//            }
+//        }
+//    }
     
 //    @IBAction func authroizeHealthKit(){
 //        hk_store.authorize()

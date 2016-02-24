@@ -46,12 +46,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="174" y="-756"/>
+            <point key="canvasLocation" x="-286" y="-895"/>
         </scene>
         <!--Health Data-->
         <scene sceneID="CLd-M2-mEn">
             <objects>
-                <tableViewController title="Health Data" id="eZm-Hn-msa" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="HealthDataViewController" title="Health Data" id="eZm-Hn-msa" customClass="HealthDataViewController" customModule="APRIMA_EHR_APP" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="40w-WI-MLG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -75,6 +75,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="AKu-Fy-odS" kind="show" id="dYI-0b-Qi8"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Nutrition" textLabel="ZRN-64-dac" style="IBUITableViewCellStyleDefault" id="zG8-6s-fFq">
                                         <rect key="frame" x="0.0" y="108" width="414" height="44"/>
@@ -135,16 +138,115 @@
                             <outlet property="delegate" destination="eZm-Hn-msa" id="xQg-8l-xOM"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Health Data" id="wxf-gs-lOk"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eJu-7e-vyx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1197" y="-275"/>
+            <point key="canvasLocation" x="729" y="-690"/>
         </scene>
-        <!--Health Data-->
+        <!--Fitness-->
+        <scene sceneID="Ga7-W0-vqX">
+            <objects>
+                <tableViewController storyboardIdentifier="FitnessViewController" title="Fitness" id="AKu-Fy-odS" customClass="FitnessViewController" customModule="APRIMA_EHR_APP" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="7xX-ML-7yY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <sections>
+                            <tableViewSection id="Tvj-yl-5g6">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Steps" textLabel="htg-Rj-yVa" style="IBUITableViewCellStyleDefault" id="UmI-dU-I6R">
+                                        <rect key="frame" x="0.0" y="64" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UmI-dU-I6R" id="diC-EM-EYx">
+                                            <rect key="frame" x="0.0" y="0.0" width="381" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Steps" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="htg-Rj-yVa">
+                                                    <rect key="frame" x="15" y="0.0" width="364" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="mLN-ae-cOD" kind="show" id="kHg-rB-DjT"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="uac-Ki-UE4" style="IBUITableViewCellStyleDefault" id="Nbw-a1-xKW">
+                                        <rect key="frame" x="0.0" y="108" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Nbw-a1-xKW" id="6rt-Fq-vJJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="381" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uac-Ki-UE4">
+                                                    <rect key="frame" x="15" y="0.0" width="364" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="P0D-Sj-oAe" style="IBUITableViewCellStyleDefault" id="euX-QJ-hBv">
+                                        <rect key="frame" x="0.0" y="152" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="euX-QJ-hBv" id="F18-eh-UY5">
+                                            <rect key="frame" x="0.0" y="0.0" width="381" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="P0D-Sj-oAe">
+                                                    <rect key="frame" x="15" y="0.0" width="364" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="AKu-Fy-odS" id="blV-bp-F0Y"/>
+                            <outlet property="delegate" destination="AKu-Fy-odS" id="MPj-dO-q2D"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Fitness" id="R8u-uz-EQE"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oBh-Ce-IAL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1314" y="-1250"/>
+        </scene>
+        <!--Steps-->
+        <scene sceneID="7xe-K2-s07">
+            <objects>
+                <viewController title="Steps" id="mLN-ae-cOD" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="j3o-V0-ftP"/>
+                        <viewControllerLayoutGuide type="bottom" id="dkd-K0-Tsc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jP5-bh-dk3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="acq-Xx-r5n" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1954" y="-1747"/>
+        </scene>
+        <!--Health Data Navigation-->
         <scene sceneID="1NL-yc-h3c">
             <objects>
-                <navigationController id="njn-9D-F1J" sceneMemberID="viewController">
+                <navigationController title="Health Data Navigation" id="njn-9D-F1J" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Health Data" image="Heart-filled-50" id="Jjv-5g-Mg0"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="5cz-Ff-yse">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -156,7 +258,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YcL-Qs-FD3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="711" y="-343"/>
+            <point key="canvasLocation" x="227" y="-711"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -178,12 +280,12 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-294" y="-62"/>
+            <point key="canvasLocation" x="-286" y="-66"/>
         </scene>
         <!--Settings-->
         <scene sceneID="D5v-3c-Yjb">
             <objects>
-                <tableViewController title="Settings" id="uAB-8a-r04" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SettingsViewController" title="Settings" id="uAB-8a-r04" customClass="SettingsViewController" customModule="APRIMA_EHR_APP" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="k9t-oR-yGx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -254,12 +356,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qf2-cQ-9Os" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="27" y="775"/>
+            <point key="canvasLocation" x="11" y="861"/>
         </scene>
-        <!--Settings-->
+        <!--Settings Navigation-->
         <scene sceneID="ioK-9K-aqk">
             <objects>
-                <navigationController id="yvo-TO-zQT" sceneMemberID="viewController">
+                <navigationController title="Settings Navigation" id="yvo-TO-zQT" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Settings" image="Settings Filled-50" id="SXE-TZ-aeu"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Y9E-Sm-Vmd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -271,7 +373,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GaA-DB-GHS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-509" y="809"/>
+            <point key="canvasLocation" x="-481" y="843"/>
         </scene>
         <!--Profile-->
         <scene sceneID="fxT-sY-H3d">
@@ -290,7 +392,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MfF-If-bgV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="623" y="503"/>
+            <point key="canvasLocation" x="227" y="83"/>
         </scene>
     </scenes>
     <resources>
