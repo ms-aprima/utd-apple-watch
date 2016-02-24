@@ -110,8 +110,8 @@ SWIFT_CLASS("_TtC14APRIMA_EHR_APP11AppDelegate")
 @class NSBundle;
 @class NSCoder;
 
-SWIFT_CLASS("_TtC14APRIMA_EHR_APP19FirstViewController")
-@interface FirstViewController : UIViewController
+SWIFT_CLASS("_TtC14APRIMA_EHR_APP24HealthDataViewController")
+@interface HealthDataViewController : UIViewController
 - (void)viewDidLoad;
 - (void)didReceiveMemoryWarning;
 - (nonnull instancetype)initWithNibName:(NSString * __nullable)nibNameOrNil bundle:(NSBundle * __nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
@@ -119,8 +119,8 @@ SWIFT_CLASS("_TtC14APRIMA_EHR_APP19FirstViewController")
 @end
 
 
-SWIFT_CLASS("_TtC14APRIMA_EHR_APP20SecondViewController")
-@interface SecondViewController : UIViewController
+SWIFT_CLASS("_TtC14APRIMA_EHR_APP18HomeViewController")
+@interface HomeViewController : UIViewController
 - (void)viewDidLoad;
 - (void)didReceiveMemoryWarning;
 - (nonnull instancetype)initWithNibName:(NSString * __nullable)nibNameOrNil bundle:(NSBundle * __nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
@@ -128,8 +128,17 @@ SWIFT_CLASS("_TtC14APRIMA_EHR_APP20SecondViewController")
 @end
 
 
-SWIFT_CLASS("_TtC14APRIMA_EHR_APP19ThirdViewController")
-@interface ThirdViewController : UIViewController
+SWIFT_CLASS("_TtC14APRIMA_EHR_APP21ProfileViewController")
+@interface ProfileViewController : UIViewController
+- (void)viewDidLoad;
+- (void)didReceiveMemoryWarning;
+- (nonnull instancetype)initWithNibName:(NSString * __nullable)nibNameOrNil bundle:(NSBundle * __nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * __nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC14APRIMA_EHR_APP22SettingsViewController")
+@interface SettingsViewController : UIViewController
 - (void)viewDidLoad;
 - (void)didReceiveMemoryWarning;
 - (nonnull instancetype)initWithNibName:(NSString * __nullable)nibNameOrNil bundle:(NSBundle * __nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;

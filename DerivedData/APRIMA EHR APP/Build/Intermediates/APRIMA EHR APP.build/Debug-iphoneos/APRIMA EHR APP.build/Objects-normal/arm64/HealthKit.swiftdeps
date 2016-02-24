@@ -1,0 +1,47 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "HealthKit"
+provides-nominal:
+- "C14APRIMA_EHR_APP9HealthKit"
+provides-member:
+- ["C14APRIMA_EHR_APP9HealthKit", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- "HealthKit"
+- "HKHealthStore"
+depends-member:
+- ["PSs9AnyObject", "HKHealthStore"]
+- ["PSs9AnyObject", "init"]
+- ["PSs9AnyObject", ""]
+- ["PSs11CVarArgType", "init"]
+- ["PSs23CustomStringConvertible", "init"]
+- ["PSs9Equatable", "init"]
+- ["CSo13HKHealthStore", "init"]
+- ["PSs8Hashable", "init"]
+- ["C14APRIMA_EHR_APP9HealthKit", "HKHealthStore"]
+- ["C14APRIMA_EHR_APP9HealthKit", "deinit"]
+- ["C14APRIMA_EHR_APP9HealthKit", "hk_store"]
+- ["C14APRIMA_EHR_APP9HealthKit", "init"]
+- ["CSo8NSObject", "init"]
+- ["PSo16NSObjectProtocol", "init"]
+depends-nominal:
+- "PSs9AnyObject"
+- "PSs11CVarArgType"
+- "PSs23CustomStringConvertible"
+- "PSs9Equatable"
+- "CSo13HKHealthStore"
+- "PSs8Hashable"
+- "C14APRIMA_EHR_APP9HealthKit"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
+interface-hash: "9ebb4f43e85954f29f59a57eab261704"
