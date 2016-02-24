@@ -7,17 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		225EC7321C7A828C00610507 /* healthKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225EC7311C7A828C00610507 /* healthKit.swift */; };
+		225EC7321C7A828C00610507 /* HealthKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225EC7311C7A828C00610507 /* HealthKit.swift */; };
 		225EC7341C7A8C5E00610507 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 225EC7331C7A8C5E00610507 /* HealthKit.framework */; };
 		645C6D341C74C18900275405 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C6D331C74C18900275405 /* AppDelegate.swift */; };
-		645C6D361C74C18900275405 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C6D351C74C18900275405 /* FirstViewController.swift */; };
-		645C6D381C74C18900275405 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C6D371C74C18900275405 /* SecondViewController.swift */; };
+		645C6D361C74C18900275405 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C6D351C74C18900275405 /* HomeViewController.swift */; };
+		645C6D381C74C18900275405 /* HealthDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C6D371C74C18900275405 /* HealthDataViewController.swift */; };
 		645C6D3B1C74C18900275405 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 645C6D391C74C18900275405 /* Main.storyboard */; };
 		645C6D3D1C74C18900275405 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 645C6D3C1C74C18900275405 /* Assets.xcassets */; };
 		645C6D401C74C18900275405 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 645C6D3E1C74C18900275405 /* LaunchScreen.storyboard */; };
 		645C6D4B1C74C18900275405 /* APRIMA_EHR_APPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C6D4A1C74C18900275405 /* APRIMA_EHR_APPTests.swift */; };
 		645C6D561C74C18900275405 /* APRIMA_EHR_APPUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C6D551C74C18900275405 /* APRIMA_EHR_APPUITests.swift */; };
-		64EC0FBB1C74C7BA0075010A /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EC0FBA1C74C7BA0075010A /* ThirdViewController.swift */; };
+		D1A71F401C7D27F50004EA65 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A71F3F1C7D27F50004EA65 /* SettingsViewController.swift */; };
+		D1A71F421C7D29F30004EA65 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A71F411C7D29F30004EA65 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,13 +39,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		225EC7311C7A828C00610507 /* healthKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = healthKit.swift; sourceTree = "<group>"; };
+		225EC7311C7A828C00610507 /* HealthKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthKit.swift; sourceTree = "<group>"; };
 		225EC7331C7A8C5E00610507 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		225EC7351C7A8C5E00610507 /* APRIMA EHR APP.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "APRIMA EHR APP.entitlements"; sourceTree = "<group>"; };
 		645C6D301C74C18900275405 /* APRIMA EHR APP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "APRIMA EHR APP.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		645C6D331C74C18900275405 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		645C6D351C74C18900275405 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		645C6D371C74C18900275405 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		645C6D351C74C18900275405 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		645C6D371C74C18900275405 /* HealthDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthDataViewController.swift; sourceTree = "<group>"; };
 		645C6D3A1C74C18900275405 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		645C6D3C1C74C18900275405 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		645C6D3F1C74C18900275405 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -55,7 +56,8 @@
 		645C6D511C74C18900275405 /* APRIMA EHR APPUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "APRIMA EHR APPUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		645C6D551C74C18900275405 /* APRIMA_EHR_APPUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APRIMA_EHR_APPUITests.swift; sourceTree = "<group>"; };
 		645C6D571C74C18900275405 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		64EC0FBA1C74C7BA0075010A /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
+		D1A71F3F1C7D27F50004EA65 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		D1A71F411C7D29F30004EA65 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,14 +112,15 @@
 			children = (
 				225EC7351C7A8C5E00610507 /* APRIMA EHR APP.entitlements */,
 				645C6D331C74C18900275405 /* AppDelegate.swift */,
-				645C6D351C74C18900275405 /* FirstViewController.swift */,
-				645C6D371C74C18900275405 /* SecondViewController.swift */,
+				645C6D351C74C18900275405 /* HomeViewController.swift */,
+				645C6D371C74C18900275405 /* HealthDataViewController.swift */,
 				645C6D391C74C18900275405 /* Main.storyboard */,
 				645C6D3C1C74C18900275405 /* Assets.xcassets */,
 				645C6D3E1C74C18900275405 /* LaunchScreen.storyboard */,
 				645C6D411C74C18900275405 /* Info.plist */,
-				64EC0FBA1C74C7BA0075010A /* ThirdViewController.swift */,
-				225EC7311C7A828C00610507 /* healthKit.swift */,
+				225EC7311C7A828C00610507 /* HealthKit.swift */,
+				D1A71F3F1C7D27F50004EA65 /* SettingsViewController.swift */,
+				D1A71F411C7D29F30004EA65 /* ProfileViewController.swift */,
 			);
 			path = "APRIMA EHR APP";
 			sourceTree = "<group>";
@@ -208,7 +211,7 @@
 				TargetAttributes = {
 					645C6D2F1C74C18900275405 = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = UP5Q6Q4389;
+						DevelopmentTeam = L8J327EU53;
 						SystemCapabilities = {
 							com.apple.HealthKit = {
 								enabled = 1;
@@ -279,11 +282,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				645C6D381C74C18900275405 /* SecondViewController.swift in Sources */,
-				225EC7321C7A828C00610507 /* healthKit.swift in Sources */,
+				D1A71F421C7D29F30004EA65 /* ProfileViewController.swift in Sources */,
+				645C6D381C74C18900275405 /* HealthDataViewController.swift in Sources */,
+				225EC7321C7A828C00610507 /* HealthKit.swift in Sources */,
 				645C6D341C74C18900275405 /* AppDelegate.swift in Sources */,
-				64EC0FBB1C74C7BA0075010A /* ThirdViewController.swift in Sources */,
-				645C6D361C74C18900275405 /* FirstViewController.swift in Sources */,
+				D1A71F401C7D27F50004EA65 /* SettingsViewController.swift in Sources */,
+				645C6D361C74C18900275405 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,10 +433,12 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "APRIMA EHR APP/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.aprima.APRIMA-EHR-APP";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -444,10 +450,12 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "APRIMA EHR APP/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.aprima.APRIMA-EHR-APP";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
