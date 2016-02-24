@@ -293,21 +293,14 @@
                         <sections>
                             <tableViewSection id="aws-ff-8Uk">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Authorize HealthKit" textLabel="i3Z-3q-sr8" style="IBUITableViewCellStyleDefault" id="AJD-QJ-2Jy">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Authorize HealthKit" id="AJD-QJ-2Jy">
                                         <rect key="frame" x="0.0" y="64" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AJD-QJ-2Jy" id="cil-hH-ugW">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="i3Z-3q-sr8">
-                                                    <rect key="frame" x="15" y="0.0" width="384" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dUs-jA-5X2">
+                                                <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dUs-jA-5X2">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                                     <state key="normal" title="Authorize HealthKit"/>
                                                     <connections>
@@ -315,6 +308,12 @@
                                                     </connections>
                                                 </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="dUs-jA-5X2" firstAttribute="top" secondItem="cil-hH-ugW" secondAttribute="top" id="6ZT-P3-lv4"/>
+                                                <constraint firstItem="dUs-jA-5X2" firstAttribute="leading" secondItem="cil-hH-ugW" secondAttribute="leading" id="Bq6-Sr-77E"/>
+                                                <constraint firstAttribute="trailing" secondItem="dUs-jA-5X2" secondAttribute="trailing" id="IjK-b8-t36"/>
+                                                <constraint firstAttribute="bottom" secondItem="dUs-jA-5X2" secondAttribute="bottom" id="OJY-Wb-Wul"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="More Settings later.." textLabel="jo0-33-4A1" style="IBUITableViewCellStyleDefault" id="hRN-6c-fsF">
