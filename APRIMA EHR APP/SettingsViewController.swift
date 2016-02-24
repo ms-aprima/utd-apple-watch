@@ -9,6 +9,9 @@
 import UIKit
 
 class SettingsViewController: UITableViewController {
+    
+    // Create HealthKit object
+    let health_kit = HealthKit()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,5 +34,10 @@ class SettingsViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    // Authorizes HealthKit with user pressing the Authorize HealthKit cell in Settings
+    @IBAction func authroizeHealthKit(){
+        health_kit.authorize()
+    }
 
 }
