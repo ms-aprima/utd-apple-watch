@@ -228,7 +228,7 @@
         <!--Steps-->
         <scene sceneID="7xe-K2-s07">
             <objects>
-                <viewController title="Steps" id="mLN-ae-cOD" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StepsViewController" title="Steps" id="mLN-ae-cOD" customClass="StepsViewController" customModule="APRIMA_EHR_APP" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="j3o-V0-ftP"/>
                         <viewControllerLayoutGuide type="bottom" id="dkd-K0-Tsc"/>
@@ -236,8 +236,25 @@
                     <view key="view" contentMode="scaleToFill" id="jP5-bh-dk3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Steps past 24 hours:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wcK-gN-dwN">
+                                <rect key="frame" x="20" y="109" width="159" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nqA-yi-4hP">
+                                <rect key="frame" x="193" y="109" width="182" height="21"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="display_steps_text_view" destination="nqA-yi-4hP" id="yYB-cr-Nla"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="acq-Xx-r5n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
