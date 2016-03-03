@@ -19,15 +19,12 @@ class HealthKit{
         
         var is_enabled = true
         
-        // Array for types of data we want to read from the healthkit. Incomplete and not working for now
+        // Array for types of data we want to read from the healthkit. Incomplete
         let read_hk_types: Set = [HKObjectType.characteristicTypeForIdentifier(HKCharacteristicTypeIdentifierDateOfBirth)!,
                                           HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierStepCount)!]
         
         // check it see if healthkit is accessible on this device
         if HKHealthStore.isHealthDataAvailable(){
-            //let steps = NSSet(object: HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierStepCount)!)
-            
-            //let birth = NSSet(object: HKQuantityType.quantityTypeForIdentifier(HKCharacteristicTypeIdentifierDateOfBirth)!)
             // request authorization. no write type
             hk_store.requestAuthorizationToShareTypes(nil, readTypes: read_hk_types) { (success, error) -> Void in
                 is_enabled = success
@@ -38,8 +35,9 @@ class HealthKit{
         return is_enabled
     }
 
+    // Gets steps. Still need to define how we want to display this data.
     func getSteps(completion: (Double, NSError?) -> ()){
-        // Testing getting steps from yesterday to today. 
+        // Testing getting steps from yesterday to today. Get yesterday's date by subtracting 24 hours (in secs) from today's date
         // So with yesterday's date as start parameter and today's date as the end parameter to the method below
         // Temporary of course
         let today = NSDate()
@@ -64,5 +62,25 @@ class HealthKit{
             completion(steps, error)
         }
         hk_store.executeQuery(query)
+    }
+    
+    // Gets the user's date of birth and converts to age
+    func getAge()-> NSDate{
+//        var age: Int?
+        var birth_day: NSDate?
+        
+        do{
+            birth_day = try hk_store.dateOfBirth()
+        }catch{
+            // Throw some kind of error. commented out for now
+            //fatalError() <-- Don't uncomment yet
+        }
+        
+//        let today = NSDate()
+//        let calendar = NSCalendar.currentCalendar()
+//        let difference_components = NSCalendar.currentCalendar().components(.CalendarUnitYear, fromDate: birth_day, toDate: today, options: NSCalendarOptions(0) )
+//        age = difference_components.year
+//        return age!
+        return birth_day!
     }
 }
