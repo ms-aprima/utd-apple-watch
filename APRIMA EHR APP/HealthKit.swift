@@ -9,6 +9,11 @@
 import Foundation
 import HealthKit
 
+// global variable to use anywhere so other view controllers can tell if user authorized health kit or not
+// Make sure to check Authorized.enabled == true before pulling data.
+struct Authorized{
+    static var enabled = false
+}
 
 class HealthKit{
     // Create instance of health kit store
@@ -32,6 +37,7 @@ class HealthKit{
         }else{
             is_enabled = false
         }
+        Authorized.enabled = is_enabled
         return is_enabled
     }
 
@@ -64,23 +70,16 @@ class HealthKit{
         hk_store.executeQuery(query)
     }
     
-    // Gets the user's date of birth and converts to age
-    func getAge()-> NSDate{
-//        var age: Int?
+    // Gets the user's date of birth
+    func getBirthday()-> NSDate{
         var birth_day: NSDate?
         
         do{
             birth_day = try hk_store.dateOfBirth()
         }catch{
             // Throw some kind of error. commented out for now
-            //fatalError() <-- Don't uncomment yet
+            //fatalError() <-- Don't uncomment yet cause fatalError will crash the app lol
         }
-        
-//        let today = NSDate()
-//        let calendar = NSCalendar.currentCalendar()
-//        let difference_components = NSCalendar.currentCalendar().components(.CalendarUnitYear, fromDate: birth_day, toDate: today, options: NSCalendarOptions(0) )
-//        age = difference_components.year
-//        return age!
         return birth_day!
     }
 }

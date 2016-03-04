@@ -18,16 +18,23 @@ class ProfileViewController: UIViewController {
     
     // Refreshes the UI
     func refreshUI(){
-        // Don't let user interact with displayed DOB.
-        display_dob_text_view.userInteractionEnabled = false
-        display_dob_text_view.editable = false
-        display_dob_text_view.text = formatDate(health_kit.getAge())
+        // Make sure the user authorized health kit before attempting to pull data
+        if Authorized.enabled == true{
+            // Don't let user interact with displayed DOB.
+            display_dob_text_view.userInteractionEnabled = false
+            display_dob_text_view.editable = false
+            display_dob_text_view.text = formatDate(health_kit.getBirthday())
+        }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    // Called everytime the UI is displayed (i.e. the user goes to the profile tab)
+    override func viewWillAppear(animated: Bool) {
         refreshUI()
     }
 
