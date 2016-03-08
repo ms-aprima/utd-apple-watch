@@ -26,7 +26,14 @@ class HealthKit{
         
         // Array for types of data we want to read from the healthkit. Incomplete
         let read_hk_types: Set = [HKObjectType.characteristicTypeForIdentifier(HKCharacteristicTypeIdentifierDateOfBirth)!,
+<<<<<<< .merge_file_5AolVH
+                                          HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierStepCount)!,
+                                          HKObjectType.quantityTypeForIdentifier(HKQuantityTypeIdentifierHeight)!,
+                                          HKObjectType.characteristicTypeForIdentifier(HKCharacteristicTypeIdentifierBiologicalSex)!,
+                                          HKObjectType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBodyMass)!]
+=======
                                           HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierStepCount)!]
+>>>>>>> .merge_file_43Q5Mf
         
         // check it see if healthkit is accessible on this device
         if HKHealthStore.isHealthDataAvailable(){
@@ -81,5 +88,26 @@ class HealthKit{
             //fatalError() <-- Don't uncomment yet cause fatalError will crash the app lol
         }
         return birth_day!
+    }
+    
+    // Get the user's gender/biological sex
+    func getSex() -> HKBiologicalSexObject{
+        var biological_sex: HKBiologicalSexObject?
+        do{
+            biological_sex = try hk_store.biologicalSex()
+        }catch{
+            // Error here
+        }
+        return biological_sex!
+    }
+    
+    // Get the user's height
+    func getHight(){
+        
+    }
+    
+    // Get the user's weight
+    func getWeight(){
+        
     }
 }

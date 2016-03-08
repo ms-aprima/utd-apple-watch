@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import HealthKit
 
 class ProfileTableViewController: UITableViewController {
     
@@ -15,15 +16,24 @@ class ProfileTableViewController: UITableViewController {
     
     // View objects
     @IBOutlet var display_dob_text_view: UITextView!
+    @IBOutlet var display_sex_text_view: UITextView!
     
     // Refreshes the UI
     func refreshUI(){
         // Make sure the user authorized health kit before attempting to pull data
         if Authorized.enabled == true{
+<<<<<<< .merge_file_OlirFE
+            // Don't let user interact with displayed text view.
+=======
             // Don't let user interact with displayed DOB.
+>>>>>>> .merge_file_4lXphS
             display_dob_text_view.userInteractionEnabled = false
             display_dob_text_view.editable = false
             display_dob_text_view.text = formatDate(health_kit.getBirthday())
+            
+            display_sex_text_view.userInteractionEnabled = false
+            display_sex_text_view.editable = false
+            display_sex_text_view.text = formatSex(health_kit.getSex())
         }
     }
     
@@ -52,6 +62,25 @@ class ProfileTableViewController: UITableViewController {
         let date_formatter = NSDateFormatter()
         date_formatter.dateFormat = "MMM dd, yyyy"
         return date_formatter.stringFromDate(date)
+    }
+    
+    // Formats the sex to display it as text
+    func formatSex(biological_sex: HKBiologicalSexObject) -> String{
+        var sex: String
+        let bio_sex = biological_sex.biologicalSex
+        switch bio_sex.rawValue{
+        case 0:
+            sex = ""
+        case 1:
+            sex = "Female"
+        case 2:
+            sex = "Male"
+        case 3:
+            sex = "Other"
+        default:
+            sex = ""
+        }
+        return sex
     }
 
     // MARK: - Table view data source
