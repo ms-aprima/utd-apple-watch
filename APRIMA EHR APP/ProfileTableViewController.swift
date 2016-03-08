@@ -22,11 +22,7 @@ class ProfileTableViewController: UITableViewController {
     func refreshUI(){
         // Make sure the user authorized health kit before attempting to pull data
         if Authorized.enabled == true{
-<<<<<<< .merge_file_OlirFE
             // Don't let user interact with displayed text view.
-=======
-            // Don't let user interact with displayed DOB.
->>>>>>> .merge_file_4lXphS
             display_dob_text_view.userInteractionEnabled = false
             display_dob_text_view.editable = false
             display_dob_text_view.text = formatDate(health_kit.getBirthday())

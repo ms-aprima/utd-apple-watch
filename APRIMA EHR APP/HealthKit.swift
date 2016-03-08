@@ -26,14 +26,11 @@ class HealthKit{
         
         // Array for types of data we want to read from the healthkit. Incomplete
         let read_hk_types: Set = [HKObjectType.characteristicTypeForIdentifier(HKCharacteristicTypeIdentifierDateOfBirth)!,
-<<<<<<< .merge_file_5AolVH
                                           HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierStepCount)!,
                                           HKObjectType.quantityTypeForIdentifier(HKQuantityTypeIdentifierHeight)!,
                                           HKObjectType.characteristicTypeForIdentifier(HKCharacteristicTypeIdentifierBiologicalSex)!,
                                           HKObjectType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBodyMass)!]
-=======
-                                          HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierStepCount)!]
->>>>>>> .merge_file_43Q5Mf
+        
         
         // check it see if healthkit is accessible on this device
         if HKHealthStore.isHealthDataAvailable(){
