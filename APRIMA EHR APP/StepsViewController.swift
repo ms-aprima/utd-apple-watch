@@ -15,10 +15,16 @@ class StepsViewController: UIViewController {
     
     // View objects
     @IBOutlet var display_steps_text_view: UITextView!
+    var steps = ""
 
     // Refreshes the UI
     func refreshUI(){
         //display_steps_text_view = health_kit.getSteps(<#T##completion: (Double, NSError?) -> ()##(Double, NSError?) -> ()#>)
+        
+        health_kit.getSteps { steps, error in
+            self.steps = String(format: "%0.2f", steps)
+        }
+        display_steps_text_view.text = steps
     }
     
     override func viewDidLoad() {
@@ -27,7 +33,11 @@ class StepsViewController: UIViewController {
         // Do any additional setup after loading the view.
         refreshUI()
     }
-
+    
+    override func viewWillAppear(animated: Bool) {
+        refreshUI()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
