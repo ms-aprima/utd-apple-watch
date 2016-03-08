@@ -17,6 +17,7 @@
 		645C6D401C74C18900275405 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 645C6D3E1C74C18900275405 /* LaunchScreen.storyboard */; };
 		645C6D4B1C74C18900275405 /* APRIMA_EHR_APPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C6D4A1C74C18900275405 /* APRIMA_EHR_APPTests.swift */; };
 		645C6D561C74C18900275405 /* APRIMA_EHR_APPUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C6D551C74C18900275405 /* APRIMA_EHR_APPUITests.swift */; };
+		64F8E2731C8E75F800115E59 /* way-to-success.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 64F8E2721C8E75F800115E59 /* way-to-success.mp3 */; };
 		D18856B61C7D511000DEAB91 /* FitnessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18856B51C7D511000DEAB91 /* FitnessViewController.swift */; };
 		D194F0801C87CC68006B7338 /* StepsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D194F07F1C87CC68006B7338 /* StepsViewController.swift */; };
 		D1A71F401C7D27F50004EA65 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A71F3F1C7D27F50004EA65 /* SettingsViewController.swift */; };
@@ -58,6 +59,7 @@
 		645C6D511C74C18900275405 /* APRIMA EHR APPUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "APRIMA EHR APPUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		645C6D551C74C18900275405 /* APRIMA_EHR_APPUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APRIMA_EHR_APPUITests.swift; sourceTree = "<group>"; };
 		645C6D571C74C18900275405 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		64F8E2721C8E75F800115E59 /* way-to-success.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "way-to-success.mp3"; path = "APRIMA EHR APP/Assets.xcassets/way-to-success.mp3"; sourceTree = "<group>"; };
 		D18856B51C7D511000DEAB91 /* FitnessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FitnessViewController.swift; sourceTree = "<group>"; };
 		D194F07F1C87CC68006B7338 /* StepsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepsViewController.swift; sourceTree = "<group>"; };
 		D1A71F3F1C7D27F50004EA65 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 		645C6D271C74C18900275405 = {
 			isa = PBXGroup;
 			children = (
+				64F8E2721C8E75F800115E59 /* way-to-success.mp3 */,
 				225EC7331C7A8C5E00610507 /* HealthKit.framework */,
 				645C6D321C74C18900275405 /* APRIMA EHR APP */,
 				645C6D491C74C18900275405 /* APRIMA EHR APPTests */,
@@ -225,7 +228,7 @@
 				TargetAttributes = {
 					645C6D2F1C74C18900275405 = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = L8J327EU53;
+						DevelopmentTeam = 6P474S42L8;
 						SystemCapabilities = {
 							com.apple.HealthKit = {
 								enabled = 1;
@@ -272,6 +275,7 @@
 				645C6D401C74C18900275405 /* LaunchScreen.storyboard in Resources */,
 				645C6D3D1C74C18900275405 /* Assets.xcassets in Resources */,
 				645C6D3B1C74C18900275405 /* Main.storyboard in Resources */,
+				64F8E2731C8E75F800115E59 /* way-to-success.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
