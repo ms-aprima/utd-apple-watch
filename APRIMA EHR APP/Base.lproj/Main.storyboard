@@ -241,7 +241,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Steps past 24 hours:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wcK-gN-dwN">
                                 <rect key="frame" x="20" y="109" width="159" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nqA-yi-4hP">
@@ -417,18 +417,39 @@
                                     <segue destination="SVv-Ic-8Bk" kind="embed" id="pgx-5G-yRC"/>
                                 </connections>
                             </containerView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lX5-EF-DK6">
+                                <rect key="frame" x="132" y="59" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="SBI-c1-GMQ"/>
+                                    <constraint firstAttribute="height" constant="150" id="Ubl-Kv-UkK"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PXd-CJ-kJ1">
+                                <rect key="frame" x="132" y="59" width="150" height="150"/>
+                                <connections>
+                                    <action selector="updateProfileImage" destination="bGu-6R-pGS" eventType="touchUpInside" id="e4C-AH-39U"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="usY-Ww-876" firstAttribute="top" secondItem="yqv-gc-6Ez" secondAttribute="top" constant="291" id="E3u-Xq-crb"/>
-                            <constraint firstItem="usY-Ww-876" firstAttribute="leading" secondItem="yqv-gc-6Ez" secondAttribute="leading" id="K0R-fm-YZb"/>
-                            <constraint firstItem="usY-Ww-876" firstAttribute="bottom" secondItem="fzg-IG-NRg" secondAttribute="top" id="Xzf-aA-WcW"/>
-                            <constraint firstAttribute="trailing" secondItem="usY-Ww-876" secondAttribute="trailing" id="jfg-rn-aQs"/>
+                            <constraint firstItem="usY-Ww-876" firstAttribute="top" secondItem="lX5-EF-DK6" secondAttribute="bottom" constant="82" id="1mS-rT-Y4k"/>
+                            <constraint firstItem="PXd-CJ-kJ1" firstAttribute="top" secondItem="lX5-EF-DK6" secondAttribute="top" id="3GJ-2h-aSw"/>
+                            <constraint firstItem="PXd-CJ-kJ1" firstAttribute="trailing" secondItem="lX5-EF-DK6" secondAttribute="trailing" id="ENs-9Y-9Zf"/>
+                            <constraint firstItem="lX5-EF-DK6" firstAttribute="centerX" secondItem="usY-Ww-876" secondAttribute="centerX" id="G05-yd-isy"/>
+                            <constraint firstItem="PXd-CJ-kJ1" firstAttribute="leading" secondItem="lX5-EF-DK6" secondAttribute="leading" id="Vxr-Wh-UPJ"/>
+                            <constraint firstItem="PXd-CJ-kJ1" firstAttribute="bottom" secondItem="lX5-EF-DK6" secondAttribute="bottom" id="cmr-Af-6tz"/>
+                            <constraint firstAttribute="trailing" secondItem="usY-Ww-876" secondAttribute="trailing" id="d8S-bi-9VF"/>
+                            <constraint firstItem="usY-Ww-876" firstAttribute="leading" secondItem="yqv-gc-6Ez" secondAttribute="leading" id="g0Z-3b-Lsn"/>
+                            <constraint firstItem="usY-Ww-876" firstAttribute="bottom" secondItem="fzg-IG-NRg" secondAttribute="top" id="u7f-KR-xra"/>
+                            <constraint firstItem="lX5-EF-DK6" firstAttribute="top" secondItem="7D9-HO-eNP" secondAttribute="bottom" constant="39" id="vDR-0H-3la"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="User Male Filled-50" id="Y1v-ho-z2Y"/>
                     <connections>
                         <outlet property="display_dob_text_view" destination="Igd-Mt-dtP" id="HyA-jW-4zr"/>
+                        <outlet property="profile_image_button" destination="PXd-CJ-kJ1" id="qev-uL-HLr"/>
+                        <outlet property="profile_image_view" destination="lX5-EF-DK6" id="9gE-8X-d3N"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MfF-If-bgV" userLabel="First Responder" sceneMemberID="firstResponder"/>
