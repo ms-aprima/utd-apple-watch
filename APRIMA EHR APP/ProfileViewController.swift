@@ -29,6 +29,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
             imagePicker.allowsEditing = false
             self.presentViewController(imagePicker, animated: true, completion: nil)
         }
+ 
     }
     
     // Refreshes the UI

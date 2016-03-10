@@ -22,6 +22,9 @@ class ProfileTableViewController: UITableViewController {
     func refreshUI(){
         // Make sure the user authorized health kit before attempting to pull data
         if Authorized.enabled == true{
+            // Used to store the user's data
+            let defaults = NSUserDefaults.standardUserDefaults()
+            
             // Don't let user interact with displayed text view.
             display_dob_text_view.userInteractionEnabled = false
             display_dob_text_view.editable = false
@@ -30,7 +33,19 @@ class ProfileTableViewController: UITableViewController {
             display_sex_text_view.userInteractionEnabled = false
             display_sex_text_view.editable = false
             display_sex_text_view.text = formatSex(health_kit.getSex())
+            
+            // Syncronize/save the user's data
+            defaults.setObject(display_dob_text_view.text, forKey: "date of birth")
+            defaults.setObject(display_sex_text_view.text, forKey: "sex")
+            defaults.synchronize()
         }
+    }
+    
+    // Called when the user loads the app so the data is restored
+    func loadDefaults(){
+        let defaults = NSUserDefaults.standardUserDefaults()
+        display_dob_text_view.text = defaults.objectForKey("date of birth") as? String
+        display_sex_text_view.text = defaults.objectForKey("sex") as? String
     }
     
     // Called everytime the UI is displayed (i.e. the user goes to the profile tab)
@@ -40,7 +55,7 @@ class ProfileTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        loadDefaults()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 

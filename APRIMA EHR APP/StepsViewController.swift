@@ -24,6 +24,8 @@ class StepsViewController: UIViewController {
         health_kit.getSteps { steps, error in
             self.steps = String(format: "%0.2f", steps)
         }
+        display_steps_text_view.userInteractionEnabled = false
+        display_steps_text_view.editable = false
         display_steps_text_view.text = steps
     }
     
