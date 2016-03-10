@@ -44,12 +44,14 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        self.view.backgroundColor = UIColor(red: 25.0/255, green: 150.0/255, blue: 197.0/255, alpha: 1)
+        
         // Set profile image radius to half the width of UIImageView to make it circular
         profile_image_view.layer.cornerRadius = profile_image_view.frame.size.width / 2
         profile_image_view.clipsToBounds = true
         // Add a border to the image
         profile_image_view.layer.borderWidth = 3.0
-        profile_image_view.layer.borderColor = UIColor.blackColor().CGColor
+        profile_image_view.layer.borderColor = UIColor.whiteColor().CGColor
     }
     
     // Called everytime the UI is displayed (i.e. the user goes to the profile tab)

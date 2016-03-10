@@ -28,10 +28,12 @@ class ProfileTableViewController: UITableViewController {
             // Don't let user interact with displayed text view.
             display_dob_text_view.userInteractionEnabled = false
             display_dob_text_view.editable = false
+            display_dob_text_view.scrollEnabled = false
             display_dob_text_view.text = formatDate(health_kit.getBirthday())
             
             display_sex_text_view.userInteractionEnabled = false
             display_sex_text_view.editable = false
+            display_sex_text_view.scrollEnabled = false
             display_sex_text_view.text = formatSex(health_kit.getSex())
             
             // Syncronize/save the user's data
