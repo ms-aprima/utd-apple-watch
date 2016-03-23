@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StepsViewController: UIViewController {
+class StepsViewController: UITableViewController {
     
     // initialize a HealthKit object to pull data from
     let health_kit: HealthKit = HealthKit()
@@ -31,7 +31,7 @@ class StepsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.refreshControl?.addTarget(self, action: #selector(StepsViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
         // Do any additional setup after loading the view.
         refreshUI()
     }
@@ -44,8 +44,15 @@ class StepsViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    func refresh(sender:AnyObject)
+    {
+        // Updating your data here...
+        
+        self.tableView.reloadData()
+        self.refreshControl?.endRefreshing()
+        refreshUI()
+    }
     
-
     /*
     // MARK: - Navigation
 
