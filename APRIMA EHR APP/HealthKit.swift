@@ -103,8 +103,41 @@ class HealthKit{
         
     }
     
-    // Get the user's weight
-    func getWeight(){
-        
+    func getBloodType(app_btype: HKBloodTypeObject) -> String
+    {
+    
+    var bloodType: String
+    let bio_btype = app_btype.bloodType
+    switch bio_btype.rawValue
+    {
+    case 0:
+    bloodType = ""
+    case 1:
+    bloodType = "A+"
+    case 2:
+    bloodType = "A-"
+    case 3:
+    bloodType = "B+"
+    case 4:
+    bloodType = "B-"
+    case 5:
+    bloodType = "AB+"
+    case 6:
+    bloodType = "AB-"
+    case 7:
+    bloodType = "O+"
+    case 8:
+    bloodType = "O-"
+    default:
+    bloodType = ""
     }
+    return bloodType
+    }
+    
+    //need to do
+    func getWeight() -> String
+    {
+        return HKQuantityTypeIdentifierBodyMass
+    }
+
 }
