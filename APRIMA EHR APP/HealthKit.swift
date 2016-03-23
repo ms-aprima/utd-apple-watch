@@ -29,7 +29,8 @@ class HealthKit{
                                           HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierStepCount)!,
                                           HKObjectType.quantityTypeForIdentifier(HKQuantityTypeIdentifierHeight)!,
                                           HKObjectType.characteristicTypeForIdentifier(HKCharacteristicTypeIdentifierBiologicalSex)!,
-                                          HKObjectType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBodyMass)!]
+                                          HKObjectType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBodyMass)!,
+                                          HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierHeartRate)!]
         
         
         // check it see if healthkit is accessible on this device
@@ -105,39 +106,62 @@ class HealthKit{
     
     func getBloodType(app_btype: HKBloodTypeObject) -> String
     {
-    
-    var bloodType: String
-    let bio_btype = app_btype.bloodType
-    switch bio_btype.rawValue
-    {
-    case 0:
-    bloodType = ""
-    case 1:
-    bloodType = "A+"
-    case 2:
-    bloodType = "A-"
-    case 3:
-    bloodType = "B+"
-    case 4:
-    bloodType = "B-"
-    case 5:
-    bloodType = "AB+"
-    case 6:
-    bloodType = "AB-"
-    case 7:
-    bloodType = "O+"
-    case 8:
-    bloodType = "O-"
-    default:
-    bloodType = ""
-    }
-    return bloodType
+        var bloodType: String
+        let bio_btype = app_btype.bloodType
+        switch bio_btype.rawValue{
+            case 0:
+                bloodType = ""
+            case 1:
+                bloodType = "A+"
+            case 2:
+                bloodType = "A-"
+            case 3:
+                bloodType = "B+"
+            case 4:
+                bloodType = "B-"
+            case 5:
+                bloodType = "AB+"
+            case 6:
+                bloodType = "AB-"
+            case 7:
+                bloodType = "O+"
+            case 8:
+                bloodType = "O-"
+            default:
+                bloodType = ""
+        }
+        return bloodType
     }
     
     //need to do
     func getWeight() -> String
     {
         return HKQuantityTypeIdentifierBodyMass
+    }
+    
+    // Get the ranges of heart rate for each day (low - high) for the past month and display in table view
+    func getHeartRate(){
+        let today = NSDate()
+        let yesterday = NSDate(timeIntervalSinceNow: -86400.0)
+        
+        let type = HKSampleType.quantityTypeForIdentifier(HKQuantityTypeIdentifierHeartRate)
+        
+        // Search predicate will fetch data from now until a day ago for testing purposes for now.
+        //let predicate = HKQuery.predicateForSamplesWithStartDate(newDate, endDate: NSDate(), options: .None)
+        let predicate = HKQuery.predicateForSamplesWithStartDate(yesterday, endDate: today,options: .None)
+        
+        // Query to fetch steps
+//        let query = HKSampleQuery(sampleType: type!, predicate: predicate, limit: 0, sortDescriptors: nil){ query, results, error in
+//            var steps: Double = 0.0
+//            if results?.count > 0{
+//                for result in results as! [HKQuantitySample]{
+//                    steps += result.quantity.doubleValueForUnit(HKUnit.countUnit())
+//                }
+//            }
+//            
+//            completion(steps, error)
+//        }
+//        hk_store.executeQuery(query)
     }
 
 }

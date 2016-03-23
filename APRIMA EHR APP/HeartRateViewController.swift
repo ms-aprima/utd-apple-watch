@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HeartrateViewController: UITableViewController {
+class HeartRateViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

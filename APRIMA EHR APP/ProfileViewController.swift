@@ -29,7 +29,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
             imagePicker.allowsEditing = false
             self.presentViewController(imagePicker, animated: true, completion: nil)
         }
- 
+        
     }
     
     // Refreshes the UI
@@ -39,11 +39,19 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
             
         }
     }
+    
+    // Used for setting profile picture
+    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!){
+        self.dismissViewControllerAnimated(true, completion: { () -> Void in
+        })
+        profile_image_view.image = image
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        // Set background color to this
         self.view.backgroundColor = UIColor(red: 25.0/255, green: 150.0/255, blue: 197.0/255, alpha: 1)
         
         // Set profile image radius to half the width of UIImageView to make it circular
@@ -63,13 +71,6 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!){
-        self.dismissViewControllerAnimated(true, completion: { () -> Void in
-        })
-        profile_image_view.image = image
-    }
-
 
     /*
     // MARK: - Navigation
