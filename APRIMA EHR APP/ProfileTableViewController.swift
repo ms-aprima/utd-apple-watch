@@ -17,6 +17,9 @@ class ProfileTableViewController: UITableViewController {
     // View objects
     @IBOutlet var display_dob_text_view: UITextView!
     @IBOutlet var display_sex_text_view: UITextView!
+    @IBOutlet var display_height_text_view: UITextView!
+    var height: HKQuantitySample!
+    var h = 0.0
     
     // Refreshes the UI
     func refreshUI(){
@@ -35,6 +38,17 @@ class ProfileTableViewController: UITableViewController {
             display_sex_text_view.editable = false
             display_sex_text_view.scrollEnabled = false
             display_sex_text_view.text = formatSex(health_kit.getSex())
+            
+            self.health_kit.getHight({ (height, error) -> Void in
+                self.height = (height as? HKQuantitySample)!
+                self.h = self.height.quantity.doubleValueForUnit(HKUnit.inchUnit())
+                
+            })
+            display_height_text_view.text = String(format: "%0.2f", h)
+            display_sex_text_view.userInteractionEnabled = false
+            display_sex_text_view.editable = false
+            display_sex_text_view.scrollEnabled = false
+            
             
             // Syncronize/save the user's data
             defaults.setObject(display_dob_text_view.text, forKey: "date of birth")
