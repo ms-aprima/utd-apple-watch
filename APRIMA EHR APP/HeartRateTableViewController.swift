@@ -1,23 +1,44 @@
 //
-//  HeartrateViewController.swift
+//  HeartRateTableViewController.swift
 //  APRIMA EHR APP
 //
-//  Created by david on 3/22/16.
+//  Created by henry dinh on 3/22/16.
 //  Copyright © 2016 david nguyen. All rights reserved.
 //
 
 import UIKit
 
-class HeartRateViewController: UITableViewController {
+class HeartRateTableViewController: UITableViewController {
 
+    // initialize a HealthKit object to pull data from
+    let health_kit: HealthKit = HealthKit()
+    
+    // View objects
+    @IBOutlet var display_heart_rate_text_view: UITextView!
+    var heart_rate = ""
+    
+    // Refreshes the UI
+    func refreshUI(){
+        //display_steps_text_view = health_kit.getSteps(<#T##completion: (Double, NSError?) -> ()##(Double, NSError?) -> ()#>)
+        
+        health_kit.getHeartRate { heart_rate, error in
+            self.heart_rate = String(format: "%0.2f", heart_rate!)
+            print(heart_rate)
+        }
+        display_heart_rate_text_view.userInteractionEnabled = false
+        display_heart_rate_text_view.editable = false
+        display_heart_rate_text_view.text = heart_rate
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        // Do any additional setup after loading the view.
+        refreshUI()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        refreshUI()
     }
 
     override func didReceiveMemoryWarning() {

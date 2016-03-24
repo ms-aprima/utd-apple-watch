@@ -140,28 +140,38 @@ class HealthKit{
     }
     
     // Get the ranges of heart rate for each day (low - high) for the past month and display in table view
-    func getHeartRate(){
+    func getHeartRate(completion: ([HKSample]?, NSError?) -> ()){
+        let calendar = NSCalendar.currentCalendar()
         let today = NSDate()
         let yesterday = NSDate(timeIntervalSinceNow: -86400.0)
+        let components = calendar.components([.Year,.Month,.Day], fromDate: today)
+        guard let startDate:NSDate = calendar.dateFromComponents(components) else { return }
+        let endDate:NSDate? = calendar.dateByAddingUnit(.Day, value: 1, toDate: startDate, options: [])
+        let predicate = HKQuery.predicateForSamplesWithStartDate(startDate, endDate: endDate, options: .None)
         
-        let type = HKSampleType.quantityTypeForIdentifier(HKQuantityTypeIdentifierHeartRate)
+        // Create a heart rate BPM sample
+        let heart_rate_type = HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierHeartRate)!
+        let heart_rate_quantity = HKQuantity(unit: HKUnit(fromString: "count/min"),
+                                           doubleValue: Double(arc4random_uniform(80) + 100))
+        let heart_sample = HKQuantitySample(type: heart_rate_type,
+                                           quantity: heart_rate_quantity, startDate: NSDate(), endDate: NSDate())
+        var heart_rate_query:HKSampleQuery?
+
         
-        // Search predicate will fetch data from now until a day ago for testing purposes for now.
-        //let predicate = HKQuery.predicateForSamplesWithStartDate(newDate, endDate: NSDate(), options: .None)
-        let predicate = HKQuery.predicateForSamplesWithStartDate(yesterday, endDate: today,options: .None)
-        
-        // Query to fetch steps
-//        let query = HKSampleQuery(sampleType: type!, predicate: predicate, limit: 0, sortDescriptors: nil){ query, results, error in
-//            var steps: Double = 0.0
-//            if results?.count > 0{
-//                for result in results as! [HKQuantitySample]{
-//                    steps += result.quantity.doubleValueForUnit(HKUnit.countUnit())
-//                }
-//            }
-//            
-//            completion(steps, error)
-//        }
-//        hk_store.executeQuery(query)
+        heart_rate_query = HKSampleQuery(sampleType: heart_rate_type,
+                                       predicate: predicate,
+                                       limit: 25,
+                                       sortDescriptors: nil)
+        { (query:HKSampleQuery, results:[HKSample]?, error:NSError?) -> Void in
+            
+            guard error == nil else { print("error"); return }
+            
+            //self.printHeartRateInfo(results)
+            
+            completion(results, error)
+            
+        }
+        hk_store.executeQuery(heart_rate_query!)
     }
 
 }

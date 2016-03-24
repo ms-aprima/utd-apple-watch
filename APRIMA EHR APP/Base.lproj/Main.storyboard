@@ -664,7 +664,7 @@
         <!--Heart Rate-->
         <scene sceneID="fYz-Df-7FI">
             <objects>
-                <tableViewController storyboardIdentifier="HeartRateViewController" title="Heart Rate" id="z2j-bw-woQ" customClass="HeartrateViewController" customModule="APRIMA_EHR_APP" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="HeartRateViewController" title="Heart Rate" id="z2j-bw-woQ" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="oOq-W1-vR1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
