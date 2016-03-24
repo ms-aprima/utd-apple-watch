@@ -100,9 +100,28 @@ class HealthKit{
     }
     
     // Get the user's height
-    func getHight(){
-        
+    func getHight(completion:((HKSample!, NSError!) -> Void)!) {
+        let type = HKSampleType.quantityTypeForIdentifier(HKQuantityTypeIdentifierHeight)
+        let old = NSDate.distantPast()
+        let current = NSDate()
+        let predicate = HKQuery.predicateForSamplesWithStartDate(old, endDate: current, options: .None)
+        let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierStartDate, ascending: false)
+        let limit = 1
+        let query = HKSampleQuery(sampleType: type!, predicate: predicate, limit: limit, sortDescriptors: [sortDescriptor])
+        { (query, results, error) -> Void in
+            if let queryError = error{
+                completion(nil, error)
+                return;
+            }
+            
+            let height = results!.first as? HKQuantitySample
+            if completion != nil{
+                completion(height, nil)
+            }
+        }
+        self.hk_store.executeQuery(query)
     }
+    
     
     func getBloodType(app_btype: HKBloodTypeObject) -> String
     {
