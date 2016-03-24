@@ -159,38 +159,35 @@ class HealthKit{
     }
     
     // Get the ranges of heart rate for each day (low - high) for the past month and display in table view
-    func getHeartRate(completion: ([HKSample]?, NSError?) -> ()){
+    func getHeartRate(completion:(([HKSample]!, NSError!) -> Void)!){
         let calendar = NSCalendar.currentCalendar()
         let today = NSDate()
-        let yesterday = NSDate(timeIntervalSinceNow: -86400.0)
+        //let yesterday = NSDate(timeIntervalSinceNow: -86400.0)
         let components = calendar.components([.Year,.Month,.Day], fromDate: today)
-        guard let startDate:NSDate = calendar.dateFromComponents(components) else { return }
-        let endDate:NSDate? = calendar.dateByAddingUnit(.Day, value: 1, toDate: startDate, options: [])
-        let predicate = HKQuery.predicateForSamplesWithStartDate(startDate, endDate: endDate, options: .None)
+        guard let start_date:NSDate = calendar.dateFromComponents(components) else { return }
+        let end_date:NSDate? = calendar.dateByAddingUnit(.Day, value: 1, toDate: start_date, options: [])
+        let predicate = HKQuery.predicateForSamplesWithStartDate(start_date, endDate: end_date, options: .None)
         
         // Create a heart rate BPM sample
+        let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: false)
+        let limit = 25
         let heart_rate_type = HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierHeartRate)!
-        let heart_rate_quantity = HKQuantity(unit: HKUnit(fromString: "count/min"),
-                                           doubleValue: Double(arc4random_uniform(80) + 100))
-        let heart_sample = HKQuantitySample(type: heart_rate_type,
-                                           quantity: heart_rate_quantity, startDate: NSDate(), endDate: NSDate())
-        var heart_rate_query:HKSampleQuery?
-
         
-        heart_rate_query = HKSampleQuery(sampleType: heart_rate_type,
-                                       predicate: predicate,
-                                       limit: 25,
-                                       sortDescriptors: nil)
-        { (query:HKSampleQuery, results:[HKSample]?, error:NSError?) -> Void in
+        // Create query for latest sample
+        let heart_rate_query = HKSampleQuery(sampleType: heart_rate_type, predicate: predicate, limit: limit, sortDescriptors: [sortDescriptor])
+        { (query, results:[HKSample]?, error) -> Void in
+            if let queryError = error{
+                completion(nil, error)
+                return;
+            }
             
-            guard error == nil else { print("error"); return }
-            
-            //self.printHeartRateInfo(results)
-            
-            completion(results, error)
+            //let heart_rate = results!
+            if completion != nil{
+                completion(results, nil)
+            }
             
         }
-        hk_store.executeQuery(heart_rate_query!)
+        self.hk_store.executeQuery(heart_rate_query)
     }
 
 }

@@ -18,19 +18,22 @@ class StepsViewController: UITableViewController {
     
     // Refreshes the UI
     func refreshUI(){
-        //display_steps_text_view = health_kit.getSteps(<#T##completion: (Double, NSError?) -> ()##(Double, NSError?) -> ()#>)
+        // Make sure the user authorized health kit before attempting to pull data
+        if Authorized.enabled == true{
+            //display_steps_text_view = health_kit.getSteps()
         
-        health_kit.getSteps { steps, error in
-            self.steps = String(format: "%0.2f", steps)
+            health_kit.getSteps { steps, error in
+                self.steps = String(format: "%0.2f", steps)
+            }
+            display_steps_text_view.userInteractionEnabled = false
+            display_steps_text_view.editable = false
+            display_steps_text_view.text = steps
         }
-        display_steps_text_view.userInteractionEnabled = false
-        display_steps_text_view.editable = false
-        display_steps_text_view.text = steps
     }
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.refreshControl?.addTarget(self, action: #selector(StepsViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
+//        self.refreshControl?.addTarget(self, action: #selector(StepsViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
         // Do any additional setup after loading the view.
         refreshUI()
     }

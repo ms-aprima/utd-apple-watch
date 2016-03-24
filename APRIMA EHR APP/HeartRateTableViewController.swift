@@ -7,33 +7,54 @@
 //
 
 import UIKit
+import HealthKit
 
 class HeartRateTableViewController: UITableViewController {
+    
+    // Used to store the user's data
+    let defaults = NSUserDefaults.standardUserDefaults()
 
     // initialize a HealthKit object to pull data from
     let health_kit: HealthKit = HealthKit()
     
     // View objects
     @IBOutlet var display_heart_rate_text_view: UITextView!
-    var heart_rate = ""
+    var heart_rate: HKQuantitySample!
+    var h_r = 0.0
     
     // Refreshes the UI
     func refreshUI(){
-        //display_steps_text_view = health_kit.getSteps(<#T##completion: (Double, NSError?) -> ()##(Double, NSError?) -> ()#>)
+        // Don't allowo user to interact with text views
+        self.display_heart_rate_text_view.userInteractionEnabled = false
+        self.display_heart_rate_text_view.editable = false
+        self.display_heart_rate_text_view.scrollEnabled = false
         
-        health_kit.getHeartRate { heart_rate, error in
-            self.heart_rate = String(format: "%0.2f", heart_rate!)
-            print(heart_rate)
+        // Make sure the user authorized health kit before attempting to pull data
+        if Authorized.enabled == true{
+            
+            // displaying heart rate
+            self.health_kit.getHeartRate({ heart_rate, error -> Void in
+                let curr_h_r = (heart_rate[0] as? HKQuantitySample)!
+                let heartRateUnit:HKUnit = HKUnit(fromString: "count/min")
+                self.h_r = curr_h_r.quantity.doubleValueForUnit(heartRateUnit)
+            })
+            
+            display_heart_rate_text_view.text = String(format: "%.2f", h_r)
+        
+            self.defaults.setObject(display_heart_rate_text_view.text, forKey: "heart_rate")
+            self.defaults.synchronize()
+    
         }
-        display_heart_rate_text_view.userInteractionEnabled = false
-        display_heart_rate_text_view.editable = false
-        display_heart_rate_text_view.text = heart_rate
+    }
+    
+    // Called when the user loads the app so the data is restored
+    func loadDefaults(){
+        display_heart_rate_text_view.text = self.defaults.objectForKey("heart_rate") as? String
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
+        loadDefaults()
         refreshUI()
     }
     

@@ -693,7 +693,7 @@
         <!--Heart Rate-->
         <scene sceneID="fYz-Df-7FI">
             <objects>
-                <tableViewController storyboardIdentifier="HeartRateViewController" title="Heart Rate" id="z2j-bw-woQ" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="HeartRateViewController" title="Heart Rate" id="z2j-bw-woQ" customClass="HeartRateTableViewController" customModule="APRIMA_EHR_APP" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="oOq-W1-vR1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -701,14 +701,14 @@
                         <sections>
                             <tableViewSection id="DA1-2w-pc9">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Steps" textLabel="vSk-x4-bbe" style="IBUITableViewCellStyleDefault" id="YXx-3I-wSQ">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Most Recent" textLabel="vSk-x4-bbe" style="IBUITableViewCellStyleDefault" id="YXx-3I-wSQ">
                                         <rect key="frame" x="0.0" y="64" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YXx-3I-wSQ" id="MYX-u5-HGU">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Day 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vSk-x4-bbe">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Most Recent" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vSk-x4-bbe">
                                                     <rect key="frame" x="15" y="0.0" width="384" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -775,6 +775,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Heart Rate (bpm)" id="AqJ-p0-pQU"/>
+                    <connections>
+                        <outlet property="display_heart_rate_text_view" destination="4Rl-pa-WYG" id="o1E-BS-OO3"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tUg-6q-XSN" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <view contentMode="scaleToFill" id="hoe-BM-EOp">

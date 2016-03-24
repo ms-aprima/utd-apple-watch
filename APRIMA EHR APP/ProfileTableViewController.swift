@@ -11,6 +11,9 @@ import HealthKit
 
 class ProfileTableViewController: UITableViewController {
     
+    // Used to store the user's data
+    let defaults = NSUserDefaults.standardUserDefaults()
+    
     // initialize a HealthKit object to pull data from
     let health_kit: HealthKit = HealthKit()
     
@@ -25,20 +28,21 @@ class ProfileTableViewController: UITableViewController {
     func refreshUI(){
         // Make sure the user authorized health kit before attempting to pull data
         if Authorized.enabled == true{
-            // Used to store the user's data
-            let defaults = NSUserDefaults.standardUserDefaults()
             
-            // Don't let user interact with displayed text view.
+            // Don't let user interact with displayed text views
+            // Displaying date of birth
             display_dob_text_view.userInteractionEnabled = false
             display_dob_text_view.editable = false
             display_dob_text_view.scrollEnabled = false
             display_dob_text_view.text = formatDate(health_kit.getBirthday())
             
+            // displaying sex
             display_sex_text_view.userInteractionEnabled = false
             display_sex_text_view.editable = false
             display_sex_text_view.scrollEnabled = false
             display_sex_text_view.text = formatSex(health_kit.getSex())
             
+            // displaying height
             self.health_kit.getHight({ (height, error) -> Void in
                 self.height = (height as? HKQuantitySample)!
                 self.h = self.height.quantity.doubleValueForUnit(HKUnit.inchUnit())
@@ -47,23 +51,22 @@ class ProfileTableViewController: UITableViewController {
             display_sex_text_view.userInteractionEnabled = false
             display_sex_text_view.editable = false
             display_sex_text_view.scrollEnabled = false
-            display_height_text_view.text = String(format: "%0.2f", h)
+            display_height_text_view.text = String(format: "%0.2f" + " in.", h)
             
             
-            // Syncronize/save the user's data
-            defaults.setObject(display_dob_text_view.text, forKey: "date of birth")
-            defaults.setObject(display_sex_text_view.text, forKey: "sex")
-            defaults.setObject(display_height_text_view.text, forKey: "height")
-            defaults.synchronize()
+            // Syncronize/save the user's data to store and retrieve across sessions (closing and reopening app)
+            self.defaults.setObject(display_dob_text_view.text, forKey: "date of birth")
+            self.defaults.setObject(display_sex_text_view.text, forKey: "sex")
+            self.defaults.setObject(display_height_text_view.text, forKey: "height")
+            self.defaults.synchronize()
         }
     }
     
     // Called when the user loads the app so the data is restored
     func loadDefaults(){
-        let defaults = NSUserDefaults.standardUserDefaults()
-        display_dob_text_view.text = defaults.objectForKey("date of birth") as? String
-        display_sex_text_view.text = defaults.objectForKey("sex") as? String
-        display_height_text_view.text = defaults.objectForKey("height") as? String
+        display_dob_text_view.text = self.defaults.objectForKey("date of birth") as? String
+        display_sex_text_view.text = self.defaults.objectForKey("sex") as? String
+        display_height_text_view.text = self.defaults.objectForKey("height") as? String
     }
     
     // Called everytime the UI is displayed (i.e. the user goes to the profile tab)
@@ -74,6 +77,8 @@ class ProfileTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadDefaults()
+        refreshUI()
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
