@@ -44,15 +44,16 @@ class ProfileTableViewController: UITableViewController {
                 self.h = self.height.quantity.doubleValueForUnit(HKUnit.inchUnit())
                 
             })
-            display_height_text_view.text = String(format: "%0.2f", h)
             display_sex_text_view.userInteractionEnabled = false
             display_sex_text_view.editable = false
             display_sex_text_view.scrollEnabled = false
+            display_height_text_view.text = String(format: "%0.2f", h)
             
             
             // Syncronize/save the user's data
             defaults.setObject(display_dob_text_view.text, forKey: "date of birth")
             defaults.setObject(display_sex_text_view.text, forKey: "sex")
+            defaults.setObject(display_height_text_view.text, forKey: "height")
             defaults.synchronize()
         }
     }
@@ -62,6 +63,7 @@ class ProfileTableViewController: UITableViewController {
         let defaults = NSUserDefaults.standardUserDefaults()
         display_dob_text_view.text = defaults.objectForKey("date of birth") as? String
         display_sex_text_view.text = defaults.objectForKey("sex") as? String
+        display_height_text_view.text = defaults.objectForKey("height") as? String
     }
     
     // Called everytime the UI is displayed (i.e. the user goes to the profile tab)
