@@ -684,6 +684,7 @@
                         <outlet property="display_dob_text_view" destination="Igd-Mt-dtP" id="72O-6x-mw2"/>
                         <outlet property="display_height_text_view" destination="ADA-4e-Or8" id="XaW-vB-veE"/>
                         <outlet property="display_sex_text_view" destination="BGU-aL-D94" id="vXd-Vg-KHk"/>
+                        <outlet property="display_weight_text_view" destination="EML-XL-KE1" id="y7g-c2-AHB"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZiB-D3-Tws" userLabel="First Responder" sceneMemberID="firstResponder"/>

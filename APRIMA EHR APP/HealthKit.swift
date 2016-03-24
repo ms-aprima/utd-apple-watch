@@ -152,10 +152,27 @@ class HealthKit{
         return bloodType
     }
     
-    //need to do
-    func getWeight() -> String
-    {
-        return HKQuantityTypeIdentifierBodyMass
+    // Get the user's weight
+    func getWeight(completion:((HKSample!, NSError!) -> Void)!) {
+        let type = HKSampleType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBodyMass)
+        let old = NSDate.distantPast()
+        let current = NSDate()
+        let predicate = HKQuery.predicateForSamplesWithStartDate(old, endDate: current, options: .None)
+        let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierStartDate, ascending: false)
+        let limit = 1
+        let query = HKSampleQuery(sampleType: type!, predicate: predicate, limit: limit, sortDescriptors: [sortDescriptor])
+        { (query, results, error) -> Void in
+            if let queryError = error{
+                completion(nil, error)
+                return;
+            }
+            
+            let weight = results!.first as? HKQuantitySample
+            if completion != nil{
+                completion(weight, nil)
+            }
+        }
+        self.hk_store.executeQuery(query)
     }
     
     // Get the ranges of heart rate for each day (low - high) for the past month and display in table view

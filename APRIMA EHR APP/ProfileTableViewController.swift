@@ -21,25 +21,41 @@ class ProfileTableViewController: UITableViewController {
     @IBOutlet var display_dob_text_view: UITextView!
     @IBOutlet var display_sex_text_view: UITextView!
     @IBOutlet var display_height_text_view: UITextView!
+    @IBOutlet var display_weight_text_view: UITextView!
+    
     var height: HKQuantitySample!
     var h = 0.0
     
+    var weight: HKQuantitySample!
+    var w = 0.0
+    
     // Refreshes the UI
     func refreshUI(){
+        
+        // Don't let user interact with displayed text views
+        display_dob_text_view.userInteractionEnabled = false
+        display_dob_text_view.editable = false
+        display_dob_text_view.scrollEnabled = false
+        
+        display_sex_text_view.userInteractionEnabled = false
+        display_sex_text_view.editable = false
+        display_sex_text_view.scrollEnabled = false
+        
+        display_height_text_view.userInteractionEnabled = false
+        display_height_text_view.editable = false
+        display_height_text_view.scrollEnabled = false
+        
+        display_weight_text_view.userInteractionEnabled = false
+        display_weight_text_view.editable = false
+        display_weight_text_view.scrollEnabled = false
+        
         // Make sure the user authorized health kit before attempting to pull data
         if Authorized.enabled == true{
             
-            // Don't let user interact with displayed text views
             // Displaying date of birth
-            display_dob_text_view.userInteractionEnabled = false
-            display_dob_text_view.editable = false
-            display_dob_text_view.scrollEnabled = false
             display_dob_text_view.text = formatDate(health_kit.getBirthday())
             
             // displaying sex
-            display_sex_text_view.userInteractionEnabled = false
-            display_sex_text_view.editable = false
-            display_sex_text_view.scrollEnabled = false
             display_sex_text_view.text = formatSex(health_kit.getSex())
             
             // displaying height
@@ -48,16 +64,21 @@ class ProfileTableViewController: UITableViewController {
                 self.h = self.height.quantity.doubleValueForUnit(HKUnit.inchUnit())
                 
             })
-            display_sex_text_view.userInteractionEnabled = false
-            display_sex_text_view.editable = false
-            display_sex_text_view.scrollEnabled = false
             display_height_text_view.text = String(format: "%0.2f" + " in.", h)
+            
+            // displaying weight
+            self.health_kit.getWeight({ (weight, error) -> Void in
+                self.weight = (weight as? HKQuantitySample)!
+                self.w = (self.weight.quantity.doubleValueForUnit(HKUnit.poundUnit()))
+            })
+            display_weight_text_view.text = String(format: "%0.2f" + " lb", w)
             
             
             // Syncronize/save the user's data to store and retrieve across sessions (closing and reopening app)
             self.defaults.setObject(display_dob_text_view.text, forKey: "date of birth")
             self.defaults.setObject(display_sex_text_view.text, forKey: "sex")
             self.defaults.setObject(display_height_text_view.text, forKey: "height")
+            self.defaults.setObject(display_weight_text_view.text, forKey: "weight")
             self.defaults.synchronize()
         }
     }
@@ -67,6 +88,7 @@ class ProfileTableViewController: UITableViewController {
         display_dob_text_view.text = self.defaults.objectForKey("date of birth") as? String
         display_sex_text_view.text = self.defaults.objectForKey("sex") as? String
         display_height_text_view.text = self.defaults.objectForKey("height") as? String
+        display_weight_text_view.text = self.defaults.objectForKey("weight") as? String
     }
     
     // Called everytime the UI is displayed (i.e. the user goes to the profile tab)
