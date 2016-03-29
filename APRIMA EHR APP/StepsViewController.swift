@@ -33,7 +33,7 @@ class StepsViewController: UITableViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.refreshControl?.addTarget(self, action: #selector(StepsViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
+        //self.refreshControl?.addTarget(self, action: #selector(StepsViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
         // Do any additional setup after loading the view.
         refreshUI()
     }

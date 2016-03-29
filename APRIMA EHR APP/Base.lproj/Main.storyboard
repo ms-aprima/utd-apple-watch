@@ -159,7 +159,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="z2j-bw-woQ" kind="show" id="HUK-mb-HWn"/>
+                                            <segue destination="Cbe-CK-IZC" kind="show" id="Q2q-aT-3BG"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="RvY-7c-2Dt">
@@ -199,6 +199,38 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZBT-IL-RBX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1314" y="-451"/>
+        </scene>
+        <!--Heart Rate-->
+        <scene sceneID="I1v-P7-Lrc">
+            <objects>
+                <viewController title="Heart Rate" id="Cbe-CK-IZC" customClass="HeartRateViewController" customModule="APRIMA_EHR_APP" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5Cc-g5-IXa"/>
+                        <viewControllerLayoutGuide type="bottom" id="M9t-Gg-PxR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bEQ-NA-khz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lFF-kl-xci">
+                                <rect key="frame" x="0.0" y="259" width="414" height="433"/>
+                                <connections>
+                                    <segue destination="z2j-bw-woQ" kind="embed" id="pda-FQ-823"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="lFF-kl-xci" firstAttribute="leading" secondItem="bEQ-NA-khz" secondAttribute="leading" id="Cpn-g0-fCP"/>
+                            <constraint firstAttribute="trailing" secondItem="lFF-kl-xci" secondAttribute="trailing" id="J7z-37-y26"/>
+                            <constraint firstItem="lFF-kl-xci" firstAttribute="bottom" secondItem="M9t-Gg-PxR" secondAttribute="top" id="jVT-mt-jEH"/>
+                            <constraint firstItem="lFF-kl-xci" firstAttribute="top" secondItem="5Cc-g5-IXa" secondAttribute="bottom" constant="195" id="rTf-7Q-34B"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g9m-7p-jrS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1865" y="-432"/>
         </scene>
         <!--Fitness-->
         <scene sceneID="Ga7-W0-vqX">
@@ -511,24 +543,35 @@
                                     <action selector="updateProfileImage" destination="bGu-6R-pGS" eventType="touchUpInside" id="e4C-AH-39U"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hB2-q0-q2X">
+                                <rect key="frame" x="87" y="217" width="240" height="39"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10000000000000001" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="usY-Ww-876" firstAttribute="top" secondItem="lX5-EF-DK6" secondAttribute="bottom" constant="82" id="1mS-rT-Y4k"/>
                             <constraint firstItem="PXd-CJ-kJ1" firstAttribute="top" secondItem="lX5-EF-DK6" secondAttribute="top" id="3GJ-2h-aSw"/>
+                            <constraint firstItem="hB2-q0-q2X" firstAttribute="leading" secondItem="yqv-gc-6Ez" secondAttribute="leadingMargin" constant="67" id="4qH-Lb-qr1"/>
                             <constraint firstItem="PXd-CJ-kJ1" firstAttribute="trailing" secondItem="lX5-EF-DK6" secondAttribute="trailing" id="ENs-9Y-9Zf"/>
                             <constraint firstItem="lX5-EF-DK6" firstAttribute="centerX" secondItem="usY-Ww-876" secondAttribute="centerX" id="G05-yd-isy"/>
+                            <constraint firstItem="usY-Ww-876" firstAttribute="top" secondItem="hB2-q0-q2X" secondAttribute="bottom" constant="35" id="VeY-kU-XNg"/>
                             <constraint firstItem="PXd-CJ-kJ1" firstAttribute="leading" secondItem="lX5-EF-DK6" secondAttribute="leading" id="Vxr-Wh-UPJ"/>
                             <constraint firstItem="PXd-CJ-kJ1" firstAttribute="bottom" secondItem="lX5-EF-DK6" secondAttribute="bottom" id="cmr-Af-6tz"/>
                             <constraint firstAttribute="trailing" secondItem="usY-Ww-876" secondAttribute="trailing" id="d8S-bi-9VF"/>
                             <constraint firstItem="usY-Ww-876" firstAttribute="leading" secondItem="yqv-gc-6Ez" secondAttribute="leading" id="g0Z-3b-Lsn"/>
+                            <constraint firstItem="hB2-q0-q2X" firstAttribute="centerX" secondItem="lX5-EF-DK6" secondAttribute="centerX" id="hwk-Zq-nmq"/>
                             <constraint firstItem="usY-Ww-876" firstAttribute="bottom" secondItem="fzg-IG-NRg" secondAttribute="top" id="u7f-KR-xra"/>
                             <constraint firstItem="lX5-EF-DK6" firstAttribute="top" secondItem="7D9-HO-eNP" secondAttribute="bottom" constant="39" id="vDR-0H-3la"/>
+                            <constraint firstItem="hB2-q0-q2X" firstAttribute="top" secondItem="lX5-EF-DK6" secondAttribute="bottom" constant="8" symbolic="YES" id="wN0-ME-dLg"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="User Male Filled-50" id="Y1v-ho-z2Y"/>
                     <connections>
                         <outlet property="display_dob_text_view" destination="Igd-Mt-dtP" id="HyA-jW-4zr"/>
+                        <outlet property="name_text_view" destination="hB2-q0-q2X" id="5Qc-BO-vD1"/>
                         <outlet property="profile_image_button" destination="PXd-CJ-kJ1" id="qev-uL-HLr"/>
                         <outlet property="profile_image_view" destination="lX5-EF-DK6" id="9gE-8X-d3N"/>
                     </connections>
@@ -691,19 +734,19 @@
             </objects>
             <point key="canvasLocation" x="797" y="151"/>
         </scene>
-        <!--Heart Rate-->
+        <!--Heart Rate Table View-->
         <scene sceneID="fYz-Df-7FI">
             <objects>
-                <tableViewController storyboardIdentifier="HeartRateViewController" title="Heart Rate" id="z2j-bw-woQ" customClass="HeartRateTableViewController" customModule="APRIMA_EHR_APP" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="HeartRateViewController" title="Heart Rate Table View" id="z2j-bw-woQ" customClass="HeartRateTableViewController" customModule="APRIMA_EHR_APP" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="oOq-W1-vR1">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="433"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
                             <tableViewSection id="DA1-2w-pc9">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Most Recent" textLabel="vSk-x4-bbe" style="IBUITableViewCellStyleDefault" id="YXx-3I-wSQ">
-                                        <rect key="frame" x="0.0" y="64" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YXx-3I-wSQ" id="MYX-u5-HGU">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
@@ -734,7 +777,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="Pbr-7O-iT2" style="IBUITableViewCellStyleDefault" id="sX9-ra-02G">
-                                        <rect key="frame" x="0.0" y="108" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sX9-ra-02G" id="Nj1-Fx-A5h">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
@@ -751,7 +794,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="ozN-Kx-FS3" style="IBUITableViewCellStyleDefault" id="JTY-no-qHp">
-                                        <rect key="frame" x="0.0" y="152" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="88" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JTY-no-qHp" id="kj9-ls-inG">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
@@ -801,7 +844,7 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="1894" y="-426"/>
+            <point key="canvasLocation" x="2451" y="-432"/>
         </scene>
     </scenes>
     <resources>

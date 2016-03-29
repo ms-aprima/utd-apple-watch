@@ -17,6 +17,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     @IBOutlet var table_view: UITableView!
     @IBOutlet var profile_image_view: UIImageView!
     @IBOutlet var profile_image_button: UIButton!
+    @IBOutlet var name_text_view: UITextView!
     
     var imagePicker = UIImagePickerController()
     
@@ -60,6 +61,10 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         // Add a border to the image
         profile_image_view.layer.borderWidth = 3.0
         profile_image_view.layer.borderColor = UIColor.whiteColor().CGColor
+        
+        // Set name text view background transparent and text color to white
+        name_text_view.textColor = UIColor.whiteColor()
+        name_text_view.layer.cornerRadius = name_text_view.frame.size.width / 16
     }
     
     // Called everytime the UI is displayed (i.e. the user goes to the profile tab)

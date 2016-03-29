@@ -41,9 +41,9 @@ class HeartRateTableViewController: UITableViewController {
             
             display_heart_rate_text_view.text = String(format: "%.2f", h_r)
         
+            // Set up keys to store in NSUserDefaults
             self.defaults.setObject(display_heart_rate_text_view.text, forKey: "heart_rate")
             self.defaults.synchronize()
-    
         }
     }
     
