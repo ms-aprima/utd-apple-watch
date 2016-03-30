@@ -30,7 +30,8 @@ class HealthKit{
                                           HKObjectType.quantityTypeForIdentifier(HKQuantityTypeIdentifierHeight)!,
                                           HKObjectType.characteristicTypeForIdentifier(HKCharacteristicTypeIdentifierBiologicalSex)!,
                                           HKObjectType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBodyMass)!,
-                                          HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierHeartRate)!]
+                                          HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierHeartRate)!,
+                                          HKCharacteristicType.characteristicTypeForIdentifier(HKCharacteristicTypeIdentifierBloodType)!]
         
         
         // check it see if healthkit is accessible on this device
@@ -136,7 +137,10 @@ class HealthKit{
     func getBloodType() -> String
     {
         var bloodType: String
+        
         let bio_btype = pullBloodType().bloodType
+        //print(bio_btype)
+        
         switch bio_btype.rawValue{
             case 0:
                 bloodType = ""
@@ -159,6 +163,7 @@ class HealthKit{
             default:
                 bloodType = ""
         }
+        //print(bloodType)
         return bloodType
     }
     

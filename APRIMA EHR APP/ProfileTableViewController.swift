@@ -22,6 +22,7 @@ class ProfileTableViewController: UITableViewController {
     @IBOutlet var display_sex_text_view: UITextView!
     @IBOutlet var display_height_text_view: UITextView!
     @IBOutlet var display_weight_text_view: UITextView!
+    @IBOutlet var display_blood_text_view: UITextView!
     
     var height: HKQuantitySample!
     var h = 0.0
@@ -49,11 +50,22 @@ class ProfileTableViewController: UITableViewController {
         display_weight_text_view.editable = false
         display_weight_text_view.scrollEnabled = false
         
+        display_blood_text_view.userInteractionEnabled = false
+        display_blood_text_view.editable = false
+        display_blood_text_view.scrollEnabled = false
+        
+        
         // Make sure the user authorized health kit before attempting to pull data
         if Authorized.enabled == true{
             
             // Displaying date of birth
             display_dob_text_view.text = formatDate(health_kit.getBirthday())
+            
+            //display blood text
+            
+            print(health_kit.getBloodType())
+            
+            display_blood_text_view.text = health_kit.getBloodType()
             
             // displaying sex
             display_sex_text_view.text = formatSex(health_kit.getSex())
@@ -79,6 +91,7 @@ class ProfileTableViewController: UITableViewController {
             self.defaults.setObject(display_sex_text_view.text, forKey: "sex")
             self.defaults.setObject(display_height_text_view.text, forKey: "height")
             self.defaults.setObject(display_weight_text_view.text, forKey: "weight")
+            self.defaults.setObject(display_blood_text_view.text, forKey: "blood type")
             self.defaults.synchronize()
         }
     }
@@ -89,6 +102,7 @@ class ProfileTableViewController: UITableViewController {
         display_sex_text_view.text = self.defaults.objectForKey("sex") as? String
         display_height_text_view.text = self.defaults.objectForKey("height") as? String
         display_weight_text_view.text = self.defaults.objectForKey("weight") as? String
+        display_blood_text_view.text = self.defaults.objectForKey("blood type") as? String
     }
     
     // Called everytime the UI is displayed (i.e. the user goes to the profile tab)
