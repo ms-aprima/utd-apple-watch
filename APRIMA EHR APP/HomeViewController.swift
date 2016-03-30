@@ -21,7 +21,9 @@ class HomeViewController: UIViewController {
     }
 
 
-
+    override func viewDidAppear(animated: Bool){
+        self.performSegueWithIdentifier("login_view_segue", sender: self)
+    }
 }
 
 import AVFoundation
