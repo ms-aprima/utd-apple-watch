@@ -25,6 +25,8 @@
 		D1835A061CAB7E4B00B40A29 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1835A051CAB7E4B00B40A29 /* LoginViewController.swift */; };
 		D18856B61C7D511000DEAB91 /* FitnessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18856B51C7D511000DEAB91 /* FitnessViewController.swift */; };
 		D194F0801C87CC68006B7338 /* StepsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D194F07F1C87CC68006B7338 /* StepsViewController.swift */; };
+		D1A5917B1CAC342A008F0313 /* HeartRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A5917A1CAC342A008F0313 /* HeartRate.swift */; };
+		D1A5917D1CAC36BA008F0313 /* Steps.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A5917C1CAC36BA008F0313 /* Steps.swift */; };
 		D1A71F401C7D27F50004EA65 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A71F3F1C7D27F50004EA65 /* SettingsViewController.swift */; };
 		D1A71F421C7D29F30004EA65 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A71F411C7D29F30004EA65 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
@@ -72,6 +74,8 @@
 		D1835A051CAB7E4B00B40A29 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D18856B51C7D511000DEAB91 /* FitnessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FitnessViewController.swift; sourceTree = "<group>"; };
 		D194F07F1C87CC68006B7338 /* StepsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepsViewController.swift; sourceTree = "<group>"; };
+		D1A5917A1CAC342A008F0313 /* HeartRate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeartRate.swift; sourceTree = "<group>"; };
+		D1A5917C1CAC36BA008F0313 /* Steps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Steps.swift; sourceTree = "<group>"; };
 		D1A71F3F1C7D27F50004EA65 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		D1A71F411C7D29F30004EA65 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -127,6 +131,7 @@
 		645C6D321C74C18900275405 /* APRIMA EHR APP */ = {
 			isa = PBXGroup;
 			children = (
+				D1A591791CAC3411008F0313 /* Data Type Classes */,
 				D1835A041CAB7E2F00B40A29 /* Home View Controllers */,
 				D1447E661C8E8CFB0047DCA5 /* Profile View Controllers */,
 				D18856B41C7D50D600DEAB91 /* Health Data View Controllers */,
@@ -205,6 +210,15 @@
 				64918D5B1CA23A5A009C1496 /* VitalsVIewController.swift */,
 			);
 			name = "Health Data View Controllers";
+			sourceTree = "<group>";
+		};
+		D1A591791CAC3411008F0313 /* Data Type Classes */ = {
+			isa = PBXGroup;
+			children = (
+				D1A5917A1CAC342A008F0313 /* HeartRate.swift */,
+				D1A5917C1CAC36BA008F0313 /* Steps.swift */,
+			);
+			name = "Data Type Classes";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -353,9 +367,11 @@
 				D1835A031CAA2B4B00B40A29 /* HeartRateViewController.swift in Sources */,
 				D194F0801C87CC68006B7338 /* StepsViewController.swift in Sources */,
 				225EC7321C7A828C00610507 /* HealthKit.swift in Sources */,
+				D1A5917D1CAC36BA008F0313 /* Steps.swift in Sources */,
 				645C6D341C74C18900275405 /* AppDelegate.swift in Sources */,
 				D1A71F401C7D27F50004EA65 /* SettingsViewController.swift in Sources */,
 				D169125E1CA254D40032C14F /* HeartRateTableViewController.swift in Sources */,
+				D1A5917B1CAC342A008F0313 /* HeartRate.swift in Sources */,
 				D18856B61C7D511000DEAB91 /* FitnessViewController.swift in Sources */,
 				645C6D361C74C18900275405 /* HomeViewController.swift in Sources */,
 				D1835A061CAB7E4B00B40A29 /* LoginViewController.swift in Sources */,
