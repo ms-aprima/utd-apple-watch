@@ -22,6 +22,7 @@
 		D1447E681C8E8D3C0047DCA5 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1447E671C8E8D3C0047DCA5 /* ProfileTableViewController.swift */; };
 		D169125E1CA254D40032C14F /* HeartRateTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D169125D1CA254D40032C14F /* HeartRateTableViewController.swift */; };
 		D1835A031CAA2B4B00B40A29 /* HeartRateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1835A021CAA2B4B00B40A29 /* HeartRateViewController.swift */; };
+		D1835A061CAB7E4B00B40A29 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1835A051CAB7E4B00B40A29 /* LoginViewController.swift */; };
 		D18856B61C7D511000DEAB91 /* FitnessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18856B51C7D511000DEAB91 /* FitnessViewController.swift */; };
 		D194F0801C87CC68006B7338 /* StepsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D194F07F1C87CC68006B7338 /* StepsViewController.swift */; };
 		D1A71F401C7D27F50004EA65 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A71F3F1C7D27F50004EA65 /* SettingsViewController.swift */; };
@@ -68,6 +69,7 @@
 		D1447E671C8E8D3C0047DCA5 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		D169125D1CA254D40032C14F /* HeartRateTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeartRateTableViewController.swift; sourceTree = "<group>"; };
 		D1835A021CAA2B4B00B40A29 /* HeartRateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeartRateViewController.swift; sourceTree = "<group>"; };
+		D1835A051CAB7E4B00B40A29 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D18856B51C7D511000DEAB91 /* FitnessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FitnessViewController.swift; sourceTree = "<group>"; };
 		D194F07F1C87CC68006B7338 /* StepsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepsViewController.swift; sourceTree = "<group>"; };
 		D1A71F3F1C7D27F50004EA65 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 		645C6D321C74C18900275405 /* APRIMA EHR APP */ = {
 			isa = PBXGroup;
 			children = (
+				D1835A041CAB7E2F00B40A29 /* Home View Controllers */,
 				D1447E661C8E8CFB0047DCA5 /* Profile View Controllers */,
 				D18856B41C7D50D600DEAB91 /* Health Data View Controllers */,
 				225EC7351C7A8C5E00610507 /* APRIMA EHR APP.entitlements */,
@@ -183,6 +186,14 @@
 				D194F07F1C87CC68006B7338 /* StepsViewController.swift */,
 			);
 			name = "Fitness View Controllers";
+			sourceTree = "<group>";
+		};
+		D1835A041CAB7E2F00B40A29 /* Home View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D1835A051CAB7E4B00B40A29 /* LoginViewController.swift */,
+			);
+			name = "Home View Controllers";
 			sourceTree = "<group>";
 		};
 		D18856B41C7D50D600DEAB91 /* Health Data View Controllers */ = {
@@ -347,6 +358,7 @@
 				D169125E1CA254D40032C14F /* HeartRateTableViewController.swift in Sources */,
 				D18856B61C7D511000DEAB91 /* FitnessViewController.swift in Sources */,
 				645C6D361C74C18900275405 /* HomeViewController.swift in Sources */,
+				D1835A061CAB7E4B00B40A29 /* LoginViewController.swift in Sources */,
 				64918D5C1CA23A5A009C1496 /* VitalsVIewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
