@@ -99,6 +99,16 @@ class HealthKit{
         return biological_sex!
     }
     
+    func pullBloodType() -> HKBloodTypeObject{
+        var bloodType: HKBloodTypeObject?
+        do{
+                bloodType = try hk_store.bloodType()
+        }catch{
+            //Error
+        }
+        return bloodType!
+    }
+    
     // Get the user's height
     func getHight(completion:((HKSample!, NSError!) -> Void)!) {
         let type = HKSampleType.quantityTypeForIdentifier(HKQuantityTypeIdentifierHeight)
@@ -123,10 +133,10 @@ class HealthKit{
     }
     
     
-    func getBloodType(app_btype: HKBloodTypeObject) -> String
+    func getBloodType() -> String
     {
         var bloodType: String
-        let bio_btype = app_btype.bloodType
+        let bio_btype = pullBloodType().bloodType
         switch bio_btype.rawValue{
             case 0:
                 bloodType = ""
