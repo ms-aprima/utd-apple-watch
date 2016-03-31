@@ -80,11 +80,36 @@ class HealthKit{
     func getBirthday()-> NSDate{
         var birth_day: NSDate?
         
+        //for use in the catch block
+        var dateNull : NSDate
+        
+        //test
+        //intializes a 0 for date
+        let c = NSDateComponents()
+        c.year = 0
+        c.month = 0
+        c.day = 0
+
+        //converts NSDateComponents to usable NSdate for return
+        var gregorian = NSCalendar(identifier:NSCalendarIdentifierGregorian)
+        var dateNull2 = gregorian!.dateFromComponents(c)
+        
         do{
             birth_day = try hk_store.dateOfBirth()
         }catch{
             // Throw some kind of error. commented out for now
             //fatalError() <-- Don't uncomment yet cause fatalError will crash the app lol
+            
+            //if user doesn not have a birthday set, return a default date 
+            //prevents the app from crashing when trying to pull non-existant data
+            //Not sure how to display 'blank' data since function requires returning an NSdate object
+            
+            //2 options
+            // returning dateNull --- will return current date
+            // returning dateNull2 -- will return date set to 0
+            // will decide later which to keep as I explore better options
+            dateNull = NSDate.init()
+            return dateNull2!
         }
         return birth_day!
     }
@@ -96,6 +121,7 @@ class HealthKit{
             biological_sex = try hk_store.biologicalSex()
         }catch{
             // Error here
+            //biological_sex =
         }
         return biological_sex!
     }
