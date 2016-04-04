@@ -26,9 +26,9 @@ class HomeViewController: UIViewController {
 
     override func viewDidAppear(animated: Bool){
         // Automatically switch to login scene if user is not logged in
-        if(!defaults.boolForKey("is_user_logged_in")){
-            self.performSegueWithIdentifier("login_view_segue", sender: self)
-        }
+       // if(!defaults.boolForKey("is_user_logged_in")){
+       //     self.performSegueWithIdentifier("login_view_segue", sender: self)
+       // }
     }
 }
 
