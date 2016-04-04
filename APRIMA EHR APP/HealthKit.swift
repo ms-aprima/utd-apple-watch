@@ -48,12 +48,12 @@ class HealthKit{
     }
 
     // Gets steps. Still need to define how we want to display this data.
-    func getSteps(completion: (Double, NSError?) -> ()){
+   func getSteps(completion: (Array<HKSample>, NSError?) -> ()){
         // Testing getting steps from yesterday to today. Get yesterday's date by subtracting 24 hours (in secs) from today's date
         // So with yesterday's date as start parameter and today's date as the end parameter to the method below
         // Temporary of course
         let today = NSDate()
-        let yesterday = NSDate(timeIntervalSinceNow: -86400.0)
+        let yesterday = NSDate.distantPast()
         
         // The type of data being requested
         let type = HKSampleType.quantityTypeForIdentifier(HKQuantityTypeIdentifierStepCount)
@@ -71,7 +71,7 @@ class HealthKit{
                 }
             }
             
-            completion(steps, error)
+            completion(results!, error)
         }
         hk_store.executeQuery(query)
     }

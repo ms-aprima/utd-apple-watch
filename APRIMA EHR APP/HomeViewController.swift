@@ -29,6 +29,7 @@ class HomeViewController: UIViewController {
 //        if(!defaults.boolForKey("is_user_logged_in")){
 //            self.performSegueWithIdentifier("login_view_segue", sender: self)
 //        }
+
     }
 }
 
