@@ -61,10 +61,7 @@ class ProfileTableViewController: UITableViewController {
             // Displaying date of birth
             display_dob_text_view.text = formatDate(health_kit.getBirthday())
             
-            //display blood text
-            
-            print(health_kit.getBloodType())
-            
+            //display blood type
             display_blood_text_view.text = health_kit.getBloodType()
             
             // displaying sex
@@ -151,6 +148,14 @@ class ProfileTableViewController: UITableViewController {
             sex = ""
         }
         return sex
+    }
+    
+    func formatHeight(){
+        
+    }
+    
+    func formatWeight(){
+        
     }
 
     // MARK: - Table view data source
