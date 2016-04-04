@@ -32,22 +32,22 @@ class HomeViewController: UIViewController {
     }
 }
 
-import AVFoundation
-
-//code to play music
-class MusicHelper {
-    static let sharedHelper = MusicHelper()
-    var audioPlayer: AVAudioPlayer?
-    
-    func playBackgroundMusic() {
-        let aSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("way-to-success", ofType: "mp3")!)
-        do {
-            audioPlayer = try AVAudioPlayer(contentsOfURL:aSound)
-            audioPlayer!.numberOfLoops = -1
-            audioPlayer!.prepareToPlay()
-            audioPlayer!.play()
-        } catch {
-            print("Cannot play the file")
-        }
-    }
-}
+//import AVFoundation
+//
+////code to play music
+//class MusicHelper {
+//    static let sharedHelper = MusicHelper()
+//    var audioPlayer: AVAudioPlayer?
+//    
+//    func playBackgroundMusic() {
+//        let aSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("way-to-success", ofType: "mp3")!)
+//        do {
+//            audioPlayer = try AVAudioPlayer(contentsOfURL:aSound)
+//            audioPlayer!.numberOfLoops = -1
+//            audioPlayer!.prepareToPlay()
+//            audioPlayer!.play()
+//        } catch {
+//            print("Cannot play the file")
+//        }
+//    }
+//}

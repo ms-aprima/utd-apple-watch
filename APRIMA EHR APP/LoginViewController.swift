@@ -65,10 +65,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             let task = session.dataTaskWithRequest(request, completionHandler: {urlData, response, error -> Void in
                 if (urlData != nil) {
                     let res = response as! NSHTTPURLResponse!;
+                    print(res)
                     if 200..<300 ~= res.statusCode {
                         //If login is successful, save that user is logged in and go back to home scene
                         do {
                             let jsonData:NSDictionary = try NSJSONSerialization.JSONObjectWithData(urlData!, options:NSJSONReadingOptions.MutableContainers ) as! NSDictionary
+                            print(jsonData)
                             //On success, invoke `completion` with passing jsonData.
                             let sessionId:String = jsonData.valueForKey("Id") as! String
                             if(sessionId != "") {
