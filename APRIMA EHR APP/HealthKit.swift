@@ -49,12 +49,12 @@ class HealthKit{
     }
 
     // Gets steps. Still need to define how we want to display this data.
-    func getSteps(completion: (Double, NSError?) -> ()){
+   func getSteps(completion: (Array<HKSample>, NSError?) -> ()){
         // Testing getting steps from yesterday to today. Get yesterday's date by subtracting 24 hours (in secs) from today's date
         // So with yesterday's date as start parameter and today's date as the end parameter to the method below
         // Temporary of course
         let today = NSDate()
-        let yesterday = NSDate(timeIntervalSinceNow: -86400.0)
+        let yesterday = NSDate.distantPast()
         
         // The type of data being requested
         let type = HKSampleType.quantityTypeForIdentifier(HKQuantityTypeIdentifierStepCount)
@@ -72,7 +72,7 @@ class HealthKit{
                 }
             }
             
-            completion(steps, error)
+            completion(results!, error)
         }
         hk_store.executeQuery(query)
     }
@@ -218,33 +218,27 @@ class HealthKit{
     }
     
     // Get the ranges of heart rate for each day (low - high) for the past month and display in table view
-    func getHeartRate(completion:(([HKSample]!, NSError!) -> Void)!){
-        let calendar = NSCalendar.currentCalendar()
-        let today = NSDate()
-        //let yesterday = NSDate(timeIntervalSinceNow: -86400.0)
-        let components = calendar.components([.Year,.Month,.Day], fromDate: today)
-        guard let start_date:NSDate = calendar.dateFromComponents(components) else { return }
-        let end_date:NSDate? = calendar.dateByAddingUnit(.Day, value: 1, toDate: start_date, options: [])
+    func getHeartRate(completion:(Array<HKSample>, NSError?) ->()){
+        // Date range to pull datat from. From distant past to today
+        let end_date = NSDate()
+        let start_date = NSDate.distantPast()
         let predicate = HKQuery.predicateForSamplesWithStartDate(start_date, endDate: end_date, options: .None)
         
         // Create a heart rate BPM sample
-        let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: false)
+//        let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: false)
         let limit = 25
-        let heart_rate_type = HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierHeartRate)!
+        let heart_rate_type = HKSampleType.quantityTypeForIdentifier(HKQuantityTypeIdentifierHeartRate)
         
         // Create query for latest sample
-        let heart_rate_query = HKSampleQuery(sampleType: heart_rate_type, predicate: predicate, limit: limit, sortDescriptors: [sortDescriptor])
-        { (query, results:[HKSample]?, error) -> Void in
-            if let queryError = error{
-                completion(nil, error)
-                return;
+        let heart_rate_query = HKSampleQuery(sampleType: heart_rate_type!, predicate: predicate, limit: limit, sortDescriptors: nil){ query, results, error in
+            var heart_rate: Double = 0.0
+            let heartRateUnit:HKUnit = HKUnit(fromString: "count/min")
+            if results?.count > 0{
+                for h in results as! [HKQuantitySample]{
+                    heart_rate += h.quantity.doubleValueForUnit(heartRateUnit)
+                }
             }
-            
-            //let heart_rate = results!
-            if completion != nil{
-                completion(results, nil)
-            }
-            
+            completion(results!, error)
         }
         self.hk_store.executeQuery(heart_rate_query)
     }

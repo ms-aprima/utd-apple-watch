@@ -11,21 +11,21 @@ import Foundation
 
 class HeartRate{
     
-    // Properties
-    var timestamp: NSDate
-    var value: Int
+    // Properties. The date will already be formatted as a string
+    var timestamp: String
+    var value: Double
     
     // constructor/initializer to create object
-    init(timestamp: NSDate, value: Int){
+    init(timestamp: String, value: Double){
         self.timestamp = timestamp
         self.value = value
     }
     
-    func getTimestamp() -> NSDate{
+    func getTimestamp() -> String{
         return self.timestamp
     }
     
-    func getValue() -> Int{
+    func getValue() -> Double{
         return self.value
     }
 }

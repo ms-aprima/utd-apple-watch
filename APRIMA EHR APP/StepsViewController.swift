@@ -6,6 +6,7 @@
 //  Copyright © 2016 david nguyen. All rights reserved.
 //
 import UIKit
+import HealthKit
 
 class StepsViewController: UITableViewController {
     
@@ -14,7 +15,7 @@ class StepsViewController: UITableViewController {
     
     // View objects
     @IBOutlet var display_steps_text_view: UITextView!
-    var steps = ""
+    var steps = [HKSample]()
     
     // Refreshes the UI
     func refreshUI(){
@@ -23,11 +24,16 @@ class StepsViewController: UITableViewController {
             //display_steps_text_view = health_kit.getSteps()
         
             health_kit.getSteps { steps, error in
-                self.steps = String(format: "%0.2f", steps)
+                self.steps = steps
             }
             display_steps_text_view.userInteractionEnabled = false
             display_steps_text_view.editable = false
-            display_steps_text_view.text = steps
+            var t = ""
+            for step in steps as! [HKQuantitySample]{
+                t += String(format: "%0.2f: " + String(step.endDate) + "\n\n",step.quantity.doubleValueForUnit(HKUnit.countUnit()))
+            }
+            
+            display_steps_text_view.text = t
         }
     }
         

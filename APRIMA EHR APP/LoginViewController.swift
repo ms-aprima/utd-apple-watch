@@ -42,6 +42,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }else{
             // JSON login data for body of message
             let post_body: NSString = "{\"UserName\":\"\(username)\",\"Password\":\"\(password)\"}"
+            print(post_body)
             
             // URL to send POST request to
             let url: NSURL = NSURL(string: "https://aprod-sbt2.servicebus.windows.net/7083c80b-29e2-4ee8-a485-3a3fdf373f58/api/patient/v1/login")!
