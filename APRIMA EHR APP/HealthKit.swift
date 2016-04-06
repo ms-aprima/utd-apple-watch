@@ -251,6 +251,7 @@ class HealthKit{
         let yesterday = NSDate.distantPast()
         
         // The type of data being requested
+        let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: false)
         let type = HKSampleType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBloodGlucose)
         let limit = 25
     
@@ -259,7 +260,7 @@ class HealthKit{
         let predicate = HKQuery.predicateForSamplesWithStartDate(yesterday, endDate: today,options: .None)
         
         // Query to fetch steps
-        let query = HKSampleQuery(sampleType: type!, predicate: predicate, limit: limit, sortDescriptors: nil){ query, results, error in
+        let query = HKSampleQuery(sampleType: type!, predicate: predicate, limit: limit, sortDescriptors: [sortDescriptor]){ query, results, error in
             var bloodglucose: Double = 0.0
             let bloodglucoseunit:HKUnit = HKUnit(fromString: "mg/dL")
             if results?.count > 0{

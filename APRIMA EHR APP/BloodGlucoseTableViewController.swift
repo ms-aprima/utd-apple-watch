@@ -11,7 +11,7 @@ import HealthKit
 
 class BloodGlucoseTableViewController: UITableViewController {
 
-    
+    // Use defaults to save important stuff (like if health kit is enabled)
     let defaults = NSUserDefaults.standardUserDefaults()
     let is_health_kit_enabled = NSUserDefaults.standardUserDefaults().boolForKey("is_health_kit_enabled")
     
@@ -22,28 +22,12 @@ class BloodGlucoseTableViewController: UITableViewController {
     var bloodglucose = [HKSample]()
     //var h_r = 0.0
     var blood_glucose_objects = [BloodGlucose]()
-    
-    // Refreshes the UI
-    func refreshUI(){
-        // Don't allowo user to interact with text views
-//        self.display_blood_glucose_text_view.userInteractionEnabled = false
-//        self.display_blood_glucose_text_view.editable = false
-//        self.display_blood_glucose_text_view.scrollEnabled = false
-//        
-//         Make sure the user authorized health kit before attempting to pull data
-            if self.is_health_kit_enabled == true{
-                
-                setUpBloodGlucoseObjects()
-            }
-   }
-    
-    // Called when the user loads the app so the data is restored
-//    func loadDefaults(){
-//        display_heart_rate_text_view.text = self.defaults.objectForKey("heart_rate") as? String
-//    }
-    
-    func setUpBloodGlucoseObjects(){
 
+    
+    // Sets up the array of HeartRate objects to display as table cells
+    func setUpBloodGlucoseObjects(){
+        // First clear array to make sure it's empty
+        blood_glucose_objects.removeAll()
         self.health_kit.getBloodGlucose{bloodgs, error in
             self.bloodglucose = bloodgs
         }
@@ -57,32 +41,66 @@ class BloodGlucoseTableViewController: UITableViewController {
             self.blood_glucose_objects.append(blood_glucose_object)
             print(blood_glucose_object.getTimestamp() + "\t" + String(blood_glucose_object.getValue()))
         }
-        
-//        health_kit.getBloodGlucose{ bloodg, error in
-//            self.bloodglucose = bloodg
-//        }
-//        display_blood_glucose_text_view.userInteractionEnabled = false
-//        display_blood_glucose_text_view.editable = false
-//        var bg = ""
-//        for bloodg in bloodglucose as! [HKQuantitySample]{
-//            bg += String(format: "%0.2f: " + String(bloodg.endDate) + "\n\n", bloodg.quantity.(HKUnit.countUnit()))
-//        }
-//        
-//        display_blood_glucose_text_view.text = bg
-    
     }
+
+    
+    
+    // Refreshes the UI
+    func refreshUI(){
+        // Make sure the user authorized health kit before attempting to pull data
+        if self.is_health_kit_enabled == true{
+            // Set up array of heart rate objects to use for displaying
+            setUpBloodGlucoseObjects()
+        }
+    }
+
+    
+    // refresh data and UI
+    func refresh(sender: AnyObject) {
+        // Updating your data here...
+        self.tableView.reloadData()
+        self.refreshControl?.endRefreshing()
+        self.refreshUI()
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        refreshUI()
+        
+        // set up the pull to refresh
+        self.refreshControl?.addTarget(self, action: #selector(BloodGlucoseTableViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
+        self.refreshUI()
     }
+    
     
     override func viewWillAppear(animated: Bool) {
         refreshUI()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: - Table view data source
+    
+    //    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    //        // #warning Incomplete implementation, return the number of sections
+    //        return 0
+    //    }
+    //
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        refreshUI()
+        return blood_glucose_objects.count
+    }
+    
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("Blood_Glucoses", forIndexPath: indexPath)
+        cell.textLabel?.text = blood_glucose_objects[indexPath.row].getTimestamp()
+        cell.detailTextLabel?.text = String(blood_glucose_objects[indexPath.row].getValue())
+        return cell
     }
 
     // MARK: - Table view data source

@@ -19,7 +19,6 @@
 		645C6D561C74C18900275405 /* APRIMA_EHR_APPUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C6D551C74C18900275405 /* APRIMA_EHR_APPUITests.swift */; };
 		64918D5C1CA23A5A009C1496 /* VitalsVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64918D5B1CA23A5A009C1496 /* VitalsVIewController.swift */; };
 		64C33D121CACC6BB00844E5B /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C33D111CACC6BB00844E5B /* ResultsViewController.swift */; };
-		64C33D141CACC73E00844E5B /* BloodGlucoseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C33D131CACC73E00844E5B /* BloodGlucoseViewController.swift */; };
 		64C33D161CACD6F400844E5B /* BloodGlucoseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C33D151CACD6F400844E5B /* BloodGlucoseTableViewController.swift */; };
 		64C33D181CB212DB00844E5B /* BloodGlucose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C33D171CB212DB00844E5B /* BloodGlucose.swift */; };
 		64F8E2731C8E75F800115E59 /* way-to-success.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 64F8E2721C8E75F800115E59 /* way-to-success.mp3 */; };
@@ -73,7 +72,6 @@
 		645C6D571C74C18900275405 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		64918D5B1CA23A5A009C1496 /* VitalsVIewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VitalsVIewController.swift; sourceTree = "<group>"; };
 		64C33D111CACC6BB00844E5B /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
-		64C33D131CACC73E00844E5B /* BloodGlucoseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodGlucoseViewController.swift; sourceTree = "<group>"; };
 		64C33D151CACD6F400844E5B /* BloodGlucoseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodGlucoseTableViewController.swift; sourceTree = "<group>"; };
 		64C33D171CB212DB00844E5B /* BloodGlucose.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodGlucose.swift; sourceTree = "<group>"; };
 		64F8E2721C8E75F800115E59 /* way-to-success.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "way-to-success.mp3"; path = "APRIMA EHR APP/Assets.xcassets/way-to-success.mp3"; sourceTree = "<group>"; };
@@ -181,7 +179,6 @@
 		64C33D101CACC67A00844E5B /* Results */ = {
 			isa = PBXGroup;
 			children = (
-				64C33D131CACC73E00844E5B /* BloodGlucoseViewController.swift */,
 				64C33D151CACD6F400844E5B /* BloodGlucoseTableViewController.swift */,
 			);
 			name = Results;
@@ -386,7 +383,6 @@
 			files = (
 				D1447E681C8E8D3C0047DCA5 /* ProfileTableViewController.swift in Sources */,
 				D1A71F421C7D29F30004EA65 /* ProfileViewController.swift in Sources */,
-				64C33D141CACC73E00844E5B /* BloodGlucoseViewController.swift in Sources */,
 				64C33D181CB212DB00844E5B /* BloodGlucose.swift in Sources */,
 				645C6D381C74C18900275405 /* HealthDataViewController.swift in Sources */,
 				64C33D161CACD6F400844E5B /* BloodGlucoseTableViewController.swift in Sources */,
