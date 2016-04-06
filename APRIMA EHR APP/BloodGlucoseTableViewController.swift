@@ -7,17 +7,78 @@
 //
 
 import UIKit
+import HealthKit
 
 class BloodGlucoseTableViewController: UITableViewController {
 
+    
+    let defaults = NSUserDefaults.standardUserDefaults()
+    let health_kit: HealthKit = HealthKit()
+    
+    // View objects
+   // @IBOutlet var display_blood_glucose_text_view: UITextView!
+    var bloodglucose = [HKSample]()
+    //var h_r = 0.0
+    var blood_glucose_objects = [BloodGlucose]()
+    
+    // Refreshes the UI
+    func refreshUI(){
+        // Don't allowo user to interact with text views
+//        self.display_blood_glucose_text_view.userInteractionEnabled = false
+//        self.display_blood_glucose_text_view.editable = false
+//        self.display_blood_glucose_text_view.scrollEnabled = false
+//        
+//         Make sure the user authorized health kit before attempting to pull data
+            if Authorized.enabled == true{
+                
+                setUpBloodGlucoseObjects()
+               
+
+  
+        }
+   }
+    
+    // Called when the user loads the app so the data is restored
+//    func loadDefaults(){
+//        display_heart_rate_text_view.text = self.defaults.objectForKey("heart_rate") as? String
+//    }
+    
+    func setUpBloodGlucoseObjects(){
+
+        self.health_kit.getBloodGlucose{bloodgs, error in
+            self.bloodglucose = bloodgs
+        }
+        
+        let bloodGUNIT:HKUnit = HKUnit(fromString: "mg/dL")
+        
+        let date_formatter = NSDateFormatter()
+        date_formatter.dateFormat = "MMM dd, yyyy hh:mm a"
+        for bg in self.bloodglucose as! [HKQuantitySample]{
+            let blood_glucose_object = BloodGlucose(timestamp: date_formatter.stringFromDate(bg.endDate), value: bg.quantity.doubleValueForUnit(bloodGUNIT))
+            self.blood_glucose_objects.append(blood_glucose_object)
+            print(blood_glucose_object.getTimestamp() + "\t" + String(blood_glucose_object.getValue()))
+        }
+        
+//        health_kit.getBloodGlucose{ bloodg, error in
+//            self.bloodglucose = bloodg
+//        }
+//        display_blood_glucose_text_view.userInteractionEnabled = false
+//        display_blood_glucose_text_view.editable = false
+//        var bg = ""
+//        for bloodg in bloodglucose as! [HKQuantitySample]{
+//            bg += String(format: "%0.2f: " + String(bloodg.endDate) + "\n\n", bloodg.quantity.(HKUnit.countUnit()))
+//        }
+//        
+//        display_blood_glucose_text_view.text = bg
+    
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        refreshUI()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        refreshUI()
     }
 
     override func didReceiveMemoryWarning() {

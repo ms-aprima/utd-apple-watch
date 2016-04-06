@@ -31,7 +31,8 @@ class HealthKit{
                                           HKObjectType.characteristicTypeForIdentifier(HKCharacteristicTypeIdentifierBiologicalSex)!,
                                           HKObjectType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBodyMass)!,
                                           HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierHeartRate)!,
-                                          HKCharacteristicType.characteristicTypeForIdentifier(HKCharacteristicTypeIdentifierBloodType)!]
+                                          HKCharacteristicType.characteristicTypeForIdentifier(HKCharacteristicTypeIdentifierBloodType)!,
+                                          HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBloodGlucose)!]
         
         
         // check it see if healthkit is accessible on this device
@@ -248,4 +249,36 @@ class HealthKit{
         self.hk_store.executeQuery(heart_rate_query)
     }
 
+    func getBloodGlucose(completion: (Array<HKSample>, NSError?) -> ()){
+        // Testing getting steps from yesterday to today. Get yesterday's date by subtracting 24 hours (in secs) from today's date
+        // So with yesterday's date as start parameter and today's date as the end parameter to the method below
+        // Temporary of course
+        let today = NSDate()
+        let yesterday = NSDate.distantPast()
+        
+        // The type of data being requested
+        let type = HKSampleType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBloodGlucose)
+        let limit = 25
+    
+        // Search predicate will fetch data from now until a day ago for testing purposes for now.
+        //let predicate = HKQuery.predicateForSamplesWithStartDate(newDate, endDate: NSDate(), options: .None)
+        let predicate = HKQuery.predicateForSamplesWithStartDate(yesterday, endDate: today,options: .None)
+        
+        // Query to fetch steps
+        let query = HKSampleQuery(sampleType: type!, predicate: predicate, limit: limit, sortDescriptors: nil){ query, results, error in
+            var bloodglucose: Double = 0.0
+            let bloodglucoseunit:HKUnit = HKUnit(fromString: "mg/dL")
+            if results?.count > 0{
+                for bg in results as! [HKQuantitySample]{
+                    bloodglucose += bg.quantity.doubleValueForUnit(bloodglucoseunit)
+                }
+            }
+            completion(results!, error)
+        }
+        hk_store.executeQuery(query)
+    }
+
+    
+    
+    
 }
