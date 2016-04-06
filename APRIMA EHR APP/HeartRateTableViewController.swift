@@ -11,40 +11,34 @@ import HealthKit
 
 class HeartRateTableViewController: UITableViewController {
     
-    // Used to store the user's data
-//    let defaults = NSUserDefaults.standardUserDefaults()
-
+    // Used to refresh data
+    var refresh_control = UIRefreshControl()
+    let is_health_kit_enabled = NSUserDefaults.standardUserDefaults().boolForKey("is_health_kit_enabled")
+    
     // initialize a HealthKit object to pull data from
     let health_kit: HealthKit = HealthKit()
     
-    // View objects
-//    @IBOutlet var display_heart_rate_text_view: UITextView!
     // Array of heart rate samples pulled from HealhKit
     var heart_rates = [HKSample]()
     // Array of our HeartRate objects. Properties are timestamp and value
     var heart_rate_objects = [HeartRate]()
     
+    
     // Refreshes the UI
     func refreshUI(){
-        // Don't allow user to interact with text views
-//        self.display_heart_rate_text_view.userInteractionEnabled = false
-//        self.display_heart_rate_text_view.editable = false
-//        self.display_heart_rate_text_view.scrollEnabled = false
-        
         // Make sure the user authorized health kit before attempting to pull data
-        if Authorized.enabled == true{
-            
+        if self.is_health_kit_enabled == true{
             // Set up array of heart rate objects to use for displaying
             setUpHeartRateObjects()
-            
-            
-            // Set up keys to store in NSUserDefaults
-//            self.defaults.setObject(display_heart_rate_text_view.text, forKey: "heart_rate")
-//            self.defaults.synchronize()
         }
     }
     
+    
+    // Sets up the array of HeartRate objects to display as table cells
     func setUpHeartRateObjects(){
+        // First clear array to make sure it's empty
+        heart_rate_objects.removeAll()
+        
         self.health_kit.getHeartRate{ heart_rates, error in
             self.heart_rates = heart_rates
         }
@@ -59,26 +53,25 @@ class HeartRateTableViewController: UITableViewController {
         }
     }
     
-    func refresh(sender:AnyObject)
-    {
-        // Updating your data here...
-        
+    
+    // refresh data and UI
+    func refresh(sender: AnyObject) {
+        // Updating your data here...        
         self.tableView.reloadData()
         self.refreshControl?.endRefreshing()
-        refreshUI()
+        self.refreshUI()
     }
-    
-    // Called when the user loads the app so the data is restored
-    func loadDefaults(){
-//        display_heart_rate_text_view.text = self.defaults.objectForKey("heart_rate") as? String
-    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // set up the pull to refresh
         self.refreshControl?.addTarget(self, action: #selector(HeartRateTableViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
-        loadDefaults()
-        refreshUI()
+        
+        self.refreshUI()
     }
+    
     
     override func viewWillAppear(animated: Bool) {
         refreshUI()

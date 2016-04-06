@@ -12,6 +12,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     
     // initialize a HealthKit object to pull data from
     let health_kit: HealthKit = HealthKit()
+    let is_health_kit_enabled = NSUserDefaults.standardUserDefaults().boolForKey("is_health_kit_enabled")
     
     // View objects
     @IBOutlet var table_view: UITableView!
@@ -36,7 +37,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     // Refreshes the UI
     func refreshUI(){
         // Make sure the user authorized health kit before attempting to pull data
-        if Authorized.enabled == true{
+        if self.is_health_kit_enabled == true{
             
         }
     }

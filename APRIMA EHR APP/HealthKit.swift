@@ -11,9 +11,7 @@ import HealthKit
 
 // global variable to use anywhere so other view controllers can tell if user authorized health kit or not
 // Make sure to check Authorized.enabled == true before pulling data.
-struct Authorized{
-    static var enabled = false
-}
+let defaults = NSUserDefaults.standardUserDefaults()
 
 class HealthKit{
     // Create instance of health kit store
@@ -44,7 +42,9 @@ class HealthKit{
         }else{
             is_enabled = false
         }
-        Authorized.enabled = is_enabled
+        // Remember that health kit is enabled
+        defaults.setBool(true, forKey: "is_health_kit_enabled")
+        defaults.synchronize()
         return is_enabled
     }
 
@@ -225,12 +225,12 @@ class HealthKit{
         let predicate = HKQuery.predicateForSamplesWithStartDate(start_date, endDate: end_date, options: .None)
         
         // Create a heart rate BPM sample
-//        let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: false)
+        let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: false)
         let limit = 25
         let heart_rate_type = HKSampleType.quantityTypeForIdentifier(HKQuantityTypeIdentifierHeartRate)
         
         // Create query for latest sample
-        let heart_rate_query = HKSampleQuery(sampleType: heart_rate_type!, predicate: predicate, limit: limit, sortDescriptors: nil){ query, results, error in
+        let heart_rate_query = HKSampleQuery(sampleType: heart_rate_type!, predicate: predicate, limit: limit, sortDescriptors: [sortDescriptor]){ query, results, error in
             var heart_rate: Double = 0.0
             let heartRateUnit:HKUnit = HKUnit(fromString: "count/min")
             if results?.count > 0{

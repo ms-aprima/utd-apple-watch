@@ -12,6 +12,7 @@ class SettingsViewController: UITableViewController {
     
     // Create HealthKit object
     let health_kit = HealthKit()
+    let is_health_kit_enabled = NSUserDefaults.standardUserDefaults().boolForKey("is_health_kit_enabled")
 
     override func viewDidLoad() {
         super.viewDidLoad()

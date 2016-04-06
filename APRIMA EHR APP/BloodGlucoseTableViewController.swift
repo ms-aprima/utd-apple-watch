@@ -13,6 +13,8 @@ class BloodGlucoseTableViewController: UITableViewController {
 
     
     let defaults = NSUserDefaults.standardUserDefaults()
+    let is_health_kit_enabled = NSUserDefaults.standardUserDefaults().boolForKey("is_health_kit_enabled")
+    
     let health_kit: HealthKit = HealthKit()
     
     // View objects
@@ -29,13 +31,10 @@ class BloodGlucoseTableViewController: UITableViewController {
 //        self.display_blood_glucose_text_view.scrollEnabled = false
 //        
 //         Make sure the user authorized health kit before attempting to pull data
-            if Authorized.enabled == true{
+            if self.is_health_kit_enabled == true{
                 
                 setUpBloodGlucoseObjects()
-               
-
-  
-        }
+            }
    }
     
     // Called when the user loads the app so the data is restored

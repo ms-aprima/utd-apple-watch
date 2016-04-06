@@ -13,6 +13,7 @@ class ProfileTableViewController: UITableViewController {
     
     // Used to store the user's data
     let defaults = NSUserDefaults.standardUserDefaults()
+    let is_health_kit_enabled = NSUserDefaults.standardUserDefaults().boolForKey("is_health_kit_enabled")
     
     // initialize a HealthKit object to pull data from
     let health_kit: HealthKit = HealthKit()
@@ -56,7 +57,7 @@ class ProfileTableViewController: UITableViewController {
         
         
         // Make sure the user authorized health kit before attempting to pull data
-        if Authorized.enabled == true{
+        if self.is_health_kit_enabled == true{
             
             // Displaying date of birth
             display_dob_text_view.text = formatDate(health_kit.getBirthday())
