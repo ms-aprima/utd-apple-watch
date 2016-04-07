@@ -31,7 +31,7 @@ class StepsViewController: UITableViewController {
             display_steps_text_view.editable = false
             var t = ""
             for step in steps as! [HKQuantitySample]{
-                t += String(format: "%0.2f: " + String(step.endDate) + "\n\n",step.quantity.doubleValueForUnit(HKUnit.countUnit()))
+                t += String(format: "%0.2f: " + formatDate(step.endDate) + "\n\n",step.quantity.doubleValueForUnit(HKUnit.countUnit()))
             }
             
             display_steps_text_view.text = t
@@ -62,6 +62,12 @@ class StepsViewController: UITableViewController {
         refreshUI()
     }
     
+    
+    func formatDate(date: NSDate) -> String{
+        let date_formatter = NSDateFormatter()
+        date_formatter.dateFormat = "MMM dd, yyyy"
+        return date_formatter.stringFromDate(date)
+    }
     /*
      // MARK: - Navigation
      // In a storyboard-based application, you will often want to do a little preparation before navigation
