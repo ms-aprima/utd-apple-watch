@@ -217,6 +217,42 @@ class HealthKit{
         self.hk_store.executeQuery(query)
     }
     
+    func getWeight2(completion:(Array<HKSample>, NSError?) -> ()) {
+        
+        let type = HKSampleType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBodyMass)
+        let old = NSDate.distantPast()
+        let current = NSDate()
+        
+        let predicate = HKQuery.predicateForSamplesWithStartDate(old, endDate: current, options: .None)
+        
+        
+        let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierStartDate, ascending: false)
+        
+        let limit = 25
+        
+        
+        let query = HKSampleQuery(sampleType: type!, predicate: predicate, limit: limit, sortDescriptors: [sortDescriptor])
+        { query, results, error in
+            var weight: Double = 0.0
+            let weightUnit:HKUnit = HKUnit(fromString: "lb")
+            
+            if results?.count > 0
+            {
+                for h in results as! [HKQuantitySample]
+                {
+                    weight += h.quantity.doubleValueForUnit(weightUnit)
+                }
+            }
+            
+            completion(results!, error)
+            
+        }
+        
+        
+        
+        self.hk_store.executeQuery(query)
+    }
+
     // Get the ranges of heart rate for each day (low - high) for the past month and display in table view
     func getHeartRate(completion:(Array<HKSample>, NSError?) ->()){
         // Date range to pull datat from. From distant past to today
