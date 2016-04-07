@@ -8,8 +8,10 @@
 import UIKit
 import HealthKit
 
-class StepsViewController: UITableViewController {
+class StepsTableViewController: UITableViewController {
     
+    // Used to refresh data
+    var refresh_control = UIRefreshControl()
     // initialize a HealthKit object to pull data from
     let defaults = NSUserDefaults.standardUserDefaults()
     let is_health_kit_enabled = NSUserDefaults.standardUserDefaults().boolForKey("is_health_kit_enabled")
@@ -51,9 +53,17 @@ class StepsViewController: UITableViewController {
         }
     }
     
+    // refresh data and UI
+    func refresh(sender: AnyObject) {
+        // Updating your data here...
+        self.tableView.reloadData()
+        self.refreshControl?.endRefreshing()
+        self.refreshUI()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.refreshControl?.addTarget(self, action: #selector(StepsViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
+        self.refreshControl?.addTarget(self, action: #selector(StepsTableViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
         // Do any additional setup after loading the view.
         refreshUI()
     }
@@ -66,22 +76,21 @@ class StepsViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    func refresh(sender:AnyObject)
-    {
-        // Updating your data here...
-        
-        self.tableView.reloadData()
-        self.refreshControl?.endRefreshing()
+    
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
         refreshUI()
+        return steps_objects.count
     }
     
-    
-    
-    func formatDate(date: NSDate) -> String{
-        let date_formatter = NSDateFormatter()
-        date_formatter.dateFormat = "MMM dd, yyyy"
-        return date_formatter.stringFromDate(date)
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("Steps", forIndexPath: indexPath)
+        cell.textLabel?.text = steps_objects[indexPath.row].getTimestamp()
+        cell.detailTextLabel?.text = String(steps_objects[indexPath.row].getValue())
+        return cell
     }
+    
     /*
      // MARK: - Navigation
      // In a storyboard-based application, you will often want to do a little preparation before navigation

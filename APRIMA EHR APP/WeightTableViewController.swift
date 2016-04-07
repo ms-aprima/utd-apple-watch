@@ -60,12 +60,6 @@ class WeightTableViewController: UITableViewController {
         self.refreshUI()
     }
     
-    // Called when the user loads the app so the data is restored
-    func loadDefaults(){
-        //        display_heart_rate_text_view.text = self.defaults.objectForKey("heart_rate") as? String
-    }
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,6 +69,15 @@ class WeightTableViewController: UITableViewController {
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        // set up the pull to refresh
+        self.refreshControl?.addTarget(self, action: #selector(WeightTableViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
+        
+        self.refreshUI()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        refreshUI()
     }
     
     override func didReceiveMemoryWarning() {
@@ -84,14 +87,17 @@ class WeightTableViewController: UITableViewController {
     
     // MARK: - Table view data source
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        refreshUI()
+        return weight_objects.count
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("Weights", forIndexPath: indexPath)
+        cell.textLabel?.text = weight_objects[indexPath.row].getTimestamp()
+        cell.detailTextLabel?.text = String(weight_objects[indexPath.row].getValue())
+        return cell
     }
     
     /*
