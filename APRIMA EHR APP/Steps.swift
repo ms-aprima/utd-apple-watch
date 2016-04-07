@@ -13,20 +13,20 @@ import Foundation
 class Steps{
     
     // Properties
-    var timestamp: NSDate
-    var value: Int
+    var timestamp: String
+    var value: Double
     
     // constructor/initializer to create object
-    init(timestamp: NSDate, value: Int){
+    init(timestamp: String, value: Double){
         self.timestamp = timestamp
         self.value = value
     }
     
-    func getTimestamp() -> NSDate{
+    func getTimestamp() -> String{
         return self.timestamp
     }
     
-    func getValue() -> Int{
+    func getValue() -> Double{
         return self.value
     }
 }

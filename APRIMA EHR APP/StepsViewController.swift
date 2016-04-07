@@ -11,33 +11,46 @@ import HealthKit
 class StepsViewController: UITableViewController {
     
     // initialize a HealthKit object to pull data from
-    let health_kit: HealthKit = HealthKit()
+    let defaults = NSUserDefaults.standardUserDefaults()
     let is_health_kit_enabled = NSUserDefaults.standardUserDefaults().boolForKey("is_health_kit_enabled")
     
+    let health_kit: HealthKit = HealthKit()
+    
     // View objects
-    @IBOutlet var display_steps_text_view: UITextView!
-    var steps = [HKSample]()
+    //@IBOutlet var display_steps_text_view: UITextView!
+    var stepcount = [HKSample]()
+    var steps_objects = [Steps]()
+    
+    func setUpStepsObjects(){
+        steps_objects.removeAll()
+        
+        self.health_kit.getSteps{stepcount, error in
+            self.stepcount = stepcount
+        }
+        
+        
+        
+        let date_formatter = NSDateFormatter()
+        date_formatter.dateFormat = "MMM dd, yyyy hh:mm a"
+        for s in self.stepcount as! [HKQuantitySample]{
+            let steps_object = Steps(timestamp: date_formatter.stringFromDate(s.endDate), value: s.quantity.doubleValueForUnit(HKUnit.countUnit()))
+            self.steps_objects.append(steps_object)
+            print(steps_object.getTimestamp() + "\t" + String(steps_object.getValue()))
+        }
+        
+        
+    }
     
     // Refreshes the UI
     func refreshUI(){
         // Make sure the user authorized health kit before attempting to pull data
         if self.is_health_kit_enabled == true{
-            //display_steps_text_view = health_kit.getSteps()
-        
-            health_kit.getSteps { steps, error in
-                self.steps = steps
-            }
-            display_steps_text_view.userInteractionEnabled = false
-            display_steps_text_view.editable = false
-            var t = ""
-            for step in steps as! [HKQuantitySample]{
-                t += String(format: "%0.2f: " + formatDate(step.endDate) + "\n\n",step.quantity.doubleValueForUnit(HKUnit.countUnit()))
-            }
             
-            display_steps_text_view.text = t
+            setUpStepsObjects()
+                  
         }
     }
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.refreshControl?.addTarget(self, action: #selector(StepsViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
@@ -61,6 +74,7 @@ class StepsViewController: UITableViewController {
         self.refreshControl?.endRefreshing()
         refreshUI()
     }
+    
     
     
     func formatDate(date: NSDate) -> String{
