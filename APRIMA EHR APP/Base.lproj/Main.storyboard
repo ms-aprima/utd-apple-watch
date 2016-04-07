@@ -100,11 +100,22 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="aprima-logo-reg" translatesAutoresizingMaskIntoConstraints="NO" id="Bkb-AK-T6a">
                                 <rect key="frame" x="53" y="111" width="294" height="156"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qNw-aE-Geg">
+                                <rect key="frame" x="163" y="441" width="89" height="48"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Sync">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="syncButtonTapped" destination="9pv-A4-QxB" eventType="touchUpInside" id="BuS-xB-oQx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="Home Filled-50" id="acW-dT-cKf"/>
                     <connections>
+                        <outlet property="sync_button" destination="qNw-aE-Geg" id="M4H-rf-63j"/>
                         <segue destination="aoy-Q2-SK4" kind="presentation" identifier="login_view_segue" id="DSe-OE-vtZ"/>
                     </connections>
                 </viewController>
@@ -629,8 +640,7 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hB2-q0-q2X">
-                                <rect key="frame" x="87" y="217" width="240" height="39"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10000000000000001" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="0.0" y="217" width="414" height="39"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -639,7 +649,7 @@
                         <constraints>
                             <constraint firstItem="usY-Ww-876" firstAttribute="top" secondItem="lX5-EF-DK6" secondAttribute="bottom" constant="82" id="1mS-rT-Y4k"/>
                             <constraint firstItem="PXd-CJ-kJ1" firstAttribute="top" secondItem="lX5-EF-DK6" secondAttribute="top" id="3GJ-2h-aSw"/>
-                            <constraint firstItem="hB2-q0-q2X" firstAttribute="leading" secondItem="yqv-gc-6Ez" secondAttribute="leadingMargin" constant="67" id="4qH-Lb-qr1"/>
+                            <constraint firstItem="hB2-q0-q2X" firstAttribute="leading" secondItem="yqv-gc-6Ez" secondAttribute="leadingMargin" constant="-20" id="4qH-Lb-qr1"/>
                             <constraint firstItem="PXd-CJ-kJ1" firstAttribute="trailing" secondItem="lX5-EF-DK6" secondAttribute="trailing" id="ENs-9Y-9Zf"/>
                             <constraint firstItem="lX5-EF-DK6" firstAttribute="centerX" secondItem="usY-Ww-876" secondAttribute="centerX" id="G05-yd-isy"/>
                             <constraint firstItem="usY-Ww-876" firstAttribute="top" secondItem="hB2-q0-q2X" secondAttribute="bottom" constant="35" id="VeY-kU-XNg"/>

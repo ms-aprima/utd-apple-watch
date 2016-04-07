@@ -63,6 +63,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             request.setValue("C83BBF42-DA17-4F58-9AA0-68F417419313", forHTTPHeaderField: "ApiKey")
             request.setValue("application/json;charset=UTF-8", forHTTPHeaderField: "Content-Type")
             
+            // do this task
             let task = session.dataTaskWithRequest(request, completionHandler: {urlData, response, error -> Void in
                 if (urlData != nil) {
                     let res = response as! NSHTTPURLResponse!;
@@ -73,12 +74,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                             let jsonData:NSDictionary = try NSJSONSerialization.JSONObjectWithData(urlData!, options:NSJSONReadingOptions.MutableContainers ) as! NSDictionary
                             print(jsonData)
                             //On success, invoke `completion` with passing jsonData.
-                            let sessionId:String = jsonData.valueForKey("Id") as! String
-                            if(sessionId != "") {
+                            let patient_id:String = jsonData.valueForKey("Id") as! String
+                            let patient_first_name:String = jsonData.valueForKey("FirstName") as! String
+                            let patient_last_name:String = jsonData.valueForKey("LastName") as! String
+                            let json_web_token = jsonData.valueForKey("JsonWebToken") as! String
+                            if(patient_id != "") {
                                 
+                                // save in defaults to access later
                                 self.defaults.setObject(username, forKey: "username")
-                                self.defaults.setObject(sessionId, forKey: "session_id")
+                                self.defaults.setObject(patient_id, forKey: "patient_id")
+                                self.defaults.setObject(patient_first_name, forKey: "patient_first_name")
+                                self.defaults.setObject(patient_last_name, forKey: "patient_last_name")
                                 self.defaults.setBool(true, forKey: "is_user_logged_in")
+                                self.defaults.setObject(json_web_token, forKey: "json_web_token")
                                 self.defaults.synchronize()
                                 
                                 self.dismissViewControllerAnimated(true, completion: nil)

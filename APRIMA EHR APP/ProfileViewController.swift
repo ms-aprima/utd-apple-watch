@@ -12,7 +12,10 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     
     // initialize a HealthKit object to pull data from
     let health_kit: HealthKit = HealthKit()
+    // Used to store the user's data
+    let defaults = NSUserDefaults.standardUserDefaults()
     let is_health_kit_enabled = NSUserDefaults.standardUserDefaults().boolForKey("is_health_kit_enabled")
+    
     
     // View objects
     @IBOutlet var table_view: UITableView!
@@ -36,6 +39,16 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     
     // Refreshes the UI
     func refreshUI(){
+        // Don't let user interact with displayed text views
+        name_text_view.userInteractionEnabled = false
+        name_text_view.editable = false
+        name_text_view.scrollEnabled = false
+        
+        let patient_last_name = self.defaults.objectForKey("patient_last_name") as! String
+        let patient_first_name =  self.defaults.objectForKey("patient_first_name") as! String
+        let patient_full_name = "\(patient_first_name) \(patient_last_name)"
+        name_text_view.text = patient_full_name
+        
         // Make sure the user authorized health kit before attempting to pull data
         if self.is_health_kit_enabled == true{
             
@@ -52,6 +65,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        refreshUI()
         
         // Set background color to this
         self.view.backgroundColor = UIColor(red: 25.0/255, green: 150.0/255, blue: 197.0/255, alpha: 1)
