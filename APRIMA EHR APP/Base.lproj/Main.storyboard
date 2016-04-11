@@ -1136,22 +1136,23 @@
             </objects>
             <point key="canvasLocation" x="2358" y="-1366"/>
         </scene>
-        <!--Steps Bar Chart Rate View Controller-->
+        <!--Steps Bar Chart View Controller-->
         <scene sceneID="QTS-KO-u2o">
             <objects>
-                <viewController id="Ws7-IK-eRV" customClass="StepsBarChartRateViewController" customModule="APRIMA_EHR_APP" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="mBD-FC-j89">
+                <viewController id="Ws7-IK-eRV" customClass="StepsBarChartViewController" customModule="APRIMA_EHR_APP" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dMz-AJ-yBF"/>
+                        <viewControllerLayoutGuide type="bottom" id="aDp-Jd-gOd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Aed-zJ-BGe" customClass="BarChartView" customModule="Charts">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="348"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E4I-rW-LGN">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="348"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                        </subviews>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <connections>
+                        <outlet property="barChartView" destination="Aed-zJ-BGe" id="aAW-rD-bKo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Nn-AN-aBF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1161,6 +1162,10 @@
         <scene sceneID="sG4-Ae-L4n">
             <objects>
                 <viewController id="V0R-ON-1FA" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zH0-Gv-vFh"/>
+                        <viewControllerLayoutGuide type="bottom" id="84A-jK-DfP"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="JV8-1A-SiN">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
