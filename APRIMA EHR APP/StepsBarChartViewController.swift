@@ -9,7 +9,11 @@
 import UIKit
 import Charts
 
+
+
+
 class StepsBarChartRateViewController: UIViewController, UINavigationControllerDelegate {
+    @IBOutlet var barChartView: BarChartView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
