@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		225EC7321C7A828C00610507 /* HealthKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225EC7311C7A828C00610507 /* HealthKit.swift */; };
 		225EC7341C7A8C5E00610507 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 225EC7331C7A8C5E00610507 /* HealthKit.framework */; };
+		22800FC51CBB55D900DB1302 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22800FBE1CBB55CF00DB1302 /* Charts.framework */; };
+		22800FC61CBB55D900DB1302 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 22800FBE1CBB55CF00DB1302 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		22800FCA1CBB575700DB1302 /* StepsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22800FC91CBB575700DB1302 /* StepsViewController.swift */; };
+		22800FCC1CBB577000DB1302 /* StepsBarChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22800FCB1CBB577000DB1302 /* StepsBarChartViewController.swift */; };
 		645C6D341C74C18900275405 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C6D331C74C18900275405 /* AppDelegate.swift */; };
 		645C6D361C74C18900275405 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C6D351C74C18900275405 /* HomeViewController.swift */; };
 		645C6D381C74C18900275405 /* HealthDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C6D371C74C18900275405 /* HealthDataViewController.swift */; };
@@ -37,6 +41,41 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		22800FBD1CBB55CF00DB1302 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 22800FB61CBB55CF00DB1302 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5BA8EC401A9D14DC00CE82E1;
+			remoteInfo = "Charts-iOS";
+		};
+		22800FBF1CBB55CF00DB1302 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 22800FB61CBB55CF00DB1302 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A52C5C371BAC5CA400594CDD;
+			remoteInfo = "Charts-TV";
+		};
+		22800FC11CBB55CF00DB1302 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 22800FB61CBB55CF00DB1302 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 65B3F5BF1C7370BE000983D0;
+			remoteInfo = "Charts-OSX";
+		};
+		22800FC31CBB55CF00DB1302 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 22800FB61CBB55CF00DB1302 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06AEE7A21BDC3F8B009875AE;
+			remoteInfo = ChartsTests;
+		};
+		22800FC71CBB55D900DB1302 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 22800FB61CBB55CF00DB1302 /* Charts.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 5BA8EC3F1A9D14DC00CE82E1;
+			remoteInfo = "Charts-iOS";
+		};
 		645C6D471C74C18900275405 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 645C6D281C74C18900275405 /* Project object */;
@@ -53,10 +92,27 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		22800FAD1CBB542700DB1302 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				22800FC61CBB55D900DB1302 /* Charts.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		225EC7311C7A828C00610507 /* HealthKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthKit.swift; sourceTree = "<group>"; };
 		225EC7331C7A8C5E00610507 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		225EC7351C7A8C5E00610507 /* APRIMA EHR APP.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "APRIMA EHR APP.entitlements"; sourceTree = "<group>"; };
+		22800FB61CBB55CF00DB1302 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../../Downloads/Charts-master 2/Charts/Charts.xcodeproj"; sourceTree = "<group>"; };
+		22800FC91CBB575700DB1302 /* StepsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepsViewController.swift; sourceTree = "<group>"; };
+		22800FCB1CBB577000DB1302 /* StepsBarChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepsBarChartViewController.swift; sourceTree = "<group>"; };
 		645C6D301C74C18900275405 /* APRIMA EHR APP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "APRIMA EHR APP.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		645C6D331C74C18900275405 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		645C6D351C74C18900275405 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +152,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				225EC7341C7A8C5E00610507 /* HealthKit.framework in Frameworks */,
+				22800FC51CBB55D900DB1302 /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,9 +173,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		22800FB71CBB55CF00DB1302 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				22800FBE1CBB55CF00DB1302 /* Charts.framework */,
+				22800FC01CBB55CF00DB1302 /* Charts.framework */,
+				22800FC21CBB55CF00DB1302 /* Charts.framework */,
+				22800FC41CBB55CF00DB1302 /* ChartsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		645C6D271C74C18900275405 = {
 			isa = PBXGroup;
 			children = (
+				22800FB61CBB55CF00DB1302 /* Charts.xcodeproj */,
 				64F8E2721C8E75F800115E59 /* way-to-success.mp3 */,
 				225EC7331C7A8C5E00610507 /* HealthKit.framework */,
 				645C6D321C74C18900275405 /* APRIMA EHR APP */,
@@ -208,6 +277,8 @@
 			children = (
 				D194F07F1C87CC68006B7338 /* StepsTableViewController.swift */,
 				A56169F61CB5FE9800258FBD /* WeightTableViewController.swift */,
+				22800FC91CBB575700DB1302 /* StepsViewController.swift */,
+				22800FCB1CBB577000DB1302 /* StepsBarChartViewController.swift */,
 			);
 			name = "Fitness View Controllers";
 			sourceTree = "<group>";
@@ -254,10 +325,12 @@
 				645C6D2C1C74C18900275405 /* Sources */,
 				645C6D2D1C74C18900275405 /* Frameworks */,
 				645C6D2E1C74C18900275405 /* Resources */,
+				22800FAD1CBB542700DB1302 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				22800FC81CBB55D900DB1302 /* PBXTargetDependency */,
 			);
 			name = "APRIMA EHR APP";
 			productName = "APRIMA EHR APP";
@@ -342,6 +415,12 @@
 			mainGroup = 645C6D271C74C18900275405;
 			productRefGroup = 645C6D311C74C18900275405 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 22800FB71CBB55CF00DB1302 /* Products */;
+					ProjectRef = 22800FB61CBB55CF00DB1302 /* Charts.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				645C6D2F1C74C18900275405 /* APRIMA EHR APP */,
@@ -350,6 +429,37 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		22800FBE1CBB55CF00DB1302 /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 22800FBD1CBB55CF00DB1302 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		22800FC01CBB55CF00DB1302 /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 22800FBF1CBB55CF00DB1302 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		22800FC21CBB55CF00DB1302 /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 22800FC11CBB55CF00DB1302 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		22800FC41CBB55CF00DB1302 /* ChartsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ChartsTests.xctest;
+			remoteRef = 22800FC31CBB55CF00DB1302 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		645C6D2E1C74C18900275405 /* Resources */ = {
@@ -394,8 +504,10 @@
 				D194F0801C87CC68006B7338 /* StepsTableViewController.swift in Sources */,
 				225EC7321C7A828C00610507 /* HealthKit.swift in Sources */,
 				D1A5917D1CAC36BA008F0313 /* Steps.swift in Sources */,
+				22800FCA1CBB575700DB1302 /* StepsViewController.swift in Sources */,
 				64C33D121CACC6BB00844E5B /* ResultsViewController.swift in Sources */,
 				645C6D341C74C18900275405 /* AppDelegate.swift in Sources */,
+				22800FCC1CBB577000DB1302 /* StepsBarChartViewController.swift in Sources */,
 				D1A71F401C7D27F50004EA65 /* SettingsViewController.swift in Sources */,
 				D169125E1CA254D40032C14F /* HeartRateTableViewController.swift in Sources */,
 				D1A5917B1CAC342A008F0313 /* HeartRate.swift in Sources */,
@@ -426,6 +538,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		22800FC81CBB55D900DB1302 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Charts-iOS";
+			targetProxy = 22800FC71CBB55D900DB1302 /* PBXContainerItemProxy */;
+		};
 		645C6D481C74C18900275405 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 645C6D2F1C74C18900275405 /* APRIMA EHR APP */;
@@ -548,6 +665,7 @@
 				CODE_SIGN_ENTITLEMENTS = "APRIMA EHR APP/APRIMA EHR APP.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "APRIMA EHR APP/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -565,6 +683,7 @@
 				CODE_SIGN_ENTITLEMENTS = "APRIMA EHR APP/APRIMA EHR APP.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "APRIMA EHR APP/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

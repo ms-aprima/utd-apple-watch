@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -356,7 +356,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="Pbg-84-qiS" kind="show" id="SGg-Hu-A8k"/>
+                                            <segue destination="zT3-y4-Vqn" kind="show" id="w8c-cB-t4X"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Steps" textLabel="htg-Rj-yVa" style="IBUITableViewCellStyleDefault" id="UmI-dU-I6R">
@@ -408,7 +408,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oBh-Ce-IAL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1314" y="-1250"/>
+            <point key="canvasLocation" x="1330" y="-1266"/>
         </scene>
         <!--Health Data Navigation-->
         <scene sceneID="1NL-yc-h3c">
@@ -1006,17 +1006,49 @@
             </objects>
             <point key="canvasLocation" x="1958" y="452"/>
         </scene>
+        <!--Steps View Controller-->
+        <scene sceneID="k0z-8Y-zuQ">
+            <objects>
+                <viewController id="zT3-y4-Vqn" customClass="StepsViewController" customModule="APRIMA_EHR_APP" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="g7H-Xd-lOq"/>
+                        <viewControllerLayoutGuide type="bottom" id="zRx-CK-I4V"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bWB-m8-D2F">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aCf-ga-tDM">
+                                <rect key="frame" x="0.0" y="411" width="414" height="281"/>
+                                <connections>
+                                    <segue destination="Pbg-84-qiS" kind="embed" id="ePo-J1-GJp"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Y6-US-hVt">
+                                <rect key="frame" x="0.0" y="64" width="414" height="348"/>
+                                <connections>
+                                    <segue destination="Ws7-IK-eRV" kind="embed" id="aYD-nW-RAb"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8l6-f7-cp9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1548" y="-2134"/>
+        </scene>
         <!--Steps Table View-->
         <scene sceneID="nol-el-ibV">
             <objects>
                 <tableViewController storyboardIdentifier="StepsTableViewController" title="Steps Table View" id="Pbg-84-qiS" customClass="StepsTableViewController" customModule="APRIMA_EHR_APP" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="BTy-Fz-gpJ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="281"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Steps" textLabel="TKK-12-mkQ" detailTextLabel="a1u-T7-Ba1" style="IBUITableViewCellStyleValue1" id="2dZ-sV-hjh">
-                                <rect key="frame" x="0.0" y="92" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2dZ-sV-hjh" id="D8g-PA-HDP">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
@@ -1053,7 +1085,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Gf-hV-lmz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1817" y="-1708"/>
+            <point key="canvasLocation" x="2091" y="-2107"/>
         </scene>
         <!--Weights Table View-->
         <scene sceneID="kmG-QA-Ncz">
@@ -1103,6 +1135,33 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nO8-Ih-omf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2358" y="-1366"/>
+        </scene>
+        <!--Steps Bar Chart Rate View Controller-->
+        <scene sceneID="QTS-KO-u2o">
+            <objects>
+                <viewController id="Ws7-IK-eRV" customClass="StepsBarChartRateViewController" customModule="APRIMA_EHR_APP" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mBD-FC-j89">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="348"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Nn-AN-aBF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2066" y="-2606"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="sG4-Ae-L4n">
+            <objects>
+                <viewController id="V0R-ON-1FA" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JV8-1A-SiN">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wNq-RM-xQJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
     <resources>
