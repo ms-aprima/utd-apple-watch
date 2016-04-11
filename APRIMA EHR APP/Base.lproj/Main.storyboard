@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -314,11 +314,21 @@
                                     <segue destination="z2j-bw-woQ" kind="embed" id="pda-FQ-823"/>
                                 </connections>
                             </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t3G-3f-a2T">
+                                <rect key="frame" x="20" y="64" width="374" height="195"/>
+                                <connections>
+                                    <segue destination="hPE-RQ-sWe" kind="embed" id="NdS-k4-NRl"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="t3G-3f-a2T" firstAttribute="leading" secondItem="bEQ-NA-khz" secondAttribute="leadingMargin" id="3zA-RA-CUB"/>
+                            <constraint firstItem="t3G-3f-a2T" firstAttribute="centerX" secondItem="lFF-kl-xci" secondAttribute="centerX" id="5Fr-3H-srD"/>
                             <constraint firstItem="lFF-kl-xci" firstAttribute="leading" secondItem="bEQ-NA-khz" secondAttribute="leading" id="Cpn-g0-fCP"/>
                             <constraint firstAttribute="trailing" secondItem="lFF-kl-xci" secondAttribute="trailing" id="J7z-37-y26"/>
+                            <constraint firstItem="lFF-kl-xci" firstAttribute="top" secondItem="t3G-3f-a2T" secondAttribute="bottom" id="TG0-R3-IVS"/>
+                            <constraint firstItem="t3G-3f-a2T" firstAttribute="top" secondItem="5Cc-g5-IXa" secondAttribute="bottom" id="fMe-hd-bqQ"/>
                             <constraint firstItem="lFF-kl-xci" firstAttribute="bottom" secondItem="M9t-Gg-PxR" secondAttribute="top" id="jVT-mt-jEH"/>
                             <constraint firstItem="lFF-kl-xci" firstAttribute="top" secondItem="5Cc-g5-IXa" secondAttribute="bottom" constant="195" id="rTf-7Q-34B"/>
                         </constraints>
@@ -1174,6 +1184,36 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wNq-RM-xQJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--Heart Rate Bar Chart View Controller-->
+        <scene sceneID="iqM-NX-CNj">
+            <objects>
+                <viewController storyboardIdentifier="HeartRateBarChartViewController" id="hPE-RQ-sWe" customClass="HeartRateBarChartViewController" customModule="APRIMA_EHR_APP" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rX0-AS-qzb">
+                        <rect key="frame" x="0.0" y="0.0" width="374" height="195"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lz7-DS-ely" customClass="BarChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="0.0" width="374" height="195"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="lz7-DS-ely" firstAttribute="top" secondItem="rX0-AS-qzb" secondAttribute="top" id="PjW-VL-5db"/>
+                            <constraint firstAttribute="trailing" secondItem="lz7-DS-ely" secondAttribute="trailing" id="R2O-Ij-bEg"/>
+                            <constraint firstItem="lz7-DS-ely" firstAttribute="leading" secondItem="rX0-AS-qzb" secondAttribute="leading" id="qF8-Is-62r"/>
+                            <constraint firstAttribute="bottom" secondItem="lz7-DS-ely" secondAttribute="bottom" id="zqk-Tr-mbT"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <connections>
+                        <outlet property="bar_chart_view" destination="lz7-DS-ely" id="j9I-IX-auR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xdn-rK-zsg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2431" y="-809.5"/>
         </scene>
     </scenes>
     <resources>

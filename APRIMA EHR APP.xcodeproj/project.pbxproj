@@ -34,6 +34,7 @@
 		D1835A061CAB7E4B00B40A29 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1835A051CAB7E4B00B40A29 /* LoginViewController.swift */; };
 		D18856B61C7D511000DEAB91 /* FitnessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18856B51C7D511000DEAB91 /* FitnessViewController.swift */; };
 		D194F0801C87CC68006B7338 /* StepsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D194F07F1C87CC68006B7338 /* StepsTableViewController.swift */; };
+		D19996491CBB790D009E1D07 /* HeartRateBarChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19996481CBB790D009E1D07 /* HeartRateBarChartViewController.swift */; };
 		D1A5917B1CAC342A008F0313 /* HeartRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A5917A1CAC342A008F0313 /* HeartRate.swift */; };
 		D1A5917D1CAC36BA008F0313 /* Steps.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A5917C1CAC36BA008F0313 /* Steps.swift */; };
 		D1A71F401C7D27F50004EA65 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A71F3F1C7D27F50004EA65 /* SettingsViewController.swift */; };
@@ -140,6 +141,7 @@
 		D1835A051CAB7E4B00B40A29 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D18856B51C7D511000DEAB91 /* FitnessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FitnessViewController.swift; sourceTree = "<group>"; };
 		D194F07F1C87CC68006B7338 /* StepsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepsTableViewController.swift; sourceTree = "<group>"; };
+		D19996481CBB790D009E1D07 /* HeartRateBarChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeartRateBarChartViewController.swift; sourceTree = "<group>"; };
 		D1A5917A1CAC342A008F0313 /* HeartRate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeartRate.swift; sourceTree = "<group>"; };
 		D1A5917C1CAC36BA008F0313 /* Steps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Steps.swift; sourceTree = "<group>"; };
 		D1A71F3F1C7D27F50004EA65 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 			isa = PBXGroup;
 			children = (
 				D169125D1CA254D40032C14F /* HeartRateTableViewController.swift */,
+				D19996481CBB790D009E1D07 /* HeartRateBarChartViewController.swift */,
 				D1835A021CAA2B4B00B40A29 /* HeartRateViewController.swift */,
 			);
 			name = "Vitals View Controllers";
@@ -507,6 +510,7 @@
 				D1A5917D1CAC36BA008F0313 /* Steps.swift in Sources */,
 				22800FCA1CBB575700DB1302 /* StepsViewController.swift in Sources */,
 				64C33D121CACC6BB00844E5B /* ResultsViewController.swift in Sources */,
+				D19996491CBB790D009E1D07 /* HeartRateBarChartViewController.swift in Sources */,
 				645C6D341C74C18900275405 /* AppDelegate.swift in Sources */,
 				D1A71F401C7D27F50004EA65 /* SettingsViewController.swift in Sources */,
 				D169125E1CA254D40032C14F /* HeartRateTableViewController.swift in Sources */,
