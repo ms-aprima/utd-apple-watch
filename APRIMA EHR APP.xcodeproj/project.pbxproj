@@ -27,6 +27,8 @@
 		64C33D181CB212DB00844E5B /* BloodGlucose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C33D171CB212DB00844E5B /* BloodGlucose.swift */; };
 		64F8E2731C8E75F800115E59 /* way-to-success.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 64F8E2721C8E75F800115E59 /* way-to-success.mp3 */; };
 		A56169F71CB5FE9800258FBD /* WeightTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56169F61CB5FE9800258FBD /* WeightTableViewController.swift */; };
+		A56F764B1CBB690600B9FCC6 /* WeightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56F764A1CBB690600B9FCC6 /* WeightViewController.swift */; };
+		A56F76501CBB691F00B9FCC6 /* WeightChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56F764F1CBB691F00B9FCC6 /* WeightChartViewController.swift */; };
 		D1447E681C8E8D3C0047DCA5 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1447E671C8E8D3C0047DCA5 /* ProfileTableViewController.swift */; };
 		D14C6FD71CAC786100370E85 /* Weight.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14C6FD61CAC786100370E85 /* Weight.swift */; };
 		D169125E1CA254D40032C14F /* HeartRateTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D169125D1CA254D40032C14F /* HeartRateTableViewController.swift */; };
@@ -34,6 +36,7 @@
 		D1835A061CAB7E4B00B40A29 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1835A051CAB7E4B00B40A29 /* LoginViewController.swift */; };
 		D18856B61C7D511000DEAB91 /* FitnessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18856B51C7D511000DEAB91 /* FitnessViewController.swift */; };
 		D194F0801C87CC68006B7338 /* StepsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D194F07F1C87CC68006B7338 /* StepsTableViewController.swift */; };
+		D19996491CBB790D009E1D07 /* HeartRateBarChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19996481CBB790D009E1D07 /* HeartRateBarChartViewController.swift */; };
 		D1A5917B1CAC342A008F0313 /* HeartRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A5917A1CAC342A008F0313 /* HeartRate.swift */; };
 		D1A5917D1CAC36BA008F0313 /* Steps.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A5917C1CAC36BA008F0313 /* Steps.swift */; };
 		D1A71F401C7D27F50004EA65 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A71F3F1C7D27F50004EA65 /* SettingsViewController.swift */; };
@@ -133,6 +136,8 @@
 		64C33D171CB212DB00844E5B /* BloodGlucose.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodGlucose.swift; sourceTree = "<group>"; };
 		64F8E2721C8E75F800115E59 /* way-to-success.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "way-to-success.mp3"; path = "APRIMA EHR APP/Assets.xcassets/way-to-success.mp3"; sourceTree = "<group>"; };
 		A56169F61CB5FE9800258FBD /* WeightTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightTableViewController.swift; sourceTree = "<group>"; };
+		A56F764A1CBB690600B9FCC6 /* WeightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightViewController.swift; sourceTree = "<group>"; };
+		A56F764F1CBB691F00B9FCC6 /* WeightChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightChartViewController.swift; sourceTree = "<group>"; };
 		D1447E671C8E8D3C0047DCA5 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		D14C6FD61CAC786100370E85 /* Weight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weight.swift; sourceTree = "<group>"; };
 		D169125D1CA254D40032C14F /* HeartRateTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeartRateTableViewController.swift; sourceTree = "<group>"; };
@@ -140,6 +145,7 @@
 		D1835A051CAB7E4B00B40A29 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D18856B51C7D511000DEAB91 /* FitnessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FitnessViewController.swift; sourceTree = "<group>"; };
 		D194F07F1C87CC68006B7338 /* StepsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepsTableViewController.swift; sourceTree = "<group>"; };
+		D19996481CBB790D009E1D07 /* HeartRateBarChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeartRateBarChartViewController.swift; sourceTree = "<group>"; };
 		D1A5917A1CAC342A008F0313 /* HeartRate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeartRate.swift; sourceTree = "<group>"; };
 		D1A5917C1CAC36BA008F0313 /* Steps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Steps.swift; sourceTree = "<group>"; };
 		D1A71F3F1C7D27F50004EA65 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -267,6 +273,7 @@
 			isa = PBXGroup;
 			children = (
 				D169125D1CA254D40032C14F /* HeartRateTableViewController.swift */,
+				D19996481CBB790D009E1D07 /* HeartRateBarChartViewController.swift */,
 				D1835A021CAA2B4B00B40A29 /* HeartRateViewController.swift */,
 			);
 			name = "Vitals View Controllers";
@@ -275,10 +282,8 @@
 		D169125C1CA2411D0032C14F /* Fitness View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D194F07F1C87CC68006B7338 /* StepsTableViewController.swift */,
-				A56169F61CB5FE9800258FBD /* WeightTableViewController.swift */,
-				22800FC91CBB575700DB1302 /* StepsViewController.swift */,
-				22800FCB1CBB577000DB1302 /* StepsBarChartViewController.swift */,
+				D19996521CBB7D7A009E1D07 /* Weight View Controllers */,
+				D199964E1CBB7D6C009E1D07 /* Steps View Controllers */,
 			);
 			name = "Fitness View Controllers";
 			sourceTree = "<group>";
@@ -302,6 +307,26 @@
 				64918D5B1CA23A5A009C1496 /* VitalsVIewController.swift */,
 			);
 			name = "Health Data View Controllers";
+			sourceTree = "<group>";
+		};
+		D199964E1CBB7D6C009E1D07 /* Steps View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D194F07F1C87CC68006B7338 /* StepsTableViewController.swift */,
+				22800FC91CBB575700DB1302 /* StepsViewController.swift */,
+				22800FCB1CBB577000DB1302 /* StepsBarChartViewController.swift */,
+			);
+			name = "Steps View Controllers";
+			sourceTree = "<group>";
+		};
+		D19996521CBB7D7A009E1D07 /* Weight View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A56169F61CB5FE9800258FBD /* WeightTableViewController.swift */,
+				A56F764A1CBB690600B9FCC6 /* WeightViewController.swift */,
+				A56F764F1CBB691F00B9FCC6 /* WeightChartViewController.swift */,
+			);
+			name = "Weight View Controllers";
 			sourceTree = "<group>";
 		};
 		D1A591791CAC3411008F0313 /* Data Type Classes */ = {
@@ -497,7 +522,9 @@
 				D1447E681C8E8D3C0047DCA5 /* ProfileTableViewController.swift in Sources */,
 				A56169F71CB5FE9800258FBD /* WeightTableViewController.swift in Sources */,
 				D1A71F421C7D29F30004EA65 /* ProfileViewController.swift in Sources */,
+				A56F76501CBB691F00B9FCC6 /* WeightChartViewController.swift in Sources */,
 				64C33D181CB212DB00844E5B /* BloodGlucose.swift in Sources */,
+				A56F764B1CBB690600B9FCC6 /* WeightViewController.swift in Sources */,
 				645C6D381C74C18900275405 /* HealthDataViewController.swift in Sources */,
 				64C33D161CACD6F400844E5B /* BloodGlucoseTableViewController.swift in Sources */,
 				D1835A031CAA2B4B00B40A29 /* HeartRateViewController.swift in Sources */,
@@ -506,6 +533,7 @@
 				D1A5917D1CAC36BA008F0313 /* Steps.swift in Sources */,
 				22800FCA1CBB575700DB1302 /* StepsViewController.swift in Sources */,
 				64C33D121CACC6BB00844E5B /* ResultsViewController.swift in Sources */,
+				D19996491CBB790D009E1D07 /* HeartRateBarChartViewController.swift in Sources */,
 				645C6D341C74C18900275405 /* AppDelegate.swift in Sources */,
 				22800FCC1CBB577000DB1302 /* StepsBarChartViewController.swift in Sources */,
 				D1A71F401C7D27F50004EA65 /* SettingsViewController.swift in Sources */,
