@@ -282,12 +282,8 @@
 		D169125C1CA2411D0032C14F /* Fitness View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D194F07F1C87CC68006B7338 /* StepsTableViewController.swift */,
-				A56169F61CB5FE9800258FBD /* WeightTableViewController.swift */,
-				22800FC91CBB575700DB1302 /* StepsViewController.swift */,
-				22800FCB1CBB577000DB1302 /* StepsBarChartViewController.swift */,
-				A56F764A1CBB690600B9FCC6 /* WeightViewController.swift */,
-				A56F764F1CBB691F00B9FCC6 /* WeightChartViewController.swift */,
+				D19996521CBB7D7A009E1D07 /* Weight View Controllers */,
+				D199964E1CBB7D6C009E1D07 /* Steps View Controllers */,
 			);
 			name = "Fitness View Controllers";
 			sourceTree = "<group>";
@@ -311,6 +307,26 @@
 				64918D5B1CA23A5A009C1496 /* VitalsVIewController.swift */,
 			);
 			name = "Health Data View Controllers";
+			sourceTree = "<group>";
+		};
+		D199964E1CBB7D6C009E1D07 /* Steps View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D194F07F1C87CC68006B7338 /* StepsTableViewController.swift */,
+				22800FC91CBB575700DB1302 /* StepsViewController.swift */,
+				22800FCB1CBB577000DB1302 /* StepsBarChartViewController.swift */,
+			);
+			name = "Steps View Controllers";
+			sourceTree = "<group>";
+		};
+		D19996521CBB7D7A009E1D07 /* Weight View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A56169F61CB5FE9800258FBD /* WeightTableViewController.swift */,
+				A56F764A1CBB690600B9FCC6 /* WeightViewController.swift */,
+				A56F764F1CBB691F00B9FCC6 /* WeightChartViewController.swift */,
+			);
+			name = "Weight View Controllers";
 			sourceTree = "<group>";
 		};
 		D1A591791CAC3411008F0313 /* Data Type Classes */ = {
