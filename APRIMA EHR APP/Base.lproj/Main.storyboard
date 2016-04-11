@@ -907,7 +907,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="7rt-bH-L96" kind="show" id="MNU-HE-Og7"/>
+                                            <segue destination="z7d-dC-IhX" kind="show" id="6Mw-aw-zRf"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Cgd-v4-fG5">
@@ -953,12 +953,12 @@
             <objects>
                 <tableViewController storyboardIdentifier="BloodGlucoseTableViewController" title="Blood Glucose Table View" id="7rt-bH-L96" customClass="BloodGlucoseTableViewController" customModule="APRIMA_EHR_APP" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Iat-JR-K5Z">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="433"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Blood_Glucoses" textLabel="9eV-BI-1j6" detailTextLabel="7Eq-sb-QKG" style="IBUITableViewCellStyleValue1" id="757-ZH-IT4">
-                                <rect key="frame" x="0.0" y="92" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="757-ZH-IT4" id="dI6-QT-1dR">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
@@ -1014,7 +1014,7 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="1958" y="452"/>
+            <point key="canvasLocation" x="2380" y="462"/>
         </scene>
         <!--Steps View Controller-->
         <scene sceneID="k0z-8Y-zuQ">
@@ -1168,23 +1168,6 @@
             </objects>
             <point key="canvasLocation" x="2086" y="-2550"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="sG4-Ae-L4n">
-            <objects>
-                <viewController id="V0R-ON-1FA" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="zH0-Gv-vFh"/>
-                        <viewControllerLayoutGuide type="bottom" id="84A-jK-DfP"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="JV8-1A-SiN">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wNq-RM-xQJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
         <!--Heart Rate Bar Chart View Controller-->
         <scene sceneID="iqM-NX-CNj">
             <objects>
@@ -1294,6 +1277,82 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2L8-n7-O0k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2445" y="-1518"/>
+        </scene>
+        <!--Blood Glucose-->
+        <scene sceneID="HCU-wB-mAO">
+            <objects>
+                <viewController storyboardIdentifier="BloodGlucoseViewController" title="Blood Glucose" id="z7d-dC-IhX" customClass="BloodGlucoseViewController" customModule="APRIMA_EHR_APP" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YtZ-4q-QOv"/>
+                        <viewControllerLayoutGuide type="bottom" id="THs-j9-1ye"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Hq6-I4-WTe">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PBj-mb-UYd">
+                                <rect key="frame" x="0.0" y="259" width="414" height="433"/>
+                                <connections>
+                                    <segue destination="7rt-bH-L96" kind="embed" id="AXn-tL-g4Z"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a9g-Cd-2Hb">
+                                <rect key="frame" x="20" y="64" width="374" height="195"/>
+                                <connections>
+                                    <segue destination="GX5-Dg-EZx" kind="embed" id="UsQ-l6-Yya"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="a9g-Cd-2Hb" firstAttribute="top" secondItem="YtZ-4q-QOv" secondAttribute="bottom" id="7Dd-ru-2SL"/>
+                            <constraint firstAttribute="trailing" secondItem="PBj-mb-UYd" secondAttribute="trailing" id="Fwu-Yp-ybV"/>
+                            <constraint firstItem="PBj-mb-UYd" firstAttribute="top" secondItem="a9g-Cd-2Hb" secondAttribute="bottom" id="GQ3-Pv-wfE"/>
+                            <constraint firstItem="PBj-mb-UYd" firstAttribute="top" secondItem="YtZ-4q-QOv" secondAttribute="bottom" constant="195" id="I46-4i-EjF"/>
+                            <constraint firstItem="a9g-Cd-2Hb" firstAttribute="leading" secondItem="Hq6-I4-WTe" secondAttribute="leadingMargin" id="UX8-et-8VG"/>
+                            <constraint firstItem="PBj-mb-UYd" firstAttribute="leading" secondItem="Hq6-I4-WTe" secondAttribute="leading" id="kdV-qo-8Wq"/>
+                            <constraint firstItem="PBj-mb-UYd" firstAttribute="bottom" secondItem="THs-j9-1ye" secondAttribute="top" id="qlZ-0I-5hZ"/>
+                            <constraint firstItem="a9g-Cd-2Hb" firstAttribute="centerX" secondItem="PBj-mb-UYd" secondAttribute="centerX" id="xYZ-6b-F0z"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JaY-6b-XPq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1825" y="356"/>
+        </scene>
+        <!--Blood Glucose Chart View Controller-->
+        <scene sceneID="KRG-ow-Jcu">
+            <objects>
+                <viewController storyboardIdentifier="BloodGlucoseChartViewController" id="GX5-Dg-EZx" customClass="BloodGlucoseChartViewController" customModule="APRIMA_EHR_APP" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="egd-89-6Yd"/>
+                        <viewControllerLayoutGuide type="bottom" id="8D4-z1-pna"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KxJ-7L-Dkf">
+                        <rect key="frame" x="0.0" y="0.0" width="374" height="195"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="21G-cM-4Mf" customClass="BarChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="0.0" width="374" height="195"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="21G-cM-4Mf" firstAttribute="top" secondItem="KxJ-7L-Dkf" secondAttribute="top" id="3WP-Xd-7qj"/>
+                            <constraint firstAttribute="trailing" secondItem="21G-cM-4Mf" secondAttribute="trailing" id="6tZ-FZ-TGZ"/>
+                            <constraint firstAttribute="bottom" secondItem="21G-cM-4Mf" secondAttribute="bottom" id="NOL-uA-MeZ"/>
+                            <constraint firstItem="21G-cM-4Mf" firstAttribute="leading" secondItem="KxJ-7L-Dkf" secondAttribute="leading" id="zwJ-bo-VNb"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <connections>
+                        <outlet property="barChartView" destination="21G-cM-4Mf" id="S1z-Tv-r8L"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ATV-JA-8NN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2333" y="109.5"/>
         </scene>
     </scenes>
     <resources>
