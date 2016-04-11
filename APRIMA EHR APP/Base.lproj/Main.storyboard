@@ -376,7 +376,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="zuE-aR-uNK" kind="show" id="THg-1f-mXO"/>
+                                            <segue destination="625-bx-Opx" kind="show" id="5bo-DF-oqw"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="P0D-Sj-oAe" style="IBUITableViewCellStyleDefault" id="euX-QJ-hBv">
@@ -1085,19 +1085,19 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Gf-hV-lmz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2091" y="-2107"/>
+            <point key="canvasLocation" x="2215" y="-2199.5"/>
         </scene>
         <!--Weights Table View-->
         <scene sceneID="kmG-QA-Ncz">
             <objects>
                 <tableViewController storyboardIdentifier="WeightTableViewController" title="Weights Table View" id="zuE-aR-uNK" customClass="WeightTableViewController" customModule="APRIMA_EHR_APP" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Rj7-Ey-CNg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="281"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Weights" textLabel="rlP-QV-71L" detailTextLabel="HPR-Ln-AxX" style="IBUITableViewCellStyleValue1" id="i35-up-vs6">
-                                <rect key="frame" x="0.0" y="92" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="i35-up-vs6" id="jEy-1Y-Ug6">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
@@ -1134,12 +1134,16 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nO8-Ih-omf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2358" y="-1366"/>
+            <point key="canvasLocation" x="2588" y="-1190.5"/>
         </scene>
         <!--Steps Bar Chart Rate View Controller-->
         <scene sceneID="QTS-KO-u2o">
             <objects>
                 <viewController id="Ws7-IK-eRV" customClass="StepsBarChartRateViewController" customModule="APRIMA_EHR_APP" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RHa-7Z-nnz"/>
+                        <viewControllerLayoutGuide type="bottom" id="vgE-DI-1Tk"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="mBD-FC-j89">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="348"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1161,6 +1165,10 @@
         <scene sceneID="sG4-Ae-L4n">
             <objects>
                 <viewController id="V0R-ON-1FA" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="K4i-3g-j6N"/>
+                        <viewControllerLayoutGuide type="bottom" id="E7n-mb-eKl"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="JV8-1A-SiN">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1169,6 +1177,88 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wNq-RM-xQJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--Weight View Controller-->
+        <scene sceneID="rTK-xT-0O2">
+            <objects>
+                <viewController id="625-bx-Opx" customClass="WeightViewController" customModule="APRIMA_EHR_APP" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rhf-vm-Q14"/>
+                        <viewControllerLayoutGuide type="bottom" id="1ZD-B9-umV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6hA-Tl-qfs">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="faO-j9-EUF">
+                                <rect key="frame" x="0.0" y="411" width="414" height="281"/>
+                                <connections>
+                                    <segue destination="zuE-aR-uNK" kind="embed" id="BzF-BR-9jL"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eei-13-4jk">
+                                <rect key="frame" x="0.0" y="64" width="414" height="348"/>
+                                <connections>
+                                    <segue destination="VW1-sL-gcC" kind="embed" id="0QB-eO-6RG"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Eei-13-4jk" firstAttribute="leading" secondItem="faO-j9-EUF" secondAttribute="leading" id="1sE-2k-UBP"/>
+                            <constraint firstAttribute="trailing" secondItem="Eei-13-4jk" secondAttribute="trailing" id="2Xc-GD-Fdo"/>
+                            <constraint firstItem="faO-j9-EUF" firstAttribute="bottom" secondItem="1ZD-B9-umV" secondAttribute="top" id="Cou-6D-bdl"/>
+                            <constraint firstItem="faO-j9-EUF" firstAttribute="top" secondItem="rhf-vm-Q14" secondAttribute="bottom" constant="347" id="FgV-BE-rt5"/>
+                            <constraint firstItem="Eei-13-4jk" firstAttribute="leading" secondItem="6hA-Tl-qfs" secondAttribute="leading" id="Lhh-qg-TmK"/>
+                            <constraint firstItem="Eei-13-4jk" firstAttribute="trailing" secondItem="faO-j9-EUF" secondAttribute="trailing" id="S0E-Sq-Ree"/>
+                            <constraint firstItem="Eei-13-4jk" firstAttribute="top" secondItem="rhf-vm-Q14" secondAttribute="bottom" id="W0Q-PG-AFi"/>
+                            <constraint firstItem="1ZD-B9-umV" firstAttribute="top" secondItem="Eei-13-4jk" secondAttribute="bottom" constant="280" id="haJ-qI-dXY"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I0S-yZ-K7n" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2015" y="-1418"/>
+        </scene>
+        <!--Weight Chart View Controller-->
+        <scene sceneID="bpt-1g-59K">
+            <objects>
+                <viewController id="VW1-sL-gcC" customClass="WeightChartViewController" customModule="APRIMA_EHR_APP" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="iPl-sa-12d"/>
+                        <viewControllerLayoutGuide type="bottom" id="imo-BP-D8B"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wzW-W1-cQL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="348"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bgw-qb-bYU">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="348"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nmU-zI-EqL" customClass="LineChartView" customModule="Charts">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="348"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="nmU-zI-EqL" secondAttribute="trailing" id="TW5-ZY-tX4"/>
+                                    <constraint firstItem="nmU-zI-EqL" firstAttribute="top" secondItem="Bgw-qb-bYU" secondAttribute="top" id="Toe-te-BBy"/>
+                                    <constraint firstAttribute="bottom" secondItem="nmU-zI-EqL" secondAttribute="bottom" id="VWD-bn-YvT"/>
+                                    <constraint firstItem="nmU-zI-EqL" firstAttribute="leading" secondItem="Bgw-qb-bYU" secondAttribute="leading" id="fer-nP-vzS"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <connections>
+                        <outlet property="weightLineChartView" destination="nmU-zI-EqL" id="0s5-nQ-euB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dxD-V3-Mae" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2588" y="-1578"/>
         </scene>
     </scenes>
     <resources>
