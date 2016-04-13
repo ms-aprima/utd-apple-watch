@@ -17,6 +17,8 @@ class StepsTableViewController: UITableViewController {
     let is_health_kit_enabled = NSUserDefaults.standardUserDefaults().boolForKey("is_health_kit_enabled")
     
     let health_kit: HealthKit = HealthKit()
+    let start_date = NSUserDefaults.standardUserDefaults().objectForKey("new_start_date") as! NSDate
+    let lim = 0
     
     // View objects
     //@IBOutlet var display_steps_text_view: UITextView!
@@ -26,7 +28,7 @@ class StepsTableViewController: UITableViewController {
     func setUpStepsObjects(){
         steps_objects.removeAll()
         
-        self.health_kit.getSteps{stepcount, error in
+        self.health_kit.getSteps(self.lim, start_date: self.start_date){stepcount, error in
             self.stepcount = stepcount
         }
         
