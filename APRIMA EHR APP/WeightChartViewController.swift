@@ -20,6 +20,9 @@ class WeightChartViewController: UIViewController {
     var weights = [HKSample]()
     var dates = [String]()
     
+    let start_date = NSUserDefaults.standardUserDefaults().objectForKey("new_start_date") as! NSDate
+    let limit = 25
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,7 +41,7 @@ class WeightChartViewController: UIViewController {
     
 
     func setupChart(){
-        health_kit.getWeight2{results, error in
+        health_kit.getWeight2(self.limit, start_date: self.start_date){results, error in
             self.weights = results
             print("worked")
             print(results.count)
