@@ -26,7 +26,7 @@ class StepsTableViewController: UITableViewController {
     func setUpStepsObjects(){
         steps_objects.removeAll()
         
-        self.health_kit.getSteps{stepcount, error in
+        self.health_kit.getSteps(0, start_date: NSDate.distantPast()){stepcount, error in
             self.stepcount = stepcount
         }
         

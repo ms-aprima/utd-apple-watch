@@ -45,7 +45,7 @@ class HomeViewController: UIViewController {
 //
 //            // SET UP DATA
             self.setUpHeartRateObjects(start_date)
-            self.setUpStepsObjects()
+            self.setUpStepsObjects(start_date)
             self.setUpWeightObjects(start_date)
             self.setUpBloodGlucoseObjects(start_date)
         
@@ -109,9 +109,9 @@ class HomeViewController: UIViewController {
         }
     }
     
-    func setUpStepsObjects(){
+    func setUpStepsObjects(start_date: NSDate){
         steps_objects.removeAll()
-        self.health_kit.getSteps{stepcount, error in
+        self.health_kit.getSteps(self.limit, start_date: start_date){stepcount, error in
             self.stepcount = stepcount
         }
         let date_formatter = NSDateFormatter()

@@ -37,10 +37,8 @@ class StepsBarChartViewController: UIViewController, UINavigationControllerDeleg
     }
     
     func setupChart(){
-        health_kit.getSteps{results, error in
+        health_kit.getSteps(25, start_date:NSDate.distantPast()){results, error in
             self.steps = results
-            print("worked")
-            print(results.count)
         }
         
         var stepCount = [Double]()
