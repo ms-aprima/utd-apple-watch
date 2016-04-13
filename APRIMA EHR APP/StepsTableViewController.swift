@@ -23,10 +23,12 @@ class StepsTableViewController: UITableViewController {
     var stepcount = [HKSample]()
     var steps_objects = [Steps]()
     
-    func setUpStepsObjects(){
+    let limit = 0
+    
+    func setUpStepsObjects(start_date: NSDate){
         steps_objects.removeAll()
         
-        self.health_kit.getSteps(0, start_date: NSDate.distantPast()){stepcount, error in
+        self.health_kit.getSteps(self.limit, start_date: start_date){stepcount, error in
             self.stepcount = stepcount
         }
         
@@ -47,8 +49,9 @@ class StepsTableViewController: UITableViewController {
     func refreshUI(){
         // Make sure the user authorized health kit before attempting to pull data
         if self.is_health_kit_enabled == true{
-            
-            setUpStepsObjects()
+            let start_date = NSUserDefaults.standardUserDefaults().objectForKey("new_start_date") as! NSDate
+
+            setUpStepsObjects(start_date)
                   
         }
     }

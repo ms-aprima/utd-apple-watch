@@ -54,21 +54,19 @@ class HealthKit{
     }
 
     // Gets steps. Still need to define how we want to display this data.
-    func getSteps(lim: Int, start_date: NSDate, completion: (Array<HKSample>, NSError?) -> ()){
+    func getSteps(limit: Int, start_date: NSDate, completion: (Array<HKSample>, NSError?) -> ()){
         // Testing getting steps from yesterday to today. Get yesterday's date by subtracting 24 hours (in secs) from today's date
         // So with yesterday's date as start parameter and today's date as the end parameter to the method below
         // Temporary of course
         let today = NSDate()
-        let yesterday = start_date
         
         // The type of data being requested
         let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: false)
         let type = HKSampleType.quantityTypeForIdentifier(HKQuantityTypeIdentifierStepCount)
-        let limit = lim
         
         // Search predicate will fetch data from now until a day ago for testing purposes for now.
         //let predicate = HKQuery.predicateForSamplesWithStartDate(newDate, endDate: NSDate(), options: .None)
-        let predicate = HKQuery.predicateForSamplesWithStartDate(yesterday, endDate: today,options: .None)
+        let predicate = HKQuery.predicateForSamplesWithStartDate(start_date, endDate: today,options: .None)
         
         // Query to fetch steps
         let query = HKSampleQuery(sampleType: type!, predicate: predicate, limit: limit, sortDescriptors: [sortDescriptor]){ query, results, error in

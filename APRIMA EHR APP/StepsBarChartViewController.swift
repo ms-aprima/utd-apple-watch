@@ -20,6 +20,8 @@ class StepsBarChartViewController: UIViewController, UINavigationControllerDeleg
     var steps = [HKSample]()
     var dates = [String]()
     
+    let limit = 25
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,8 +38,8 @@ class StepsBarChartViewController: UIViewController, UINavigationControllerDeleg
         refreshUI()
     }
     
-    func setupChart(){
-        health_kit.getSteps(25, start_date:NSDate.distantPast()){results, error in
+    func setupChart(start_date: NSDate){
+        health_kit.getSteps(self.limit, start_date: start_date){results, error in
             self.steps = results
         }
         
@@ -58,8 +60,9 @@ class StepsBarChartViewController: UIViewController, UINavigationControllerDeleg
     
     func refreshUI(){
         if self.is_health_kit_enabled == true{
-            
-            setupChart()
+            let start_date = NSDate.distantPast()
+
+            setupChart(start_date)
         
         }
     }

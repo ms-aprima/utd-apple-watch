@@ -15,7 +15,7 @@ class HomeViewController: UIViewController {
     
     // Used to store the user's data
     let defaults = NSUserDefaults.standardUserDefaults()
-    let is_health_kit_enabled = NSUserDefaults.standardUserDefaults().boolForKey("is_health_kit_enabled")
+    var is_health_kit_enabled = NSUserDefaults.standardUserDefaults().boolForKey("is_health_kit_enabled")
     
     
     // initialize a HealthKit object to pull data from
@@ -42,13 +42,13 @@ class HomeViewController: UIViewController {
         // Make sure the user authorized health kit before attempting to pull data
         if self.is_health_kit_enabled == true{
             let start_date = NSUserDefaults.standardUserDefaults().objectForKey("new_start_date") as! NSDate
-//
-//            // SET UP DATA
+
+            // SET UP DATA
             self.setUpHeartRateObjects(start_date)
             self.setUpStepsObjects(start_date)
             self.setUpWeightObjects(start_date)
             self.setUpBloodGlucoseObjects(start_date)
-        
+            print("hello")
         
         
             // Get the patient ID and JsonWebToken from NSUserdefaults
@@ -166,6 +166,11 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        self.is_health_kit_enabled = NSUserDefaults.standardUserDefaults().boolForKey("is_health_kit_enabled")
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.is_health_kit_enabled = NSUserDefaults.standardUserDefaults().boolForKey("is_health_kit_enabled")
     }
 
     override func didReceiveMemoryWarning() {
