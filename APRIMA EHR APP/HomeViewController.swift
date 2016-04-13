@@ -42,8 +42,8 @@ class HomeViewController: UIViewController {
         // Make sure the user authorized health kit before attempting to pull data
         if self.is_health_kit_enabled == true{
             let start_date = NSUserDefaults.standardUserDefaults().objectForKey("new_start_date") as! NSDate
-        
-            // SET UP DATA
+//
+//            // SET UP DATA
             self.setUpHeartRateObjects(start_date)
             self.setUpStepsObjects()
             self.setUpWeightObjects(start_date)

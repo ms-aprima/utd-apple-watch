@@ -23,15 +23,17 @@ class HeartRateTableViewController: UITableViewController {
     // Array of our HeartRate objects. Properties are timestamp and value
     var heart_rate_objects = [HeartRate]()
     
-    let start_date = NSUserDefaults.standardUserDefaults().objectForKey("new_start_date") as! NSDate
+    
     let limit = 0
     
     // Refreshes the UI
     func refreshUI(){
         // Make sure the user authorized health kit before attempting to pull data
         if self.is_health_kit_enabled == true{
+            let start_date = NSUserDefaults.standardUserDefaults().objectForKey("new_start_date") as! NSDate
+            
             // Set up array of heart rate objects to use for displaying
-            setUpHeartRateObjects()
+            setUpHeartRateObjects(start_date)
         }
     }
     
@@ -41,11 +43,11 @@ class HeartRateTableViewController: UITableViewController {
     
     
     // Sets up the array of HeartRate objects to display as table cells
-    func setUpHeartRateObjects(){
+    func setUpHeartRateObjects(start_date: NSDate){
         // First clear array to make sure it's empty
         heart_rate_objects.removeAll()
         
-        self.health_kit.getHeartRate(self.limit, start_date: self.start_date){ heart_rates, error in
+        self.health_kit.getHeartRate(self.limit, start_date: start_date){ heart_rates, error in
             self.heart_rates = heart_rates
         }
         let heartRateUnit:HKUnit = HKUnit(fromString: "count/min")

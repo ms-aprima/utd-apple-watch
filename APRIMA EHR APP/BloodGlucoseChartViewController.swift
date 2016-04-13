@@ -21,7 +21,6 @@ class BloodGlucoseChartViewController: UIViewController {
         var bloodglucose = [HKSample]()
         var dates = [String]()
     
-        let start_date = NSUserDefaults.standardUserDefaults().objectForKey("new_start_date") as! NSDate
         let limit = 25
     
         
@@ -42,8 +41,8 @@ class BloodGlucoseChartViewController: UIViewController {
             refreshUI()
         }
         
-        func setupChart(){
-            health_kit.getBloodGlucose(self.limit, start_date: self.start_date){results, error in
+    func setupChart(start_date: NSDate){
+            health_kit.getBloodGlucose(self.limit, start_date: start_date){results, error in
                 self.bloodglucose = results
                 print("worked")
                 print(results.count)
@@ -66,7 +65,9 @@ class BloodGlucoseChartViewController: UIViewController {
         
         func refreshUI(){
             if self.is_health_kit_enabled == true{
-                setupChart()
+                let start_date = NSDate.distantPast()
+
+                setupChart(start_date)
                 
             }
         }

@@ -23,7 +23,6 @@ class WeightTableViewController: UITableViewController {
     //array of Weight objects.
     var weight_objects = [Weight]()
     
-    let start_date = NSUserDefaults.standardUserDefaults().objectForKey("new_start_date") as! NSDate
     let limit = 0
     
     func refreshUI()
@@ -31,17 +30,19 @@ class WeightTableViewController: UITableViewController {
         
         if self.is_health_kit_enabled == true
         {
-            setUpWeightObjects()
+            let start_date = NSUserDefaults.standardUserDefaults().objectForKey("new_start_date") as! NSDate
+
+            setUpWeightObjects(start_date)
         }
     }
     
-    func setUpWeightObjects()
+    func setUpWeightObjects(start_date: NSDate)
     {
         
         weight_objects.removeAll()
         
         
-        self.health_kit.getWeight2(self.limit, start_date: self.start_date){ weight, error in
+        self.health_kit.getWeight2(self.limit, start_date: start_date){ weight, error in
             self.weight = weight
         }
         

@@ -27,15 +27,15 @@ class HeartRateBarChartViewController: UIViewController, ChartViewDelegate {
     // Array of heart rate samples pulled from HealhKit
     var heart_rates = [HKSample]()
     
-    let start_date = NSUserDefaults.standardUserDefaults().objectForKey("new_start_date") as! NSDate
     let limit = 25
     
     // Refreshes the UI
     func refreshUI(){
         // Make sure the user authorized health kit before attempting to pull data
         if self.is_health_kit_enabled == true{
+            let start_date = NSDate.distantPast()
             // Set up array of heart rate objects to use for displaying
-            setUpHeartRateObjects()
+            setUpHeartRateObjects(start_date)
             if(self.dates.count > 0 && self.values.count > 0){
                 self.setChart(self.dates, values: self.values)
             }
@@ -44,12 +44,12 @@ class HeartRateBarChartViewController: UIViewController, ChartViewDelegate {
     
     
     // Sets up the array of HeartRate objects to display as table cells
-    func setUpHeartRateObjects(){
+    func setUpHeartRateObjects(start_date: NSDate){
         // First clear array to make sure it's empty
         self.dates.removeAll()
         self.values.removeAll()
         
-        self.health_kit.getHeartRate(self.limit, start_date: self.start_date){ heart_rates, error in
+        self.health_kit.getHeartRate(self.limit, start_date: start_date){ heart_rates, error in
             self.heart_rates = heart_rates
         }
         let heartRateUnit:HKUnit = HKUnit(fromString: "count/min")
