@@ -23,7 +23,7 @@ class BloodGlucoseChartViewController: UIViewController {
         
         override func viewDidLoad() {
             super.viewDidLoad()
-            
+              
             refreshUI()
             
             
@@ -44,7 +44,7 @@ class BloodGlucoseChartViewController: UIViewController {
                 print(results.count)
             }
             let bloodGUNIT:HKUnit = HKUnit(fromString: "mg/dL")
-            
+            dates = [String]()
             var bloodglucoseCount = [Double]()
             let date_formatter = NSDateFormatter()
             date_formatter.dateFormat = "MMM dd, yyyy hh:mm a"
@@ -61,7 +61,6 @@ class BloodGlucoseChartViewController: UIViewController {
         
         func refreshUI(){
             if self.is_health_kit_enabled == true{
-                
                 setupChart()
                 
             }
@@ -88,8 +87,11 @@ class BloodGlucoseChartViewController: UIViewController {
             let chartDataSet = BarChartDataSet(yVals: dataEntries, label: "Blood Glucose")
             let chartData = BarChartData(xVals: dates, dataSet: chartDataSet)
             barChartView.data = chartData
-            barChartView.descriptionText = ""
             
+            barChartView.descriptionText = ""
+            chartDataSet.colors = [UIColor(red: 25.0/255, green: 150.0/255, blue: 197.0/255, alpha: 1)]
+            self.barChartView.xAxis.labelPosition = .Bottom
+            self.barChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
         }
         
         /*
