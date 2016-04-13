@@ -33,6 +33,10 @@ class HeartRateTableViewController: UITableViewController {
         }
     }
     
+    func getHeartRateObjects(){
+        
+    }
+    
     
     // Sets up the array of HeartRate objects to display as table cells
     func setUpHeartRateObjects(){

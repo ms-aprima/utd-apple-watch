@@ -44,6 +44,7 @@ class StepsBarChartViewController: UIViewController, UINavigationControllerDeleg
         }
         
         var stepCount = [Double]()
+        dates = [String]()
         let date_formatter = NSDateFormatter()
         date_formatter.dateFormat = "MMM dd, yyyy hh:mm a"
         for s in self.steps as! [HKQuantitySample]{

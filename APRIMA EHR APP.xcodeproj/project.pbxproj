@@ -276,9 +276,7 @@
 		D169125B1CA240E70032C14F /* Vitals View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D169125D1CA254D40032C14F /* HeartRateTableViewController.swift */,
-				D19996481CBB790D009E1D07 /* HeartRateBarChartViewController.swift */,
-				D1835A021CAA2B4B00B40A29 /* HeartRateViewController.swift */,
+				D19996581CBDE167009E1D07 /* Heart Rate View Controllers */,
 			);
 			name = "Vitals View Controllers";
 			sourceTree = "<group>";
@@ -341,6 +339,16 @@
 				64C33D151CACD6F400844E5B /* BloodGlucoseTableViewController.swift */,
 			);
 			name = "Blood Glucose View Controllers";
+			sourceTree = "<group>";
+		};
+		D19996581CBDE167009E1D07 /* Heart Rate View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D169125D1CA254D40032C14F /* HeartRateTableViewController.swift */,
+				D19996481CBB790D009E1D07 /* HeartRateBarChartViewController.swift */,
+				D1835A021CAA2B4B00B40A29 /* HeartRateViewController.swift */,
+			);
+			name = "Heart Rate View Controllers";
 			sourceTree = "<group>";
 		};
 		D1A591791CAC3411008F0313 /* Data Type Classes */ = {

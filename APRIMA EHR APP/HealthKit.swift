@@ -13,9 +13,13 @@ import HealthKit
 // Make sure to check Authorized.enabled == true before pulling data.
 let defaults = NSUserDefaults.standardUserDefaults()
 
+
 class HealthKit{
     // Create instance of health kit store
     let hk_store:HKHealthStore = HKHealthStore()
+    
+    // initially start date is distantPast
+    var start_date = NSDate.distantPast()
     
     //Lets user authorize the app to use health kit. returns if authorization was successful
     func authorize() -> Bool{
