@@ -23,6 +23,8 @@ class HeartRateTableViewController: UITableViewController {
     // Array of our HeartRate objects. Properties are timestamp and value
     var heart_rate_objects = [HeartRate]()
     
+    let start_date = NSUserDefaults.standardUserDefaults().objectForKey("new_start_date") as! NSDate
+    let limit = 0
     
     // Refreshes the UI
     func refreshUI(){
@@ -43,7 +45,7 @@ class HeartRateTableViewController: UITableViewController {
         // First clear array to make sure it's empty
         heart_rate_objects.removeAll()
         
-        self.health_kit.getHeartRate{ heart_rates, error in
+        self.health_kit.getHeartRate(self.limit, start_date: self.start_date){ heart_rates, error in
             self.heart_rates = heart_rates
         }
         let heartRateUnit:HKUnit = HKUnit(fromString: "count/min")

@@ -14,6 +14,8 @@ class BloodGlucoseTableViewController: UITableViewController {
     // Use defaults to save important stuff (like if health kit is enabled)
     let defaults = NSUserDefaults.standardUserDefaults()
     let is_health_kit_enabled = NSUserDefaults.standardUserDefaults().boolForKey("is_health_kit_enabled")
+    let start_date = NSUserDefaults.standardUserDefaults().objectForKey("new_start_date") as! NSDate
+    let limit = 0
     
     let health_kit: HealthKit = HealthKit()
     
@@ -28,7 +30,7 @@ class BloodGlucoseTableViewController: UITableViewController {
     func setUpBloodGlucoseObjects(){
         // First clear array to make sure it's empty
         blood_glucose_objects.removeAll()
-        self.health_kit.getBloodGlucose{bloodgs, error in
+        self.health_kit.getBloodGlucose(self.limit, start_date: self.start_date){ bloodgs, error in
             self.bloodglucose = bloodgs
         }
         

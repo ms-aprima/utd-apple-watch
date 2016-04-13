@@ -23,6 +23,9 @@ class WeightTableViewController: UITableViewController {
     //array of Weight objects.
     var weight_objects = [Weight]()
     
+    let start_date = NSUserDefaults.standardUserDefaults().objectForKey("new_start_date") as! NSDate
+    let limit = 0
+    
     func refreshUI()
     {
         
@@ -38,7 +41,7 @@ class WeightTableViewController: UITableViewController {
         weight_objects.removeAll()
         
         
-        self.health_kit.getWeight2{ weight, error in
+        self.health_kit.getWeight2(self.limit, start_date: self.start_date){ weight, error in
             self.weight = weight
         }
         

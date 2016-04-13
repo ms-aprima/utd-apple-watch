@@ -14,6 +14,9 @@ class WeightChartViewController: UIViewController {
     @IBOutlet weak var weightLineChartView: LineChartView!
     var months: [String]!
     
+    let start_date = NSUserDefaults.standardUserDefaults().objectForKey("new_start_date") as! NSDate
+    let limit = 25
+    
     func setChart(dataPoints: [String], values: [Double])
     {
         var dataEntries: [ChartDataEntry] = []

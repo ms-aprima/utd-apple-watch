@@ -18,8 +18,8 @@ class HealthKit{
     // Create instance of health kit store
     let hk_store:HKHealthStore = HKHealthStore()
     
-    // initially start date is distantPast
-    var start_date = NSDate.distantPast()
+    // initially start date is distantPast and default limit is 0
+//    var start_date = defaults.objectForKey("new_start_date") as! NSDate
     
     //Lets user authorize the app to use health kit. returns if authorization was successful
     func authorize() -> Bool{
@@ -47,6 +47,7 @@ class HealthKit{
             is_enabled = false
         }
         // Remember that health kit is enabled
+        defaults.setObject(NSDate.distantPast(), forKey: "new_start_date")
         defaults.setBool(true, forKey: "is_health_kit_enabled")
         defaults.synchronize()
         return is_enabled
@@ -223,13 +224,13 @@ class HealthKit{
         self.hk_store.executeQuery(query)
     }
     
-    func getWeight2(completion:(Array<HKSample>, NSError?) -> ()) {
+    func getWeight2(limit: Int, start_date: NSDate, completion:(Array<HKSample>, NSError?) -> ()) {
         
         let type = HKSampleType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBodyMass)
-        let old = NSDate.distantPast()
+//        let old = NSDate.distantPast()
         let current = NSDate()
         
-        let predicate = HKQuery.predicateForSamplesWithStartDate(old, endDate: current, options: .None)
+        let predicate = HKQuery.predicateForSamplesWithStartDate(start_date, endDate: current, options: .None)
         
         
         let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierStartDate, ascending: false)
@@ -260,15 +261,15 @@ class HealthKit{
     }
 
     // Get the ranges of heart rate for each day (low - high) for the past month and display in table view
-    func getHeartRate(completion:(Array<HKSample>, NSError?) ->()){
+    func getHeartRate(limit: Int, start_date: NSDate, completion:(Array<HKSample>, NSError?) ->()){
         // Date range to pull datat from. From distant past to today
         let end_date = NSDate()
-        let start_date = NSDate.distantPast()
+//        let start_date = NSDate.distantPast()
         let predicate = HKQuery.predicateForSamplesWithStartDate(start_date, endDate: end_date, options: .None)
         
         // Create a heart rate BPM sample
         let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: false)
-        let limit = 25
+//        let limit = 25
         let heart_rate_type = HKSampleType.quantityTypeForIdentifier(HKQuantityTypeIdentifierHeartRate)
         
         // Create query for latest sample
@@ -285,21 +286,21 @@ class HealthKit{
         self.hk_store.executeQuery(heart_rate_query)
     }
 
-    func getBloodGlucose(completion: (Array<HKSample>, NSError?) -> ()){
+    func getBloodGlucose(limit: Int, start_date: NSDate, completion: (Array<HKSample>, NSError?) -> ()){
         // Testing getting steps from yesterday to today. Get yesterday's date by subtracting 24 hours (in secs) from today's date
         // So with yesterday's date as start parameter and today's date as the end parameter to the method below
         // Temporary of course
         let today = NSDate()
-        let yesterday = NSDate.distantPast()
+//        let yesterday = NSDate.distantPast()
         
         // The type of data being requested
         let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: false)
         let type = HKSampleType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBloodGlucose)
-        let limit = 25
+//        let limit = 25
     
         // Search predicate will fetch data from now until a day ago for testing purposes for now.
         //let predicate = HKQuery.predicateForSamplesWithStartDate(newDate, endDate: NSDate(), options: .None)
-        let predicate = HKQuery.predicateForSamplesWithStartDate(yesterday, endDate: today,options: .None)
+        let predicate = HKQuery.predicateForSamplesWithStartDate(start_date, endDate: today,options: .None)
         
         // Query to fetch steps
         let query = HKSampleQuery(sampleType: type!, predicate: predicate, limit: limit, sortDescriptors: [sortDescriptor]){ query, results, error in

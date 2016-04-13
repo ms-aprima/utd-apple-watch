@@ -9,14 +9,20 @@
 import UIKit
 import HealthKit
 
+
+
 class HomeViewController: UIViewController {
     
     // Used to store the user's data
     let defaults = NSUserDefaults.standardUserDefaults()
     let is_health_kit_enabled = NSUserDefaults.standardUserDefaults().boolForKey("is_health_kit_enabled")
     
+    
     // initialize a HealthKit object to pull data from
     let health_kit: HealthKit = HealthKit()
+    
+    
+    let limit = 0
     
     // Object arrays
     var heart_rates = [HKSample]()
@@ -32,58 +38,64 @@ class HomeViewController: UIViewController {
     @IBOutlet var sync_button: UIButton!
     
     @IBAction func syncButtonTapped(){
-        // SET UP DATA
-        self.setUpHeartRateObjects()
-        self.setUpStepsObjects()
-        self.setUpWeightObjects()
-        self.setUpBloodGlucoseObjects()
+        
+        // Make sure the user authorized health kit before attempting to pull data
+        if self.is_health_kit_enabled == true{
+            let start_date = NSUserDefaults.standardUserDefaults().objectForKey("new_start_date") as! NSDate
+        
+            // SET UP DATA
+            self.setUpHeartRateObjects(start_date)
+            self.setUpStepsObjects()
+            self.setUpWeightObjects(start_date)
+            self.setUpBloodGlucoseObjects(start_date)
         
         
         
-        // Get the patient ID and JsonWebToken from NSUserdefaults
-        let patient_id = self.defaults.objectForKey("patient_id") as! String
-        let json_web_token = self.defaults.objectForKey("json_web_token") as! String
+            // Get the patient ID and JsonWebToken from NSUserdefaults
+            let patient_id = self.defaults.objectForKey("patient_id") as! String
+            let json_web_token = self.defaults.objectForKey("json_web_token") as! String
         
-        // URL to send POST request to
-        let url: NSURL = NSURL(string: "https://aprod-sbt2.servicebus.windows.net/7083c80b-29e2-4ee8-a485-3a3fdf373f58/api/v1/patients/\(patient_id)/attachmentscsv")!
+            // URL to send POST request to
+            let url: NSURL = NSURL(string: "https://aprod-sbt2.servicebus.windows.net/7083c80b-29e2-4ee8-a485-3a3fdf373f58/api/v1/patients/\(patient_id)/attachmentscsv")!
         
-        print("Patient ID: \(patient_id)")
-        print("Json Web Token: \(json_web_token)")
-        print("url: \(url)")
+            print("Patient ID: \(patient_id)")
+            print("Json Web Token: \(json_web_token)")
+            print("url: \(url)")
         
-        // Make sure to set up post body, which will be the data (formatted) to send
-        // TO DO - Set up post body here
-        // let post_data = ...
+            // Make sure to set up post body, which will be the data (formatted) to send
+            // TO DO - Set up post body here
+            // let post_data = ...
         
-        // create a session for the POST request
-        let session = NSURLSession.sharedSession()
+            // create a session for the POST request
+            let session = NSURLSession.sharedSession()
         
-        // Create the POST request
-        let request:NSMutableURLRequest = NSMutableURLRequest(URL: url)
-        request.HTTPMethod = "POST"
-//        request.HTTPBody = post_data
-        // Add headers
-        request.setValue("application/json", forHTTPHeaderField: "Accept")
-        request.setValue("C83BBF42-DA17-4F58-9AA0-68F417419313", forHTTPHeaderField: "ApiKey")
-        request.setValue("application/json;charset=UTF-8", forHTTPHeaderField: "Content-Type")
-        request.setValue("\(json_web_token)", forHTTPHeaderField: "Auth-Token")
-        
-        
+            // Create the POST request
+            let request:NSMutableURLRequest = NSMutableURLRequest(URL: url)
+            request.HTTPMethod = "POST"
+            //        request.HTTPBody = post_data
+            // Add headers
+            request.setValue("application/json", forHTTPHeaderField: "Accept")
+            request.setValue("C83BBF42-DA17-4F58-9AA0-68F417419313", forHTTPHeaderField: "ApiKey")
+            request.setValue("application/json;charset=UTF-8", forHTTPHeaderField: "Content-Type")
+            request.setValue("\(json_web_token)", forHTTPHeaderField: "Auth-Token")
         
         
         
         
         
-        defaults.setObject(NSDate(), forKey: "new_start_date")
-        defaults.synchronize()
+        
+        
+            defaults.setObject(NSDate(), forKey: "new_start_date")
+            defaults.synchronize()
+        }
     }
     
     // Sets up the array of HeartRate objects to display as table cells
-    func setUpHeartRateObjects(){
+    func setUpHeartRateObjects(start_date: NSDate){
         // First clear array to make sure it's empty
         heart_rate_objects.removeAll()
         
-        self.health_kit.getHeartRate{ heart_rates, error in
+        self.health_kit.getHeartRate(self.limit, start_date: start_date){ heart_rates, error in
             self.heart_rates = heart_rates
         }
         let heartRateUnit:HKUnit = HKUnit(fromString: "count/min")
@@ -111,13 +123,13 @@ class HomeViewController: UIViewController {
         }
     }
     
-    func setUpWeightObjects()
+    func setUpWeightObjects(start_date: NSDate)
     {
         
         weight_objects.removeAll()
         
         
-        self.health_kit.getWeight2{ weight, error in
+        self.health_kit.getWeight2(self.limit, start_date: start_date){ weight, error in
             self.weight = weight
         }
         
@@ -133,10 +145,10 @@ class HomeViewController: UIViewController {
     }
     
     // Sets up the array of HeartRate objects to display as table cells
-    func setUpBloodGlucoseObjects(){
+    func setUpBloodGlucoseObjects(start_date: NSDate){
         // First clear array to make sure it's empty
         blood_glucose_objects.removeAll()
-        self.health_kit.getBloodGlucose{bloodgs, error in
+        self.health_kit.getBloodGlucose(self.limit, start_date: start_date){bloodgs, error in
             self.bloodglucose = bloodgs
         }
         

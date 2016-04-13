@@ -20,6 +20,11 @@ class BloodGlucoseChartViewController: UIViewController {
         @IBOutlet weak var barChartView: BarChartView!
         var bloodglucose = [HKSample]()
         var dates = [String]()
+    
+        let start_date = NSUserDefaults.standardUserDefaults().objectForKey("new_start_date") as! NSDate
+        let limit = 25
+    
+        
         
         override func viewDidLoad() {
             super.viewDidLoad()
@@ -38,7 +43,7 @@ class BloodGlucoseChartViewController: UIViewController {
         }
         
         func setupChart(){
-            health_kit.getBloodGlucose{results, error in
+            health_kit.getBloodGlucose(self.limit, start_date: self.start_date){results, error in
                 self.bloodglucose = results
                 print("worked")
                 print(results.count)
