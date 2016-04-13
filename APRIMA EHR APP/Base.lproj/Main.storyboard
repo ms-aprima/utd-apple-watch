@@ -245,7 +245,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="381" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Heart Rate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5Ma-yu-nwZ">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Heart Rate (bpm)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5Ma-yu-nwZ">
                                                     <rect key="frame" x="15" y="0.0" width="364" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -296,10 +296,10 @@
             </objects>
             <point key="canvasLocation" x="1314" y="-451"/>
         </scene>
-        <!--Heart Rate-->
+        <!--Heart Rate (bpm)-->
         <scene sceneID="I1v-P7-Lrc">
             <objects>
-                <viewController title="Heart Rate" id="Cbe-CK-IZC" customClass="HeartRateViewController" customModule="APRIMA_EHR_APP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Heart Rate (bpm)" id="Cbe-CK-IZC" customClass="HeartRateViewController" customModule="APRIMA_EHR_APP" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5Cc-g5-IXa"/>
                         <viewControllerLayoutGuide type="bottom" id="M9t-Gg-PxR"/>

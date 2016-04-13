@@ -82,7 +82,8 @@ class HeartRateBarChartViewController: UIViewController, ChartViewDelegate {
         // Set other chart properties
         self.bar_chart_view.descriptionText = ""
         chart_data_set.colors = [UIColor(red: 25.0/255, green: 150.0/255, blue: 197.0/255, alpha: 1)]
-        self.bar_chart_view.xAxis.labelPosition = .Bottom
+        self.bar_chart_view.xAxis.labelFont = UIFont(name: "Helvetica Neue", size: 0.0)!
+        self.bar_chart_view.rightAxis.enabled = false
         self.bar_chart_view.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
     }
     
