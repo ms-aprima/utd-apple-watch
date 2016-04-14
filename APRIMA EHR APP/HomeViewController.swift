@@ -33,6 +33,7 @@ class HomeViewController: UIViewController {
     var weight_objects = [Weight]()
     var bloodglucose = [HKSample]()
     var blood_glucose_objects = [BloodGlucose]()
+    var sex = ""
     
     
     // Post body to be set up and formatted
@@ -53,6 +54,7 @@ class HomeViewController: UIViewController {
             self.setUpStepsObjects(start_date)
             self.setUpWeightObjects(start_date)
             self.setUpBloodGlucoseObjects(start_date)
+            self.sex=formatSex(health_kit.getSex())
         
         
             // Get the patient ID and JsonWebToken from NSUserdefaults
@@ -165,7 +167,11 @@ class HomeViewController: UIViewController {
                 self.post_body += "\t\t},\n"
             }
         }
-        self.post_body += "\t]\n"
+        self.post_body += "\t],\n"
+        
+        self.post_body += "\t\"Sex\": \"\(self.sex)\"\n"
+        
+        
         // ^^^^ ALSO the last "]" should not have a comma after it. So make sure not to put a comma ^^^^
         // i.e. self.post_body += "\t]\n"
         
@@ -246,6 +252,25 @@ class HomeViewController: UIViewController {
 //            print(blood_glucose_object.getTimestamp() + "\t" + String(blood_glucose_object.getValue()))
         }
     }
+    
+    func formatSex(biological_sex: HKBiologicalSexObject) -> String{
+        var sex: String
+        let bio_sex = biological_sex.biologicalSex
+        switch bio_sex.rawValue{
+        case 0:
+            sex = ""
+        case 1:
+            sex = "Female"
+        case 2:
+            sex = "Male"
+        case 3:
+            sex = "Other"
+        default:
+            sex = ""
+        }
+        return sex
+    }
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
