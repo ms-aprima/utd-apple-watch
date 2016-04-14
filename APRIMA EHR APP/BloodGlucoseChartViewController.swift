@@ -81,7 +81,7 @@ class BloodGlucoseChartViewController: UIViewController {
         
         
         func setChart(dataPoints: [String], values: [Double]) {
-            barChartView.noDataText = "You need to provide data for the chart."
+            barChartView.noDataText = "No health data available."
             
             var dataEntries: [BarChartDataEntry] = []
             
@@ -90,12 +90,15 @@ class BloodGlucoseChartViewController: UIViewController {
                 dataEntries.append(dataEntry)
             }
             
-            let chartDataSet = BarChartDataSet(yVals: dataEntries, label: "Blood Glucose")
+            let chartDataSet = BarChartDataSet(yVals: dataEntries, label: "mg/dL")
             let chartData = BarChartData(xVals: dates, dataSet: chartDataSet)
             barChartView.data = chartData
             
+            // Set other chart properties
             barChartView.descriptionText = ""
             chartDataSet.colors = [UIColor(red: 25.0/255, green: 150.0/255, blue: 197.0/255, alpha: 1)]
+            self.barChartView.xAxis.labelFont = UIFont(name: "Helvetica Neue", size: 0.0)!
+            self.barChartView.rightAxis.enabled = false
             self.barChartView.xAxis.labelPosition = .Bottom
             self.barChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
         }

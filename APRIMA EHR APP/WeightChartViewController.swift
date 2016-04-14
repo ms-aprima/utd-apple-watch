@@ -92,6 +92,13 @@ class WeightChartViewController: UIViewController {
         let chartData = LineChartData(xVals: dates, dataSet: chartDataSet)
         weightLineChartView.data = chartData
         
+        // Set other chart properties
+        weightLineChartView.descriptionText = ""
+        chartDataSet.colors = [UIColor(red: 25.0/255, green: 150.0/255, blue: 197.0/255, alpha: 1)]
+        self.weightLineChartView.xAxis.labelFont = UIFont(name: "Helvetica Neue", size: 0.0)!
+        self.weightLineChartView.rightAxis.enabled = false
+        self.weightLineChartView.xAxis.labelPosition = .Bottom
+        self.weightLineChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
     }
     
     /*
