@@ -34,7 +34,7 @@ class HomeViewController: UIViewController {
     var bloodglucose = [HKSample]()
     var blood_glucose_objects = [BloodGlucose]()
     var sex = ""
-    
+    var dob = ""
     
     // Post body to be set up and formatted
     var post_body = ""
@@ -55,7 +55,7 @@ class HomeViewController: UIViewController {
             self.setUpWeightObjects(start_date)
             self.setUpBloodGlucoseObjects(start_date)
             self.sex=formatSex(health_kit.getSex())
-        
+            self.dob=formatDateofBirth(health_kit.getBirthday())
         
             // Get the patient ID and JsonWebToken from NSUserdefaults
             let patient_id = self.defaults.objectForKey("patient_id") as! String
@@ -169,8 +169,8 @@ class HomeViewController: UIViewController {
         }
         self.post_body += "\t],\n"
         
-        self.post_body += "\t\"Sex\": \"\(self.sex)\"\n"
-        
+        self.post_body += "\t\"Sex\": \"\(self.sex)\",\n"
+        self.post_body += "\t\"DOB\": \"\(self.dob)\"\n"
         
         // ^^^^ ALSO the last "]" should not have a comma after it. So make sure not to put a comma ^^^^
         // i.e. self.post_body += "\t]\n"
@@ -271,7 +271,12 @@ class HomeViewController: UIViewController {
         return sex
     }
 
-
+    func formatDateofBirth(date: NSDate) -> String{
+        let date_formatter = NSDateFormatter()
+        date_formatter.dateFormat = "MMM dd, yyyy"
+        return date_formatter.stringFromDate(date)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

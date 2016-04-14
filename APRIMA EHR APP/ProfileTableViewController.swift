@@ -60,7 +60,7 @@ class ProfileTableViewController: UITableViewController {
         if self.is_health_kit_enabled == true{
             
             // Displaying date of birth
-            display_dob_text_view.text = formatDate(health_kit.getBirthday())
+            display_dob_text_view.text = formatDateofBirth(health_kit.getBirthday())
             
             //display blood type
             display_blood_text_view.text = health_kit.getBloodType()
@@ -126,7 +126,7 @@ class ProfileTableViewController: UITableViewController {
     }
     
     // Formats date to make it readable
-    func formatDate(date: NSDate) -> String{
+    func formatDateofBirth(date: NSDate) -> String{
         let date_formatter = NSDateFormatter()
         date_formatter.dateFormat = "MMM dd, yyyy"
         return date_formatter.stringFromDate(date)
