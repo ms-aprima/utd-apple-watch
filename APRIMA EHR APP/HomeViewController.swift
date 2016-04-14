@@ -76,7 +76,10 @@ class HomeViewController: UIViewController {
             // Make sure to set up post body, which will be the data (formatted) to send
             // TO DO - Set up post body here
             self.formatPostBody()
-            print(self.post_body)
+            let post_body_NSString: NSString = self.post_body
+            print(post_body_NSString)
+            // Encode post data
+            let post_data:NSData = post_body_NSString.dataUsingEncoding(NSASCIIStringEncoding)!
         
             // create a session for the POST request
             let session = NSURLSession.sharedSession()
@@ -84,19 +87,54 @@ class HomeViewController: UIViewController {
             // Create the POST request
             let request:NSMutableURLRequest = NSMutableURLRequest(URL: url)
             request.HTTPMethod = "POST"
-//            request.HTTPBody = self.post_body
+            request.HTTPBody = post_data
             // Add headers
             request.setValue("application/json", forHTTPHeaderField: "Accept")
             request.setValue("C83BBF42-DA17-4F58-9AA0-68F417419313", forHTTPHeaderField: "ApiKey")
             request.setValue("application/json;charset=UTF-8", forHTTPHeaderField: "Content-Type")
             request.setValue("\(json_web_token)", forHTTPHeaderField: "Auth-Token")
         
+            // Do this task
+            let task = session.dataTaskWithRequest(request, completionHandler: {urlData, response, error -> Void in
+                if (urlData != nil) {
+                    // Get the response and print it
+                    let res = response as! NSHTTPURLResponse!;
+                    print(res)
+                    if 200..<300 ~= res.statusCode {
+                        //If sending is successful
+                        do {
+                            let jsonData:NSDictionary = try NSJSONSerialization.JSONObjectWithData(urlData!, options:NSJSONReadingOptions.MutableContainers ) as! NSDictionary
+                            print(jsonData)
+                        } catch _ as NSError {
+                            dispatch_async(dispatch_get_main_queue(), {
+                                
+                                let alertController = UIAlertController(title: "Sending failed!", message: "Server error", preferredStyle: .Alert)
+                                let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in }
+                                alertController.addAction(OKAction)
+                                self.presentViewController(alertController, animated: true) { }
+                            })
+                        }
+                    }else {
+                        dispatch_async(dispatch_get_main_queue(), {
+                            
+                            let alertController = UIAlertController(title: "Syncing unsuccessful!", message: "Unable to send data", preferredStyle: .Alert)
+                            let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in }
+                            alertController.addAction(OKAction)
+                            self.presentViewController(alertController, animated: true) { }
+                        })
+                    }
+                }else {
+                    dispatch_async(dispatch_get_main_queue(), {
+                        let alertController = UIAlertController(title: "Syncing failed!", message: "Check Internet Connection", preferredStyle: .Alert)
+                        let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in }
+                        alertController.addAction(OKAction)
+                        self.presentViewController(alertController, animated: true) { }
+                    })
+                }
+            })
+            task.resume()
         
-        
-        
-        
-        
-        
+            // Set new start date for syncing next time
             defaults.setObject(NSDate(), forKey: "new_start_date")
             defaults.synchronize()
         }
