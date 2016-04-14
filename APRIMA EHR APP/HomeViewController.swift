@@ -35,6 +35,9 @@ class HomeViewController: UIViewController {
     var blood_glucose_objects = [BloodGlucose]()
     
     
+    // Post body to be set up and formatted
+    var post_body = ""
+    
     @IBOutlet var sync_button: UIButton!
     
     @IBAction func syncButtonTapped(){
@@ -64,7 +67,8 @@ class HomeViewController: UIViewController {
         
             // Make sure to set up post body, which will be the data (formatted) to send
             // TO DO - Set up post body here
-            // let post_data = ...
+            self.formatPostBody()
+            print(self.post_body)
         
             // create a session for the POST request
             let session = NSURLSession.sharedSession()
@@ -72,7 +76,7 @@ class HomeViewController: UIViewController {
             // Create the POST request
             let request:NSMutableURLRequest = NSMutableURLRequest(URL: url)
             request.HTTPMethod = "POST"
-            //        request.HTTPBody = post_data
+//            request.HTTPBody = self.post_body
             // Add headers
             request.setValue("application/json", forHTTPHeaderField: "Accept")
             request.setValue("C83BBF42-DA17-4F58-9AA0-68F417419313", forHTTPHeaderField: "ApiKey")
@@ -89,6 +93,84 @@ class HomeViewController: UIViewController {
             defaults.synchronize()
         }
     }
+    
+    // Formats the post body for the request
+    func formatPostBody(){
+        // Make sure it's initially empty
+        self.post_body = ""
+        // Add first cuurly brace
+        self.post_body += "{\n"
+        
+        // Add heart rate array to post body
+        self.post_body += "\t\"HeartRates\":[\n"
+        for i in 0..<self.heart_rate_objects.count{
+            self.post_body += "\t\t{\n"
+            self.post_body += "\t\t\t\"BPM\": \(Int(self.heart_rate_objects[i].getValue())),\n"
+            self.post_body += "\t\t\t\"DateTaken\": \"\(self.heart_rate_objects[i].getTimestamp())\""
+            if(i == self.heart_rate_objects.count - 1){
+                // No comma if it's the last object in the array
+                self.post_body += "\t\t}\n"
+            }else{
+                // Else put a comma lol
+                self.post_body += "\t\t},\n"
+            }
+        }
+        self.post_body += "\t],\n"
+        
+        // Add step array to post body
+        self.post_body += "\t\"Steps\":[\n"
+        for i in 0..<self.steps_objects.count{
+            self.post_body += "\t\t{\n"
+            self.post_body += "\t\t\t\"StepsTaken\": \(Int(self.steps_objects[i].getValue())),\n"
+            self.post_body += "\t\t\t\"DateTaken\": \"\(self.steps_objects[i].getTimestamp())\""
+            if(i == self.steps_objects.count - 1){
+                // No comma if it's the last object in the array
+                self.post_body += "\t\t}\n"
+            }else{
+                // Else put a comma lol
+                self.post_body += "\t\t},\n"
+            }
+        }
+        self.post_body += "\t],\n"
+        
+        // Add weight array to post body
+        self.post_body += "\t\"Weights\":[\n"
+        for i in 0..<self.weight_objects.count{
+            self.post_body += "\t\t{\n"
+            self.post_body += "\t\t\t\"WeightTaken\": \(self.weight_objects[i].getValue()),\n"
+            self.post_body += "\t\t\t\"DateTaken\": \"\(self.weight_objects[i].getTimestamp())\""
+            if(i == self.weight_objects.count - 1){
+                // No comma if it's the last object in the array
+                self.post_body += "\t\t}\n"
+            }else{
+                // Else put a comma lol
+                self.post_body += "\t\t},\n"
+            }
+        }
+        self.post_body += "\t],\n"
+        
+        // Add blood glucose array to post body
+        self.post_body += "\t\"BloodGlucose\":[\n"
+        for i in 0..<self.blood_glucose_objects.count{
+            self.post_body += "\t\t{\n"
+            self.post_body += "\t\t\t\"BloodGlucose\": \(self.blood_glucose_objects[i].getValue()),\n"
+            self.post_body += "\t\t\t\"DateTaken\": \"\(self.blood_glucose_objects[i].getTimestamp())\""
+            if(i == self.blood_glucose_objects.count - 1){
+                // No comma if it's the last object in the array
+                self.post_body += "\t\t}\n"
+            }else{
+                // Else put a comma lol
+                self.post_body += "\t\t},\n"
+            }
+        }
+        self.post_body += "\t]\n"
+        // ^^^^ ALSO the last "]" should not have a comma after it. So make sure not to put a comma ^^^^
+        // i.e. self.post_body += "\t]\n"
+        
+        // Add final curly brace
+        self.post_body += "}"
+    }
+    
     
     // Sets up the array of HeartRate objects to display as table cells
     func setUpHeartRateObjects(start_date: NSDate){
