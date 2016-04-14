@@ -260,6 +260,7 @@
 		64C33D101CACC67A00844E5B /* Results */ = {
 			isa = PBXGroup;
 			children = (
+				D19996531CBB8109009E1D07 /* BloodGlucoseViewController.swift */,
 				D19996551CBB810E009E1D07 /* Blood Glucose View Controllers */,
 			);
 			name = Results;
@@ -334,7 +335,6 @@
 		D19996551CBB810E009E1D07 /* Blood Glucose View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D19996531CBB8109009E1D07 /* BloodGlucoseViewController.swift */,
 				D19996561CBB8125009E1D07 /* BloodGlucoseChartViewController.swift */,
 				64C33D151CACD6F400844E5B /* BloodGlucoseTableViewController.swift */,
 			);

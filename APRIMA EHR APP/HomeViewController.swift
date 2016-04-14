@@ -35,6 +35,9 @@ class HomeViewController: UIViewController {
     var blood_glucose_objects = [BloodGlucose]()
     var sex = ""
     var dob = ""
+    var bloodType = ""
+    var height: HKQuantitySample!
+    var h = 0.0
     
     // Post body to be set up and formatted
     var post_body = ""
@@ -56,7 +59,9 @@ class HomeViewController: UIViewController {
             self.setUpBloodGlucoseObjects(start_date)
             self.sex=formatSex(health_kit.getSex())
             self.dob=formatDateofBirth(health_kit.getBirthday())
-        
+            self.bloodType = health_kit.getBloodType()
+            setHeight()
+
             // Get the patient ID and JsonWebToken from NSUserdefaults
             let patient_id = self.defaults.objectForKey("patient_id") as! String
             let json_web_token = self.defaults.objectForKey("json_web_token") as! String
@@ -170,7 +175,10 @@ class HomeViewController: UIViewController {
         self.post_body += "\t],\n"
         
         self.post_body += "\t\"Sex\": \"\(self.sex)\",\n"
-        self.post_body += "\t\"DOB\": \"\(self.dob)\"\n"
+        self.post_body += "\t\"DOB\": \"\(self.dob)\",\n"
+        self.post_body += "\t\"BloodType\": \"\(self.bloodType)\",\n"
+       
+        self.post_body += "\t\"Height\": \(self.h)\n"
         
         // ^^^^ ALSO the last "]" should not have a comma after it. So make sure not to put a comma ^^^^
         // i.e. self.post_body += "\t]\n"
@@ -178,6 +186,7 @@ class HomeViewController: UIViewController {
         // Add final curly brace
         self.post_body += "}"
     }
+    
     
     
     // Sets up the array of HeartRate objects to display as table cells
@@ -251,6 +260,16 @@ class HomeViewController: UIViewController {
             self.blood_glucose_objects.append(blood_glucose_object)
 //            print(blood_glucose_object.getTimestamp() + "\t" + String(blood_glucose_object.getValue()))
         }
+    }
+    
+    func setHeight(){
+
+        
+        self.health_kit.getHight({ (height, error) -> Void in
+            self.height = (height as? HKQuantitySample)!
+            self.h = self.height.quantity.doubleValueForUnit(HKUnit.inchUnit())
+            
+        })
     }
     
     func formatSex(biological_sex: HKBiologicalSexObject) -> String{
