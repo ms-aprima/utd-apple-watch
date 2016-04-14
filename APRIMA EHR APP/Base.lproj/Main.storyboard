@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -1028,20 +1028,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aCf-ga-tDM">
-                                <rect key="frame" x="0.0" y="411" width="414" height="281"/>
-                                <connections>
-                                    <segue destination="Pbg-84-qiS" kind="embed" id="ePo-J1-GJp"/>
-                                </connections>
-                            </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Y6-US-hVt">
-                                <rect key="frame" x="0.0" y="64" width="414" height="348"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Y6-US-hVt">
+                                <rect key="frame" x="20" y="64" width="374" height="195"/>
                                 <connections>
                                     <segue destination="Ws7-IK-eRV" kind="embed" id="aYD-nW-RAb"/>
                                 </connections>
                             </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aCf-ga-tDM">
+                                <rect key="frame" x="0.0" y="258" width="414" height="434"/>
+                                <connections>
+                                    <segue destination="Pbg-84-qiS" kind="embed" id="ePo-J1-GJp"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7Y6-US-hVt" firstAttribute="centerX" secondItem="aCf-ga-tDM" secondAttribute="centerX" id="7qu-9A-hNn"/>
+                            <constraint firstItem="zRx-CK-I4V" firstAttribute="top" secondItem="7Y6-US-hVt" secondAttribute="bottom" constant="386" id="OC0-qB-jva"/>
+                            <constraint firstItem="7Y6-US-hVt" firstAttribute="leading" secondItem="bWB-m8-D2F" secondAttribute="leadingMargin" id="Xin-14-cb5"/>
+                            <constraint firstItem="aCf-ga-tDM" firstAttribute="top" secondItem="g7H-Xd-lOq" secondAttribute="bottom" constant="241" id="YES-6a-4tt"/>
+                            <constraint firstItem="aCf-ga-tDM" firstAttribute="bottom" secondItem="zRx-CK-I4V" secondAttribute="top" id="adZ-Rk-wb3"/>
+                            <constraint firstItem="aCf-ga-tDM" firstAttribute="leading" secondItem="bWB-m8-D2F" secondAttribute="leading" id="dcV-Az-VXV"/>
+                            <constraint firstAttribute="trailing" secondItem="aCf-ga-tDM" secondAttribute="trailing" id="rAi-f7-a1n"/>
+                            <constraint firstItem="7Y6-US-hVt" firstAttribute="top" secondItem="g7H-Xd-lOq" secondAttribute="bottom" id="sJ7-7K-uaS"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8l6-f7-cp9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1053,7 +1063,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="StepsTableViewController" title="Steps Table View" id="Pbg-84-qiS" customClass="StepsTableViewController" customModule="APRIMA_EHR_APP" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="BTy-Fz-gpJ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="281"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="434"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -1155,7 +1165,7 @@
                         <viewControllerLayoutGuide type="bottom" id="aDp-Jd-gOd"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Aed-zJ-BGe" customClass="BarChartView" customModule="Charts">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="348"/>
+                        <rect key="frame" x="0.0" y="0.0" width="374" height="195"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
