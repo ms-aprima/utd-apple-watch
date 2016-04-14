@@ -44,7 +44,7 @@ class HomeViewController: UIViewController {
         
         // Make sure the user authorized health kit before attempting to pull data
         if self.is_health_kit_enabled == true{
-            let start_date = NSUserDefaults.standardUserDefaults().objectForKey("new_start_date") as! NSDate
+            let start_date = defaults.objectForKey("new_start_date") as! NSDate
             print("Hello")
             print(start_date)
 
@@ -189,7 +189,7 @@ class HomeViewController: UIViewController {
         for h in self.heart_rates as! [HKQuantitySample]{
             let heart_rate_object = HeartRate(timestamp: date_formatter.stringFromDate(h.endDate), value: h.quantity.doubleValueForUnit(heartRateUnit))
             self.heart_rate_objects.append(heart_rate_object)
-            print(heart_rate_object.getTimestamp() + "\t" + String(heart_rate_object.getValue()))
+//            print(heart_rate_object.getTimestamp() + "\t" + String(heart_rate_object.getValue()))
         }
     }
     
@@ -203,7 +203,7 @@ class HomeViewController: UIViewController {
         for s in self.stepcount as! [HKQuantitySample]{
             let steps_object = Steps(timestamp: date_formatter.stringFromDate(s.endDate), value: s.quantity.doubleValueForUnit(HKUnit.countUnit()))
             self.steps_objects.append(steps_object)
-            print(steps_object.getTimestamp() + "\t" + String(steps_object.getValue()))
+//            print(steps_object.getTimestamp() + "\t" + String(steps_object.getValue()))
         }
     }
     
@@ -224,7 +224,7 @@ class HomeViewController: UIViewController {
         for h in self.weight as! [HKQuantitySample]{
             let weight_object = Weight(timestamp: date_formatter.stringFromDate(h.endDate), value: h.quantity.doubleValueForUnit(weightUnit))
             self.weight_objects.append(weight_object)
-            print(weight_object.getTimestamp() + "\t" + String(weight_object.getValue()))
+//            print(weight_object.getTimestamp() + "\t" + String(weight_object.getValue()))
         }
     }
     
@@ -243,7 +243,7 @@ class HomeViewController: UIViewController {
         for bg in self.bloodglucose as! [HKQuantitySample]{
             let blood_glucose_object = BloodGlucose(timestamp: date_formatter.stringFromDate(bg.endDate), value: bg.quantity.doubleValueForUnit(bloodGUNIT))
             self.blood_glucose_objects.append(blood_glucose_object)
-            print(blood_glucose_object.getTimestamp() + "\t" + String(blood_glucose_object.getValue()))
+//            print(blood_glucose_object.getTimestamp() + "\t" + String(blood_glucose_object.getValue()))
         }
     }
 
