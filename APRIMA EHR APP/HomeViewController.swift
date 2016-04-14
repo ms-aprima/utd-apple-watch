@@ -45,13 +45,14 @@ class HomeViewController: UIViewController {
         // Make sure the user authorized health kit before attempting to pull data
         if self.is_health_kit_enabled == true{
             let start_date = NSUserDefaults.standardUserDefaults().objectForKey("new_start_date") as! NSDate
+            print("Hello")
+            print(start_date)
 
             // SET UP DATA
             self.setUpHeartRateObjects(start_date)
             self.setUpStepsObjects(start_date)
             self.setUpWeightObjects(start_date)
             self.setUpBloodGlucoseObjects(start_date)
-            print("hello")
         
         
             // Get the patient ID and JsonWebToken from NSUserdefaults
@@ -93,6 +94,7 @@ class HomeViewController: UIViewController {
             defaults.synchronize()
         }
     }
+
     
     // Formats the post body for the request
     func formatPostBody(){
@@ -106,7 +108,7 @@ class HomeViewController: UIViewController {
         for i in 0..<self.heart_rate_objects.count{
             self.post_body += "\t\t{\n"
             self.post_body += "\t\t\t\"BPM\": \(Int(self.heart_rate_objects[i].getValue())),\n"
-            self.post_body += "\t\t\t\"DateTaken\": \"\(self.heart_rate_objects[i].getTimestamp())\""
+            self.post_body += "\t\t\t\"DateTaken\": \"\(self.heart_rate_objects[i].getTimestamp())\"\n"
             if(i == self.heart_rate_objects.count - 1){
                 // No comma if it's the last object in the array
                 self.post_body += "\t\t}\n"
@@ -122,7 +124,7 @@ class HomeViewController: UIViewController {
         for i in 0..<self.steps_objects.count{
             self.post_body += "\t\t{\n"
             self.post_body += "\t\t\t\"StepsTaken\": \(Int(self.steps_objects[i].getValue())),\n"
-            self.post_body += "\t\t\t\"DateTaken\": \"\(self.steps_objects[i].getTimestamp())\""
+            self.post_body += "\t\t\t\"DateTaken\": \"\(self.steps_objects[i].getTimestamp())\"\n"
             if(i == self.steps_objects.count - 1){
                 // No comma if it's the last object in the array
                 self.post_body += "\t\t}\n"
@@ -138,7 +140,7 @@ class HomeViewController: UIViewController {
         for i in 0..<self.weight_objects.count{
             self.post_body += "\t\t{\n"
             self.post_body += "\t\t\t\"WeightTaken\": \(self.weight_objects[i].getValue()),\n"
-            self.post_body += "\t\t\t\"DateTaken\": \"\(self.weight_objects[i].getTimestamp())\""
+            self.post_body += "\t\t\t\"DateTaken\": \"\(self.weight_objects[i].getTimestamp())\"\n"
             if(i == self.weight_objects.count - 1){
                 // No comma if it's the last object in the array
                 self.post_body += "\t\t}\n"
@@ -154,7 +156,7 @@ class HomeViewController: UIViewController {
         for i in 0..<self.blood_glucose_objects.count{
             self.post_body += "\t\t{\n"
             self.post_body += "\t\t\t\"BloodGlucose\": \(self.blood_glucose_objects[i].getValue()),\n"
-            self.post_body += "\t\t\t\"DateTaken\": \"\(self.blood_glucose_objects[i].getTimestamp())\""
+            self.post_body += "\t\t\t\"DateTaken\": \"\(self.blood_glucose_objects[i].getTimestamp())\"\n"
             if(i == self.blood_glucose_objects.count - 1){
                 // No comma if it's the last object in the array
                 self.post_body += "\t\t}\n"
@@ -187,7 +189,7 @@ class HomeViewController: UIViewController {
         for h in self.heart_rates as! [HKQuantitySample]{
             let heart_rate_object = HeartRate(timestamp: date_formatter.stringFromDate(h.endDate), value: h.quantity.doubleValueForUnit(heartRateUnit))
             self.heart_rate_objects.append(heart_rate_object)
-            //            print(heart_rate_object.getTimestamp() + "\t" + String(heart_rate_object.getValue()))
+            print(heart_rate_object.getTimestamp() + "\t" + String(heart_rate_object.getValue()))
         }
     }
     
