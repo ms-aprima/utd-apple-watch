@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -258,13 +258,25 @@
                                             <segue destination="Cbe-CK-IZC" kind="show" id="Q2q-aT-3BG"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="RvY-7c-2Dt">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Blood Pressure (mmHg)" textLabel="XDh-WR-96b" style="IBUITableViewCellStyleDefault" id="Fm9-tt-bgy">
                                         <rect key="frame" x="0.0" y="108" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RvY-7c-2Dt" id="zJU-lj-PGT">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Fm9-tt-bgy" id="3B7-vn-m5d">
+                                            <rect key="frame" x="0.0" y="0.0" width="381" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Blood Pressure (mmHg)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XDh-WR-96b">
+                                                    <rect key="frame" x="15" y="0.0" width="364" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="qJV-Uf-Jnj" kind="show" id="UGS-8c-yxv"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="UDa-DC-l2Z">
                                         <rect key="frame" x="0.0" y="152" width="414" height="44"/>
@@ -1363,6 +1375,131 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ATV-JA-8NN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2333" y="109.5"/>
+        </scene>
+        <!--Blood Pressure (mmHg)-->
+        <scene sceneID="cGp-9M-VLr">
+            <objects>
+                <viewController storyboardIdentifier="BloodPressureViewController" title="Blood Pressure (mmHg)" id="qJV-Uf-Jnj" customClass="BloodPressureViewController" customModule="APRIMA_EHR_APP" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vNO-m2-nnf"/>
+                        <viewControllerLayoutGuide type="bottom" id="zCE-M3-i65"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Gzf-Ow-pmS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tUF-t4-xgR">
+                                <rect key="frame" x="20" y="64" width="374" height="195"/>
+                                <connections>
+                                    <segue destination="dzp-59-LO0" kind="embed" id="rJ0-w9-tab"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jvD-A1-0Mg">
+                                <rect key="frame" x="0.0" y="259" width="414" height="433"/>
+                                <connections>
+                                    <segue destination="2Of-My-HbP" kind="embed" id="TcR-EQ-fuu"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jvD-A1-0Mg" firstAttribute="top" secondItem="tUF-t4-xgR" secondAttribute="bottom" id="4wg-zO-tOa"/>
+                            <constraint firstAttribute="trailing" secondItem="jvD-A1-0Mg" secondAttribute="trailing" id="68u-oE-Tun"/>
+                            <constraint firstItem="tUF-t4-xgR" firstAttribute="leading" secondItem="Gzf-Ow-pmS" secondAttribute="leadingMargin" id="7ff-uH-2dn"/>
+                            <constraint firstItem="jvD-A1-0Mg" firstAttribute="top" secondItem="vNO-m2-nnf" secondAttribute="bottom" constant="195" id="ArK-vR-ljy"/>
+                            <constraint firstItem="tUF-t4-xgR" firstAttribute="centerX" secondItem="jvD-A1-0Mg" secondAttribute="centerX" id="aSm-Yd-jFt"/>
+                            <constraint firstItem="jvD-A1-0Mg" firstAttribute="bottom" secondItem="zCE-M3-i65" secondAttribute="top" id="hdB-VM-bQ1"/>
+                            <constraint firstItem="tUF-t4-xgR" firstAttribute="top" secondItem="vNO-m2-nnf" secondAttribute="bottom" id="wZl-nG-1Gp"/>
+                            <constraint firstItem="jvD-A1-0Mg" firstAttribute="leading" secondItem="Gzf-Ow-pmS" secondAttribute="leading" id="zLc-uC-o80"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7mx-bH-YIk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2911" y="-560"/>
+        </scene>
+        <!--Blood Pressure Bar Chart-->
+        <scene sceneID="YcK-k1-p6o">
+            <objects>
+                <viewController storyboardIdentifier="BloodPressureBarChartViewController" title="Blood Pressure Bar Chart" id="dzp-59-LO0" customClass="BloodPressureBarChartViewController" customModule="APRIMA_EHR_APP" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2n8-GO-1D2"/>
+                        <viewControllerLayoutGuide type="bottom" id="0ax-S6-Sod"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Wcf-rN-hSB">
+                        <rect key="frame" x="0.0" y="0.0" width="374" height="195"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yAn-hG-1EQ" customClass="BarChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="0.0" width="374" height="195"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="yAn-hG-1EQ" secondAttribute="bottom" id="0L9-sY-pKW"/>
+                            <constraint firstItem="yAn-hG-1EQ" firstAttribute="top" secondItem="Wcf-rN-hSB" secondAttribute="top" id="JKN-FR-lPf"/>
+                            <constraint firstAttribute="trailing" secondItem="yAn-hG-1EQ" secondAttribute="trailing" id="XzE-IN-gsn"/>
+                            <constraint firstItem="yAn-hG-1EQ" firstAttribute="leading" secondItem="Wcf-rN-hSB" secondAttribute="leading" id="fgO-La-75k"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <connections>
+                        <outlet property="bar_chart_view" destination="yAn-hG-1EQ" id="Pvl-7H-RWv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V6a-eH-yJg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3387" y="-784.5"/>
+        </scene>
+        <!--Blood Pressure Table View-->
+        <scene sceneID="SNU-Xk-Hoh">
+            <objects>
+                <tableViewController storyboardIdentifier="BloodPressureTableViewController" title="Blood Pressure Table View" id="2Of-My-HbP" customClass="BloodPressureTableViewController" customModule="APRIMA_EHR_APP" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="zMV-l9-nvr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="433"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Blood_Pressures" textLabel="Ytj-G6-FpZ" detailTextLabel="MyN-Sf-zQ2" style="IBUITableViewCellStyleValue1" id="DT8-dl-YBx">
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DT8-dl-YBx" id="nnO-sd-tak">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ytj-G6-FpZ">
+                                            <rect key="frame" x="15" y="12" width="35" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Value" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MyN-Sf-zQ2">
+                                            <rect key="frame" x="359" y="12" width="40" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="2Of-My-HbP" id="4sG-4w-6I2"/>
+                            <outlet property="delegate" destination="2Of-My-HbP" id="fLK-hB-ewx"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Blood Pressure (mmHg)" id="vkz-cQ-wBK"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="Rxu-Pi-6cv">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </refreshControl>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="brL-lJ-vkv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3399" y="-401.5"/>
         </scene>
     </scenes>
     <resources>

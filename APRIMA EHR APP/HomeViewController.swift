@@ -38,6 +38,8 @@ class HomeViewController: UIViewController {
     var bloodType = ""
     var height: HKQuantitySample!
     var h = 0.0
+    var blood_pressures = [HKSample]()
+    var blood_pressure_objects = [BloodPressure]()
     
     // Post body to be set up and formatted
     var post_body = ""
@@ -61,6 +63,7 @@ class HomeViewController: UIViewController {
             self.dob=formatDateofBirth(health_kit.getBirthday())
             self.bloodType = health_kit.getBloodType()
             setHeight()
+            self.setUpBloodPressureObjects(start_date)
 
             // Get the patient ID and JsonWebToken from NSUserdefaults
             let patient_id = self.defaults.objectForKey("patient_id") as! String
@@ -215,8 +218,24 @@ class HomeViewController: UIViewController {
         self.post_body += "\t\"Sex\": \"\(self.sex)\",\n"
         self.post_body += "\t\"DOB\": \"\(self.dob)\",\n"
         self.post_body += "\t\"BloodType\": \"\(self.bloodType)\",\n"
-       
-        self.post_body += "\t\"Height\": \(self.h)\n"
+        self.post_body += "\t\"Height\": \(self.h),\n"
+        
+        // Add blood pressure array to post body
+        self.post_body += "\t\"BloodPressure\":[\n"
+        for i in 0..<self.blood_pressure_objects.count{
+            self.post_body += "\t\t{\n"
+            self.post_body += "\t\t\t\"SystolicBloodPressure\": \(self.blood_pressure_objects[i].getSystolicValue()),\n"
+            self.post_body += "\t\t\t\"DiastolicBloodPressure\": \(self.blood_pressure_objects[i].getDiastolicValue()),\n"
+            self.post_body += "\t\t\t\"DateTaken\": \"\(self.blood_pressure_objects[i].getTimestamp())\"\n"
+            if(i == self.blood_pressure_objects.count - 1){
+                // No comma if it's the last object in the array
+                self.post_body += "\t\t}\n"
+            }else{
+                // Else put a comma lol
+                self.post_body += "\t\t},\n"
+            }
+        }
+        self.post_body += "\t]\n"
         
         // ^^^^ ALSO the last "]" should not have a comma after it. So make sure not to put a comma ^^^^
         // i.e. self.post_body += "\t]\n"
@@ -332,6 +351,31 @@ class HomeViewController: UIViewController {
         let date_formatter = NSDateFormatter()
         date_formatter.dateFormat = "MMM dd, yyyy"
         return date_formatter.stringFromDate(date)
+    }
+    
+    // Sets up the array of Blood Pressure objects to display as table cells
+    func setUpBloodPressureObjects(start_date: NSDate){
+        // First clear array to make sure it's empty
+        blood_pressure_objects.removeAll()
+        
+        self.health_kit.getBloodPressure(self.limit, start_date: start_date){ heart_rates, error in
+            self.blood_pressures = heart_rates
+        }
+        // Format date to make it readable
+        let date_formatter = NSDateFormatter()
+        date_formatter.dateFormat = "MMM dd, yyyy hh:mm a"
+        for b in self.blood_pressures as! [HKCorrelation]{
+            let systolic_data = b.objectsForType(HKObjectType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBloodPressureSystolic)!).first as? HKQuantitySample
+            let diastolic_data = b.objectsForType(HKObjectType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBloodPressureDiastolic)!).first as? HKQuantitySample
+            
+            let systolic_value = systolic_data!.quantity.doubleValueForUnit(HKUnit.millimeterOfMercuryUnit())
+            let diastolic_value = diastolic_data!.quantity.doubleValueForUnit(HKUnit.millimeterOfMercuryUnit())
+            
+            
+            let blood_pressure_object = BloodPressure(timestamp: date_formatter.stringFromDate(b.endDate), systolic_value: systolic_value, diastolic_value: diastolic_value)
+            self.blood_pressure_objects.append(blood_pressure_object)
+            print(blood_pressure_object.getTimestamp() + "\t" + String(blood_pressure_object.getSystolicValue()) + "-" + String(blood_pressure_object.getDiastolicValue()))
+        }
     }
     
     override func viewDidLoad() {

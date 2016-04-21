@@ -39,6 +39,10 @@
 		D19996491CBB790D009E1D07 /* HeartRateBarChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19996481CBB790D009E1D07 /* HeartRateBarChartViewController.swift */; };
 		D19996541CBB8109009E1D07 /* BloodGlucoseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19996531CBB8109009E1D07 /* BloodGlucoseViewController.swift */; };
 		D19996571CBB8125009E1D07 /* BloodGlucoseChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19996561CBB8125009E1D07 /* BloodGlucoseChartViewController.swift */; };
+		D19AA9E01CC88C0300D8E048 /* BloodPressure.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19AA9DF1CC88C0300D8E048 /* BloodPressure.swift */; };
+		D19AA9E61CC89BB100D8E048 /* BloodPressureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19AA9E51CC89BB100D8E048 /* BloodPressureViewController.swift */; };
+		D19AA9E81CC89C6300D8E048 /* BloodPressureTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19AA9E71CC89C6300D8E048 /* BloodPressureTableViewController.swift */; };
+		D19AA9EA1CC89C8000D8E048 /* BloodPressureBarChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19AA9E91CC89C8000D8E048 /* BloodPressureBarChartViewController.swift */; };
 		D1A5917B1CAC342A008F0313 /* HeartRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A5917A1CAC342A008F0313 /* HeartRate.swift */; };
 		D1A5917D1CAC36BA008F0313 /* Steps.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A5917C1CAC36BA008F0313 /* Steps.swift */; };
 		D1A71F401C7D27F50004EA65 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A71F3F1C7D27F50004EA65 /* SettingsViewController.swift */; };
@@ -150,6 +154,10 @@
 		D19996481CBB790D009E1D07 /* HeartRateBarChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeartRateBarChartViewController.swift; sourceTree = "<group>"; };
 		D19996531CBB8109009E1D07 /* BloodGlucoseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodGlucoseViewController.swift; sourceTree = "<group>"; };
 		D19996561CBB8125009E1D07 /* BloodGlucoseChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodGlucoseChartViewController.swift; sourceTree = "<group>"; };
+		D19AA9DF1CC88C0300D8E048 /* BloodPressure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodPressure.swift; sourceTree = "<group>"; };
+		D19AA9E51CC89BB100D8E048 /* BloodPressureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodPressureViewController.swift; sourceTree = "<group>"; };
+		D19AA9E71CC89C6300D8E048 /* BloodPressureTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodPressureTableViewController.swift; sourceTree = "<group>"; };
+		D19AA9E91CC89C8000D8E048 /* BloodPressureBarChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodPressureBarChartViewController.swift; sourceTree = "<group>"; };
 		D1A5917A1CAC342A008F0313 /* HeartRate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeartRate.swift; sourceTree = "<group>"; };
 		D1A5917C1CAC36BA008F0313 /* Steps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Steps.swift; sourceTree = "<group>"; };
 		D1A71F3F1C7D27F50004EA65 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -225,6 +233,7 @@
 				D1447E661C8E8CFB0047DCA5 /* Profile View Controllers */,
 				D18856B41C7D50D600DEAB91 /* Health Data View Controllers */,
 				225EC7351C7A8C5E00610507 /* APRIMA EHR APP.entitlements */,
+				64918D5B1CA23A5A009C1496 /* VitalsVIewController.swift */,
 				645C6D331C74C18900275405 /* AppDelegate.swift */,
 				645C6D351C74C18900275405 /* HomeViewController.swift */,
 				645C6D371C74C18900275405 /* HealthDataViewController.swift */,
@@ -277,6 +286,7 @@
 		D169125B1CA240E70032C14F /* Vitals View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D19AA9E41CC89B7C00D8E048 /* Blood Pressure */,
 				D19996581CBDE167009E1D07 /* Heart Rate View Controllers */,
 			);
 			name = "Vitals View Controllers";
@@ -307,7 +317,6 @@
 				D169125B1CA240E70032C14F /* Vitals View Controllers */,
 				D18856B51C7D511000DEAB91 /* FitnessViewController.swift */,
 				64C33D111CACC6BB00844E5B /* ResultsViewController.swift */,
-				64918D5B1CA23A5A009C1496 /* VitalsVIewController.swift */,
 			);
 			name = "Health Data View Controllers";
 			sourceTree = "<group>";
@@ -351,6 +360,16 @@
 			name = "Heart Rate View Controllers";
 			sourceTree = "<group>";
 		};
+		D19AA9E41CC89B7C00D8E048 /* Blood Pressure */ = {
+			isa = PBXGroup;
+			children = (
+				D19AA9E51CC89BB100D8E048 /* BloodPressureViewController.swift */,
+				D19AA9E71CC89C6300D8E048 /* BloodPressureTableViewController.swift */,
+				D19AA9E91CC89C8000D8E048 /* BloodPressureBarChartViewController.swift */,
+			);
+			name = "Blood Pressure";
+			sourceTree = "<group>";
+		};
 		D1A591791CAC3411008F0313 /* Data Type Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -358,6 +377,7 @@
 				D1A5917C1CAC36BA008F0313 /* Steps.swift */,
 				D14C6FD61CAC786100370E85 /* Weight.swift */,
 				64C33D171CB212DB00844E5B /* BloodGlucose.swift */,
+				D19AA9DF1CC88C0300D8E048 /* BloodPressure.swift */,
 			);
 			name = "Data Type Classes";
 			sourceTree = "<group>";
@@ -544,9 +564,11 @@
 				D1447E681C8E8D3C0047DCA5 /* ProfileTableViewController.swift in Sources */,
 				A56169F71CB5FE9800258FBD /* WeightTableViewController.swift in Sources */,
 				D1A71F421C7D29F30004EA65 /* ProfileViewController.swift in Sources */,
+				D19AA9E01CC88C0300D8E048 /* BloodPressure.swift in Sources */,
 				A56F76501CBB691F00B9FCC6 /* WeightChartViewController.swift in Sources */,
 				64C33D181CB212DB00844E5B /* BloodGlucose.swift in Sources */,
 				A56F764B1CBB690600B9FCC6 /* WeightViewController.swift in Sources */,
+				D19AA9E61CC89BB100D8E048 /* BloodPressureViewController.swift in Sources */,
 				645C6D381C74C18900275405 /* HealthDataViewController.swift in Sources */,
 				64C33D161CACD6F400844E5B /* BloodGlucoseTableViewController.swift in Sources */,
 				D1835A031CAA2B4B00B40A29 /* HeartRateViewController.swift in Sources */,
@@ -556,6 +578,7 @@
 				22800FCA1CBB575700DB1302 /* StepsViewController.swift in Sources */,
 				64C33D121CACC6BB00844E5B /* ResultsViewController.swift in Sources */,
 				D19996491CBB790D009E1D07 /* HeartRateBarChartViewController.swift in Sources */,
+				D19AA9EA1CC89C8000D8E048 /* BloodPressureBarChartViewController.swift in Sources */,
 				645C6D341C74C18900275405 /* AppDelegate.swift in Sources */,
 				D19996541CBB8109009E1D07 /* BloodGlucoseViewController.swift in Sources */,
 				D19996571CBB8125009E1D07 /* BloodGlucoseChartViewController.swift in Sources */,
@@ -568,6 +591,7 @@
 				D1835A061CAB7E4B00B40A29 /* LoginViewController.swift in Sources */,
 				64918D5C1CA23A5A009C1496 /* VitalsVIewController.swift in Sources */,
 				D14C6FD71CAC786100370E85 /* Weight.swift in Sources */,
+				D19AA9E81CC89C6300D8E048 /* BloodPressureTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

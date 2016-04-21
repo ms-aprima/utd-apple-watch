@@ -34,7 +34,9 @@ class HealthKit{
                                           HKObjectType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBodyMass)!,
                                           HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierHeartRate)!,
                                           HKCharacteristicType.characteristicTypeForIdentifier(HKCharacteristicTypeIdentifierBloodType)!,
-                                          HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBloodGlucose)!]
+                                          HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBloodGlucose)!,
+                                          HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBloodPressureSystolic)!,
+                                          HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBloodPressureDiastolic)!]
         
         
         // check it see if healthkit is accessible on this device
@@ -258,7 +260,7 @@ class HealthKit{
         self.hk_store.executeQuery(query)
     }
 
-    // Get the ranges of heart rate for each day (low - high) for the past month and display in table view
+    // Get all heart rate samples within limit
     func getHeartRate(limit: Int, start_date: NSDate, completion:(Array<HKSample>, NSError?) ->()){
         // Date range to pull datat from. From distant past to today
         let end_date = NSDate()
@@ -279,6 +281,27 @@ class HealthKit{
                     heart_rate += h.quantity.doubleValueForUnit(heartRateUnit)
                 }
             }
+            completion(results!, error)
+        }
+        self.hk_store.executeQuery(heart_rate_query)
+    }
+    
+    // Get all blood pressure samples (systolic and diastolic values)
+    func getBloodPressure(limit: Int, start_date: NSDate, completion:(Array<HKSample>, NSError?) ->()){
+        // Date range to pull datat from. From distant past to today
+        let end_date = NSDate()
+        //        let start_date = NSDate.distantPast()
+        let predicate = HKQuery.predicateForSamplesWithStartDate(start_date, endDate: end_date, options: .None)
+        
+        // Create a heart rate BPM sample
+        let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: false)
+        //        let limit = 25
+        let type = HKQuantityType.correlationTypeForIdentifier(HKCorrelationTypeIdentifierBloodPressure)
+
+        // Create query for sample
+        let heart_rate_query = HKSampleQuery(sampleType: type!, predicate: predicate, limit: limit, sortDescriptors: [sortDescriptor]){ query, results, error in
+//            let data_list = results as? [HKCorrelation]
+            
             completion(results!, error)
         }
         self.hk_store.executeQuery(heart_rate_query)
