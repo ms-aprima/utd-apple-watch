@@ -51,6 +51,8 @@ class HealthKit{
         // Remember that health kit is enabled
         defaults.setObject(NSDate.distantPast(), forKey: "new_start_date")
         defaults.setBool(true, forKey: "is_health_kit_enabled")
+        defaults.setObject([String](), forKey: "sync_times_timestamp")
+        defaults.setObject([String](), forKey: "sync_times_data")
         defaults.synchronize()
         return is_enabled
     }

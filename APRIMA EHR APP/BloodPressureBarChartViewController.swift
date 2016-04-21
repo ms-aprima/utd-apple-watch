@@ -88,8 +88,8 @@ class BloodPressureBarChartViewController: UIViewController, ChartViewDelegate {
             diastolic_data_entries.append(data_entry)
         }
         
-        let systolic_chart_data_set = BarChartDataSet(yVals: systolic_data_entries, label: "mmHg")
-        let diastolic_chart_data_set = BarChartDataSet(yVals: diastolic_data_entries, label: "mmHg")
+        let systolic_chart_data_set = BarChartDataSet(yVals: systolic_data_entries, label: "Systolic")
+        let diastolic_chart_data_set = BarChartDataSet(yVals: diastolic_data_entries, label: "Diastolic")
         
         let chart_data = BarChartData(xVals: self.dates, dataSet: systolic_chart_data_set)
         chart_data.addDataSet(diastolic_chart_data_set)

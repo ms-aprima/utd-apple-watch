@@ -21,6 +21,8 @@ class HomeViewController: UIViewController {
     // initialize a HealthKit object to pull data from
     let health_kit: HealthKit = HealthKit()
     
+    var sync_times_timestamps = [String]()
+    var sync_times_data = [String]()
     
     let limit = 0
     
@@ -81,6 +83,17 @@ class HomeViewController: UIViewController {
             self.formatPostBody()
             let post_body_NSString: NSString = self.post_body
             print(post_body_NSString)
+            
+            // Store stnc time and data to array to display
+            self.sync_times_timestamps =  NSUserDefaults.standardUserDefaults().objectForKey("sync_times_timestamp") as! [String]
+            self.sync_times_data = NSUserDefaults.standardUserDefaults().objectForKey("sync_times_data") as! [String]
+            let date_formatter = NSDateFormatter()
+            date_formatter.dateFormat = "MMM dd, yyyy hh:mm a"
+            let sync_time = SyncTime(timestamp: date_formatter.stringFromDate(NSDate()), data: self.post_body)
+            self.sync_times_timestamps.append(sync_time.getTimestamp())
+//            self.sync_times_data.append(sync_time.getData())
+            self.sync_times_data.append("hi")
+            
             // Encode post data
             let post_data:NSData = post_body_NSString.dataUsingEncoding(NSASCIIStringEncoding)!
         
@@ -139,6 +152,8 @@ class HomeViewController: UIViewController {
         
             // Set new start date for syncing next time
             defaults.setObject(NSDate(), forKey: "new_start_date")
+            defaults.setObject(self.sync_times_timestamps, forKey: "sync_times_timestamp")
+            defaults.setObject(self.sync_times_data, forKey: "sync_times_data")
             defaults.synchronize()
         }
     }
