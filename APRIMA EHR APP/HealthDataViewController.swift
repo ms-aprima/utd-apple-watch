@@ -10,11 +10,6 @@ import UIKit
 
 
 class HealthDataViewController: UITableViewController {
-//    let hKit = HealthKit()
-    
-//    @IBOutlet weak var steps_data: UILabel!
-    
-    let fitness_segue_identifier = "Fitness Segue"
 
     override func viewDidLoad() {
         super.viewDidLoad()
