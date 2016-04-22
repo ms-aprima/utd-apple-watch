@@ -34,3 +34,25 @@ class BloodPressure{
         return self.diastolic_value
     }
 }
+
+class BodyFatPercentage{
+    
+    // Properties
+    var timestamp: String
+    var value: Double
+    
+    // constructor/initializer to create object
+    init(timestamp: String, value: Double){
+        self.timestamp = timestamp
+        self.value = value
+    }
+    
+    func getTimestamp() -> String{
+        return self.timestamp
+    }
+    
+    func getValue() -> Double{
+        return self.value
+    }
+    
+}
