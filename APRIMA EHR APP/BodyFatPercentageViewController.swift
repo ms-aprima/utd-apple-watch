@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BodyFatPercentageViewController: UIViewController {
+class BodyFatPercentageViewController: UIViewController, UINavigationControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()

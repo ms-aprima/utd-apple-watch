@@ -54,5 +54,88 @@ class BodyFatPercentage{
     func getValue() -> Double{
         return self.value
     }
+}
+
+class BloodGlucose{
     
+    // Properties
+    var timestamp: String
+    var value: Double
+    
+    // constructor/initializer to create object
+    init(timestamp: String, value: Double){
+        self.timestamp = timestamp
+        self.value = value
+    }
+    
+    func getTimestamp() -> String{
+        return self.timestamp
+    }
+    
+    func getValue() -> Double{
+        return self.value
+    }
+}
+
+class Weight{
+    
+    // Properties
+    var timestamp: String
+    var value: Double
+    
+    // constructor/initializer to create object
+    init(timestamp: String, value: Double){
+        self.timestamp = timestamp
+        self.value = value
+    }
+    
+    func getTimestamp() -> String{
+        return self.timestamp
+    }
+    
+    func getValue() -> Double{
+        return self.value
+    }
+}
+
+class Steps{
+    
+    // Properties
+    var timestamp: String
+    var value: Double
+    
+    // constructor/initializer to create object
+    init(timestamp: String, value: Double){
+        self.timestamp = timestamp
+        self.value = value
+    }
+    
+    func getTimestamp() -> String{
+        return self.timestamp
+    }
+    
+    func getValue() -> Double{
+        return self.value
+    }
+}
+
+class HeartRate{
+    
+    // Properties. The date will already be formatted as a string
+    var timestamp: String
+    var value: Double
+    
+    // constructor/initializer to create object
+    init(timestamp: String, value: Double){
+        self.timestamp = timestamp
+        self.value = value
+    }
+    
+    func getTimestamp() -> String{
+        return self.timestamp
+    }
+    
+    func getValue() -> Double{
+        return self.value
+    }
 }

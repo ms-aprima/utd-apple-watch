@@ -42,6 +42,9 @@ class HomeViewController: UIViewController {
     var h = 0.0
     var blood_pressures = [HKSample]()
     var blood_pressure_objects = [BloodPressure]()
+    var body_fat_percentages = [HKSample]()
+    var body_fat_percentage_objects = [BodyFatPercentage]()
+    
     
     // Post body to be set up and formatted
     var post_body = ""
@@ -66,6 +69,7 @@ class HomeViewController: UIViewController {
             self.bloodType = health_kit.getBloodType()
             setHeight()
             self.setUpBloodPressureObjects(start_date)
+            self.setUpBodyFatPercentageObjects(start_date)
 
             // Get the patient ID and JsonWebToken from NSUserdefaults
             let patient_id = self.defaults.objectForKey("patient_id") as! String
@@ -250,6 +254,22 @@ class HomeViewController: UIViewController {
                 self.post_body += "\t\t},\n"
             }
         }
+        self.post_body += "\t],\n"
+        
+        // Add body fat percentage array to post body
+        self.post_body += "\t\"BodyFatPercentage\":[\n"
+        for i in 0..<self.body_fat_percentage_objects.count{
+            self.post_body += "\t\t{\n"
+            self.post_body += "\t\t\t\"BodyFatPercentage\": \(self.body_fat_percentage_objects[i].getValue()),\n"
+            self.post_body += "\t\t\t\"DateTaken\": \"\(self.body_fat_percentage_objects[i].getTimestamp())\"\n"
+            if(i == self.body_fat_percentage_objects.count - 1){
+                // No comma if it's the last object in the array
+                self.post_body += "\t\t}\n"
+            }else{
+                // Else put a comma lol
+                self.post_body += "\t\t},\n"
+            }
+        }
         self.post_body += "\t]\n"
         
         // ^^^^ ALSO the last "]" should not have a comma after it. So make sure not to put a comma ^^^^
@@ -390,6 +410,23 @@ class HomeViewController: UIViewController {
             let blood_pressure_object = BloodPressure(timestamp: date_formatter.stringFromDate(b.endDate), systolic_value: systolic_value, diastolic_value: diastolic_value)
             self.blood_pressure_objects.append(blood_pressure_object)
             print(blood_pressure_object.getTimestamp() + "\t" + String(blood_pressure_object.getSystolicValue()) + "-" + String(blood_pressure_object.getDiastolicValue()))
+        }
+    }
+    
+    func setUpBodyFatPercentageObjects(start_date: NSDate){
+        // First clear array to make sure it's empty
+        body_fat_percentage_objects.removeAll()
+        
+        self.health_kit.getBodyFatPercentage(self.limit, start_date: start_date){ body_fat_percentages, error in
+            self.body_fat_percentages = body_fat_percentages
+        }
+        let body_fat_percentage_unit: HKUnit = HKUnit(fromString: "%")
+        // Format date to make it readable
+        let date_formatter = NSDateFormatter()
+        date_formatter.dateFormat = "MMM dd, yyyy hh:mm a"
+        for h in self.body_fat_percentages as! [HKQuantitySample]{
+            let body_fat_percentage_object = BodyFatPercentage(timestamp: date_formatter.stringFromDate(h.endDate), value: h.quantity.doubleValueForUnit(body_fat_percentage_unit))
+            self.body_fat_percentage_objects.append(body_fat_percentage_object)
         }
     }
     

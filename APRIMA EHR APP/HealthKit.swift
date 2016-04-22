@@ -36,7 +36,8 @@ class HealthKit{
                                           HKCharacteristicType.characteristicTypeForIdentifier(HKCharacteristicTypeIdentifierBloodType)!,
                                           HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBloodGlucose)!,
                                           HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBloodPressureSystolic)!,
-                                          HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBloodPressureDiastolic)!]
+                                          HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBloodPressureDiastolic)!,
+                                          HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBodyFatPercentage)!]
         
         
         // check it see if healthkit is accessible on this device
@@ -288,6 +289,22 @@ class HealthKit{
         self.hk_store.executeQuery(heart_rate_query)
     }
     
+    // Get all body fat percentage samples
+    func getBodyFatPercentage(limit: Int, start_date: NSDate, completion:(Array<HKSample>, NSError?) ->()){
+        // Date range to pull datat from. From start date to current date and time
+        let end_date = NSDate()
+        let predicate = HKQuery.predicateForSamplesWithStartDate(start_date, endDate: end_date, options: .None)
+        let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: false)
+        let type = HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBodyFatPercentage)
+        
+        // Create query for sample
+        let body_fat_percentage_query = HKSampleQuery(sampleType: type!, predicate: predicate, limit: limit, sortDescriptors: [sortDescriptor]){ query, results, error in
+            completion(results!, error)
+        }
+        self.hk_store.executeQuery(body_fat_percentage_query)
+    }
+    
+    
     // Get all blood pressure samples (systolic and diastolic values)
     func getBloodPressure(limit: Int, start_date: NSDate, completion:(Array<HKSample>, NSError?) ->()){
         // Date range to pull datat from. From distant past to today
@@ -301,12 +318,12 @@ class HealthKit{
         let type = HKQuantityType.correlationTypeForIdentifier(HKCorrelationTypeIdentifierBloodPressure)
 
         // Create query for sample
-        let heart_rate_query = HKSampleQuery(sampleType: type!, predicate: predicate, limit: limit, sortDescriptors: [sortDescriptor]){ query, results, error in
+        let query = HKSampleQuery(sampleType: type!, predicate: predicate, limit: limit, sortDescriptors: [sortDescriptor]){ query, results, error in
 //            let data_list = results as? [HKCorrelation]
             
             completion(results!, error)
         }
-        self.hk_store.executeQuery(heart_rate_query)
+        self.hk_store.executeQuery(query)
     }
 
     func getBloodGlucose(limit: Int, start_date: NSDate, completion: (Array<HKSample>, NSError?) -> ()){
