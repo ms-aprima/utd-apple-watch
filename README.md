@@ -1,7 +1,7 @@
 # utd-apple-watch
 
 ## Aprima EHR Health App
-Reads data from an Apple iWatch to send health data to an Elecronic Health Record via Json messages.
+Reads data from an Apple iWatch to send health data to an Electronic Health Record via Json messages.
 
 ## Tools used
 ``
