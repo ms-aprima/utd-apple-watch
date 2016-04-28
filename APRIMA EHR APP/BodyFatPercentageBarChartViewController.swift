@@ -76,11 +76,12 @@ class BodyFatPercentageBarChartViewController: UIViewController, ChartViewDelega
         
         let chart_data_set = BarChartDataSet(yVals: data_entries, label: "%")
         let chart_data = BarChartData(xVals: self.dates, dataSet: chart_data_set)
+        chart_data_set.colors = [UIColor(red: 25.0/255, green: 150.0/255, blue: 197.0/255, alpha: 1)]
         self.bar_chart_view.data = chart_data
         
         // Set other chart properties
         self.bar_chart_view.descriptionText = ""
-        chart_data_set.colors = [UIColor(red: 25.0/255, green: 150.0/255, blue: 197.0/255, alpha: 1)]
+        
         self.bar_chart_view.xAxis.labelFont = UIFont(name: "Helvetica Neue", size: 0.0)!
         self.bar_chart_view.rightAxis.enabled = false
         self.bar_chart_view.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)

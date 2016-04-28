@@ -87,11 +87,11 @@ class StepsBarChartViewController: UIViewController, UINavigationControllerDeleg
         
         let chartDataSet = BarChartDataSet(yVals: dataEntries, label: "Steps")
         let chartData = BarChartData(xVals: dates, dataSet: chartDataSet)
+        chartDataSet.colors = [UIColor(red: 25.0/255, green: 150.0/255, blue: 197.0/255, alpha: 1)]
         barChartView.data = chartData
         
         // Set other chart properties
         barChartView.descriptionText = ""
-        chartDataSet.colors = [UIColor(red: 25.0/255, green: 150.0/255, blue: 197.0/255, alpha: 1)]
         self.barChartView.xAxis.labelFont = UIFont(name: "Helvetica Neue", size: 0.0)!
         self.barChartView.rightAxis.enabled = false
         self.barChartView.xAxis.labelPosition = .Bottom
