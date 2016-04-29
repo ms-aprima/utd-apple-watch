@@ -48,11 +48,9 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         let patient_first_name =  self.defaults.objectForKey("patient_first_name") as! String
         let patient_full_name = "\(patient_first_name) \(patient_last_name)"
         name_text_view.text = patient_full_name
-        
-        // Make sure the user authorized health kit before attempting to pull data
-        if self.is_health_kit_enabled == true{
-            
-        }
+        self.name_text_view.textAlignment = .Center
+        self.name_text_view.font = UIFont(name: "HelveticaNeue-Bold", size: 20)
+        self.name_text_view.textColor = UIColor.whiteColor()
     }
     
     // Used for setting profile picture

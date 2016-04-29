@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -109,19 +109,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aprima-logo-reg" translatesAutoresizingMaskIntoConstraints="NO" id="Bkb-AK-T6a">
-                                <rect key="frame" x="53" y="111" width="294" height="156"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1BA-gh-De3">
+                                <rect key="frame" x="0.0" y="369" width="414" height="318"/>
+                                <connections>
+                                    <segue destination="Occ-SA-x78" kind="embed" id="Tpc-n0-nZA"/>
+                                </connections>
+                            </containerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MiG-Lq-HHc">
+                                <rect key="frame" x="135" y="335" width="144" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="156" id="QKp-EQ-RZL"/>
+                                    <constraint firstAttribute="width" constant="144" id="psd-CW-ccH"/>
                                 </constraints>
-                            </imageView>
+                                <attributedString key="attributedText">
+                                    <fragment content="Sync Times">
+                                        <attributes>
+                                            <color key="NSColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="20" name="HelveticaNeue-Bold"/>
+                                            <font key="NSOriginalFont" size="20" name="HelveticaNeue-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            <integer key="NSUnderline" value="1"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Rk-Eh-uUA">
+                                <rect key="frame" x="0.0" y="28" width="414" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="L0e-bA-bI0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qNw-aE-Geg">
-                                <rect key="frame" x="163" y="275" width="89" height="48"/>
+                                <rect key="frame" x="107" y="87" width="200" height="200"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="Ntt-Bz-haM"/>
-                                    <constraint firstAttribute="width" constant="89" id="Wr3-Yn-1Of"/>
+                                    <constraint firstAttribute="height" constant="200" id="Ntt-Bz-haM"/>
+                                    <constraint firstAttribute="width" constant="200" id="Wr3-Yn-1Of"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Sync">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -129,29 +156,27 @@
                                     <action selector="syncButtonTapped" destination="9pv-A4-QxB" eventType="touchUpInside" id="BuS-xB-oQx"/>
                                 </connections>
                             </button>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1BA-gh-De3">
-                                <rect key="frame" x="0.0" y="369" width="414" height="318"/>
-                                <connections>
-                                    <segue destination="Occ-SA-x78" kind="embed" id="Tpc-n0-nZA"/>
-                                </connections>
-                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="1BA-gh-De3" firstAttribute="top" secondItem="qNw-aE-Geg" secondAttribute="bottom" constant="46" id="334-fd-My3"/>
-                            <constraint firstItem="Bkb-AK-T6a" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="33" id="ASw-HF-XiO"/>
+                            <constraint firstItem="1BA-gh-De3" firstAttribute="top" secondItem="qNw-aE-Geg" secondAttribute="bottom" constant="82" id="334-fd-My3"/>
                             <constraint firstItem="1BA-gh-De3" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="IDh-o5-8Xy"/>
+                            <constraint firstItem="8Rk-Eh-uUA" firstAttribute="trailing" secondItem="1BA-gh-De3" secondAttribute="trailing" id="Kud-Ws-Q93"/>
+                            <constraint firstItem="MiG-Lq-HHc" firstAttribute="centerX" secondItem="qNw-aE-Geg" secondAttribute="centerX" id="L5e-Wt-KFS"/>
+                            <constraint firstItem="MiG-Lq-HHc" firstAttribute="top" secondItem="qNw-aE-Geg" secondAttribute="bottom" constant="48" id="LJT-cL-DMI"/>
+                            <constraint firstItem="8Rk-Eh-uUA" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="8" symbolic="YES" id="LQF-zk-0XL"/>
                             <constraint firstItem="qNw-aE-Geg" firstAttribute="centerX" secondItem="1BA-gh-De3" secondAttribute="centerX" id="MXx-wP-iuO"/>
+                            <constraint firstItem="8Rk-Eh-uUA" firstAttribute="leading" secondItem="1BA-gh-De3" secondAttribute="leading" id="TZ7-5u-qbj"/>
                             <constraint firstAttribute="trailing" secondItem="1BA-gh-De3" secondAttribute="trailing" id="Ukg-4u-wqP"/>
-                            <constraint firstItem="Bkb-AK-T6a" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="91" id="ZLU-rG-Tb5"/>
+                            <constraint firstItem="qNw-aE-Geg" firstAttribute="top" secondItem="8Rk-Eh-uUA" secondAttribute="bottom" constant="20" id="ZKO-0p-tOR"/>
+                            <constraint firstItem="1BA-gh-De3" firstAttribute="top" secondItem="MiG-Lq-HHc" secondAttribute="bottom" constant="13" id="Ziw-J8-yUF"/>
                             <constraint firstItem="1BA-gh-De3" firstAttribute="bottom" secondItem="4ug-Mw-9AY" secondAttribute="top" id="bHg-58-CTF"/>
-                            <constraint firstItem="qNw-aE-Geg" firstAttribute="top" secondItem="Bkb-AK-T6a" secondAttribute="bottom" constant="8" symbolic="YES" id="gXI-Mr-iuJ"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Bkb-AK-T6a" secondAttribute="trailing" constant="47" id="maT-kf-hLi"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="Home Filled-50" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="sync_button" destination="qNw-aE-Geg" id="M4H-rf-63j"/>
+                        <outlet property="welcome_text_view" destination="8Rk-Eh-uUA" id="kBm-yz-F4M"/>
                         <segue destination="aoy-Q2-SK4" kind="presentation" identifier="login_view_segue" id="DSe-OE-vtZ"/>
                     </connections>
                 </viewController>
@@ -678,7 +703,7 @@
                                     <action selector="updateProfileImage" destination="bGu-6R-pGS" eventType="touchUpInside" id="e4C-AH-39U"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hB2-q0-q2X">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hB2-q0-q2X">
                                 <rect key="frame" x="0.0" y="217" width="414" height="39"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1861,6 +1886,5 @@
         <image name="Home Filled-50" width="30" height="30"/>
         <image name="Settings Filled-50" width="30" height="30"/>
         <image name="User Male Filled-50" width="30" height="30"/>
-        <image name="aprima-logo-reg" width="258" height="108"/>
     </resources>
 </document>

@@ -50,6 +50,7 @@ class HomeViewController: UIViewController {
     var post_body = ""
     
     @IBOutlet var sync_button: UIButton!
+    @IBOutlet var welcome_text_view: UITextView!
     
     @IBAction func syncButtonTapped(){
         
@@ -96,7 +97,7 @@ class HomeViewController: UIViewController {
             let sync_time = SyncTime(timestamp: date_formatter.stringFromDate(NSDate()), data: self.post_body)
             self.sync_times_timestamps.append(sync_time.getTimestamp())
 //            self.sync_times_data.append(sync_time.getData())
-            self.sync_times_data.append("hi")
+            self.sync_times_data.append("")
             
             // Encode post data
             let post_data:NSData = post_body_NSString.dataUsingEncoding(NSASCIIStringEncoding)!
@@ -430,14 +431,32 @@ class HomeViewController: UIViewController {
         }
     }
     
+    func setUpWelcomeTextView(){
+        let patient_first_name =  self.defaults.objectForKey("patient_first_name") as! String
+        self.welcome_text_view.text = ("Welcome, \(patient_first_name)")
+        self.welcome_text_view.textAlignment = .Center
+        self.welcome_text_view.font = UIFont(name: "HelveticaNeue-Bold", size: 20)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.is_health_kit_enabled = NSUserDefaults.standardUserDefaults().boolForKey("is_health_kit_enabled")
+        
+        sync_button.backgroundColor = UIColor(red: 25.0/255, green: 150.0/255, blue: 197.0/255, alpha: 1)
+        sync_button.layer.cornerRadius = sync_button.frame.size.width / 2
+        sync_button.clipsToBounds = true
+        
+        if(defaults.boolForKey("is_user_logged_in")){
+            self.setUpWelcomeTextView()
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
         self.is_health_kit_enabled = NSUserDefaults.standardUserDefaults().boolForKey("is_health_kit_enabled")
+        if(defaults.boolForKey("is_user_logged_in")){
+            self.setUpWelcomeTextView()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -450,6 +469,8 @@ class HomeViewController: UIViewController {
         // Automatically switch to login scene if user is not logged in
         if(!defaults.boolForKey("is_user_logged_in")){
             self.performSegueWithIdentifier("login_view_segue", sender: self)
+        }else{
+            self.setUpWelcomeTextView()
         }
 
     }
